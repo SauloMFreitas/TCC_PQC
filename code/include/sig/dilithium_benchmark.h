@@ -3,27 +3,10 @@
 
 #include "sig_benchmark.h"
 
-/*
- * dilithium_benchmark.h — Benchmark para ML-DSA (ex-CRYSTALS-Dilithium)
- *
- * Mapeamento de nomes:
- *   Nome antigo (liboqs)  │ Nome padronizado NIST │ Nível │ Segurança equiv.
- *   ──────────────────────┼───────────────────────┼───────┼─────────────────
- *   Dilithium2            │ ML-DSA-44             │  2    │ SHA3-224
- *   Dilithium3            │ ML-DSA-65             │  3    │ AES-192
- *   Dilithium5            │ ML-DSA-87             │  5    │ AES-256
- *
- * Base matemática: Module Learning With Errors (MLWE) + Module SIS
- * Padronizado em: FIPS 204 (agosto 2024)
- *
- * Característica: assinatura determinística (sem aleatoriedade em sign)
- * Comparado ao Falcon: chaves e assinaturas maiores, mas implementação
- * mais simples e sem aritmética de ponto flutuante.
- */
-
-/**
- * Executa benchmark dos três níveis de ML-DSA.
- */
-void dilithium_benchmark_run_all(FILE *csv_fp);
+/* ML-DSA (ex-CRYSTALS-Dilithium) - FIPS 204
+ *  ML-DSA-44 | nivel 2 | Dilithium2
+ *  ML-DSA-65 | nivel 3 | Dilithium3
+ *  ML-DSA-87 | nivel 5 | Dilithium5 */
+void dilithium_benchmark_run_all(FILE *csv_fp, FILE *scale_csv_fp);
 
 #endif /* DILITHIUM_BENCHMARK_H */

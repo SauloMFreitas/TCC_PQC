@@ -4,31 +4,22 @@
 #include <stdint.h>
 
 /*
- * timer.h — high resolution time meassurement across platforms
+ * timer.h - Medicao de tempo de alta resolucao
  *
- * best available timer on each platform, with microsecond precision or better.:
+ *  Plataforma  | API                             | Precisao
+ *  Windows     | QueryPerformanceCounter (QPC)   | ~100 ns
+ *  macOS       | mach_absolute_time              | ~1 ns
+ *  Linux       | clock_gettime(CLOCK_MONOTONIC)  | ~1 ns
  *
- *  ┌─────────────────┬──────────────────────────────────┬───────────────┐
- *  │ platform        │ API                              │ Precision     │
- *  ├─────────────────┼──────────────────────────────────┼───────────────┤
- *  │ Windows         │ QueryPerformanceCounter (QPC)    │ ~100 ns       │
- *  │ macOS           │ mach_absolute_time               │ ~1 ns         │
- *  │ Linux           │ clock_gettime(CLOCK_MONOTONIC)   │ ~1 ns         │
- *  └─────────────────┴──────────────────────────────────┴───────────────┘
- *
- * all functions return the elapsed time in microseconds (µs) as a double for easy statistics.
- *
+ * Todas retornam microssegundos (double).
  * Uso:
  *   double t0 = timer_us();
- *   ... operations ...
- *   double elapsed_us = timer_us() - t0;
+ *   ... operacao ...
+ *   double elapsed = timer_us() - t0;
  */
 
 /* ================================================================
- * WINDOWS — QueryPerformanceCounter
- *
- * high resolution timer available on Windows.
- * The frequency is queried once and cached.
+ * WINDOWS - QueryPerformanceCounter
  * ================================================================ */
 #if defined(_WIN32) || defined(_WIN64)
 
@@ -47,15 +38,10 @@ static inline double timer_us(void) {
     return (double)now.QuadPart * 1e6 / (double)freq.QuadPart;
 }
 
-/* log platform identifier */
 #define TIMER_PLATFORM  "Windows (QueryPerformanceCounter)"
 
 /* ================================================================
- * macOS — mach_absolute_time
- *
- * high resolution API for macOS (~1 ns).
- * mach_timebase_info nanoseconds conversion available.
- * better than clock_gettime 'cause avoid overhead and syscalls.
+ * macOS - mach_absolute_time
  * ================================================================ */
 #elif defined(__APPLE__) && defined(__MACH__)
 
@@ -67,20 +53,21 @@ static inline double timer_us(void) {
         mach_timebase_info(&tb);
     }
     uint64_t ticks = mach_absolute_time();
-    /* ticks conversions → ns → µs */
     return (double)ticks * (double)tb.numer / (double)tb.denom / 1e3;
 }
 
 #define TIMER_PLATFORM  "macOS (mach_absolute_time)"
 
 /* ================================================================
- * LINUX — clock_gettime(CLOCK_MONOTONIC)
+ * LINUX - clock_gettime(CLOCK_MONOTONIC)
  *
- *  ~1 ns resolution in most modern kernels.
- * CLOCK_MONOTONIC garantees monotonicity and is unaffected by system clock changes (e.g., NTP adjustments).
+ * _POSIX_C_SOURCE evita conflito com linux/time.h da liboqs.
  * ================================================================ */
 #elif defined(__linux__)
 
+#ifndef _POSIX_C_SOURCE
+#define _POSIX_C_SOURCE 200809L
+#endif
 #include <time.h>
 
 static inline double timer_us(void) {
@@ -92,10 +79,13 @@ static inline double timer_us(void) {
 #define TIMER_PLATFORM  "Linux (clock_gettime CLOCK_MONOTONIC)"
 
 /* ================================================================
- * FALLBACK — other POSIX methods (FreeBSD, etc.)
+ * FALLBACK - outros sistemas POSIX
  * ================================================================ */
 #else
 
+#ifndef _POSIX_C_SOURCE
+#define _POSIX_C_SOURCE 200809L
+#endif
 #include <time.h>
 
 static inline double timer_us(void) {
@@ -104,20 +94,13 @@ static inline double timer_us(void) {
     return (double)ts.tv_sec * 1e6 + (double)ts.tv_nsec / 1e3;
 }
 
-#define TIMER_PLATFORM  "POSIX genérico (clock_gettime)"
+#define TIMER_PLATFORM  "POSIX (clock_gettime)"
 
 #endif /* plataformas */
 
-/**================================================================
- * RDTSC — CPU cycles (x86 / x86_64, todas as plataformas)
- *
- * Útil para análise com AMD uProf (Windows) ou perf (Linux).
- * CPUID antes do RDTSC força serialização do pipeline e evita
- * reordenamento especulativo que distorceria medições curtas.
- *
- *! ATENÇÃO: in modern CPU with frequency scaling, cycles don't
- *! translate in time — use timer_us() for real time measurements
- *! and timer_cycles() only for instruction counting.
+/* ================================================================
+ * RDTSC - Ciclos de CPU (x86/x86_64)
+ * CPUID antes do RDTSC forca serializacao do pipeline.
  * ================================================================ */
 #if defined(__x86_64__) || defined(__i386__)
 
@@ -132,7 +115,6 @@ static inline uint64_t timer_cycles(void) {
     return ((uint64_t)hi << 32) | lo;
 }
 
-/* ARM64 — CNTVCT_EL0 (contador de ciclos do sistema) */
 #elif defined(__aarch64__)
 
 static inline uint64_t timer_cycles(void) {
@@ -142,17 +124,19 @@ static inline uint64_t timer_cycles(void) {
 }
 
 #else
-/* Fallback: converte µs em "ciclos" aproximados */
 static inline uint64_t timer_cycles(void) {
     return (uint64_t)(timer_us() * 1000.0);
 }
 #endif
 
-/* ================================================================
- * units conversion macros
- * ================================================================ */
-#define US_TO_MS(us)    ((us) / 1e3)
-#define US_TO_S(us)     ((us) / 1e6)
-#define MS_TO_US(ms)    ((ms) * 1e3)
+/* Conversoes de unidades */
+#define US_TO_MS(us)  ((us) / 1e3)
+#define US_TO_S(us)   ((us) / 1e6)
+
+/*
+ * Estima frequencia da CPU em MHz.
+ * Implementada em timer.c — chamada apenas uma vez no banner.
+ */
+double timer_cpu_freq_mhz(void);
 
 #endif /* TIMER_H */
