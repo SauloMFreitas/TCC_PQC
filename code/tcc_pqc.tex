@@ -1,0 +1,1664 @@
+\documentclass[portuguese]{sbc2025}%
+\usepackage{booktabs}
+%\usepackage{graphicx}% já está incluido na classe
+%\usepackage[utf8]{inputenc} % obsoleto, desnecessário
+\usepackage[misc,geometry]{ifsym}
+%%%%  %\usepackage{fontspec}
+%% Os problemas com a classe eram originados por carregarem ambos  e fontspec simultaneamente. Agora a classe detecta
+%% qual engine está em uso e se for o pdflates então carrega o
+%% fontenc. Se forem o xelatex ou lualatex então carrega o
+%% fontspec. Eu particularemnte prefiro o lualatex ou o xetex
+% \usepackage{fontawesome} %%% incluido na classe. Desnecessário
+% chamá-lo aqui
+%%%% \usepackage{academicons}
+%%%% outro encrenqueiro que se tornou desnecessario. Deste typeface só
+%%%% se usava o glifo do orcid e o codigo interno bombava.
+%%%% Substitui pelo pacote orcidlink (carregado internamete na classe)
+%%%% e consertei o codigo na classe.
+%\usepackage{color} % carregada dentro da classe
+%\usepackage{hyperref} % carregada dentro da classe
+\usepackage{aas_macros}
+\usepackage[bottom]{footmisc}
+%\usepackage{supertabular}
+%\usepackage{multicol}
+%\usepackage{multirow}
+%% O pacote tabularray é muito melhor para
+% a criacao de tabela complexas e/ou loooongas; tudo de modo simples.
+%% Torna o uso de multicol e multirow desnecessarios
+\usepackage{tabularray}
+\usepackage{afterpage}
+\usepackage{url}
+\usepackage{pifont}
+\setcitestyle{square}
+\definecolor{engtitle}{rgb}{0.5,0.5,0.5}
+\definecolor{orcidlogo}{rgb}{0.37,0.48,0.13}
+\definecolor{unilogo}{rgb}{0.16, 0.26, 0.58}
+\definecolor{maillogo}{rgb}{0.58, 0.16, 0.26}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.0}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+%\hypersetup{colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue}
+%%%%%%% IMPORTANT: We disable hyperlinks by default with this line, to avoid the error "\pdfendlink ended up in different nesting level" while writing.
+%\hypersetup{draft}
+\category{Artigo de Pesquisa/Research Paper}
+\title[Análise Experimental Comparativa de Algoritmos de Criptografia Pós-Quântica do NIST: Desempenho Temporal, Otimização de Compilação e Escalabilidade]{Análise Experimental Comparativa de Algoritmos de Criptografia Pós-Quântica do NIST: Desempenho Temporal, Otimização de Compilação e Escalabilidade}
+\engtitle{\textcolor{engtitle}{Comparative Experimental Analysis of NIST Post-Quantum Cryptography Algorithms: Execution Time, Compilation Optimization, and Scalability}}
+%THE ORCID IS MANDATORY FOR EACH AUTHOR IN JBCS
+\author[Zandona et al. 2025]{
+\affil{\textbf{Saulo de Moura Zandona Freitas}~\textcolor{blue}{\faEnvelopeO}~~[{Pontifícia Universidade Católica de Minas Gerais}~|\href{mailto:saulomzf@gmail.com}{~{\textit{saulomzf@gmail.com}}}~]}
+\affil{\textbf{Matheus Alcântara Souza~\textcolor{blue}{\faEnvelopeO}}~~[{Pontifícia Universidade Católica de Minas Gerais}~|\href{mailto:matheusalcantara@pucminas.br}{{\textit{matheusalcantara@pucminas.br}}}~]}
+}
+\begin{document}
+\begin{frontmatter}
+\maketitle
+\begin{mail}
+Depto. de Ciência da Computação -- Pontifícia Universidade Católica de Minas Gerais, R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG, 30535-901
+\end{mail}
+\begin{abstract-pt}
+O avanço dos computadores quânticos representa uma ameaça
+significativa aos algoritmos criptográficos clássicos amplamente
+utilizados atualmente. Em resposta a esse cenário, a criptografia
+pós-quântica tem sido objeto de intensas pesquisas, visando o
+desenvolvimento de algoritmos resistentes a ataques quânticos.
+Este trabalho apresenta uma análise experimental do desempenho
+de algoritmos de criptografia pós-quântica selecionados, com
+foco nos finalistas e candidatos do processo de padronização
+do NIST.
+
+
+Os experimentos foram conduzidos utilizando a biblioteca
+\textit{liboqs}, considerando mecanismos de encapsulamento de
+chaves e esquemas de assinatura digital: ML-KEM (Kyber),
+HQC, ML-DSA (Dilithium), FN-DSA (Falcon) e SLH-DSA
+(SPHINCS+). Foram avaliadas métricas como tempo de execução
+das principais operações criptográficas, tamanho de chaves e
+assinaturas, impacto de configurações de compilação,
+escalabilidade com o tamanho da mensagem e consumo de
+memória (\textit{stack} e \textit{heap}). Os resultados obtidos
+permitem uma comparação objetiva entre os algoritmos analisados,
+evidenciando diferenças relevantes de desempenho e custo
+computacional.
+
+
+A partir da análise realizada, o trabalho contribui para uma
+melhor compreensão dos impactos práticos da adoção da
+criptografia pós-quântica, fornecendo subsídios para a escolha
+de algoritmos em diferentes cenários de uso e estabelecendo
+uma base experimental para estudos futuros.
+\end{abstract-pt}
+\begin{abstract-en}
+The advancement of quantum computing poses a significant threat
+to widely used classical cryptographic algorithms. In response
+to this scenario, post-quantum cryptography has become an
+active research area, aiming to develop algorithms resistant
+to quantum attacks. This work presents an experimental
+performance analysis of selected post-quantum cryptographic
+algorithms, focusing on finalists and candidates from the
+NIST standardization process.
+
+
+The experiments were conducted using the \textit{liboqs}
+library, considering key encapsulation mechanisms and digital
+signature algorithms: ML-KEM (Kyber), HQC, ML-DSA
+(Dilithium), FN-DSA (Falcon), and SLH-DSA (SPHINCS+).
+Metrics evaluated include execution time of the main
+cryptographic operations, key and signature sizes, the impact
+of compilation configurations, scalability with message
+size, and memory consumption (stack and heap). The obtained
+results enable an objective comparison among the analyzed
+algorithms, highlighting relevant differences in performance
+and computational cost.
+
+
+Based on the experimental analysis, this work contributes to
+a better understanding of the practical implications of
+adopting post-quantum cryptography, providing support for
+algorithm selection in different usage scenarios and
+establishing an experimental baseline for future studies.
+\end{abstract-en}
+\begin{pchaves}
+Computação Quântica, Criptografia pós-quântica, avaliação de desempenho
+\end{pchaves}
+\begin{keywords}
+Quantum Computing, Post-Quantum Cryptography, performance evaluation
+\end{keywords}
+%\begin{license}
+%Published under the Creative Commons Attribution 4.0 International Public License (CC BY 4.0)
+%\end{license}
+\end{frontmatter}
+\section{Introdução}
+\label{sec:intro}
+A computação quântica vem se consolidando como um novo paradigma tecnológico, deixando o campo teórico e tornando-se uma área de intenso desenvolvimento. Baseia-se em fenômenos da mecânica quântica, como superposição e emaranhamento, para realizar operações impossíveis à computação clássica. Enquanto os computadores tradicionais utilizam bits, que assumem valores 0 ou 1, os computadores quânticos operam com qubits, capazes de representar ambos os estados simultaneamente até o momento da medição \cite{Livro:nielsen:2010,feynman:82}. Essa propriedade da superposição, aliada à outros fenômenos da quântica, como o emaranhamento, permite correlações entre qubits e processamento paralelo em larga escala, conferindo à computação quântica um poder computacional sem precedentes.
+\subsection{Problema}
+Com o avanço da computação quântica, essa nova tecnologia representa uma ameaça direta aos sistemas criptográficos clássicos, como RSA e ECC, vulneráveis a ataques quânticos \cite{shor:94}. Mesmo os algoritmos simétricos, como AES e SHA, exigem chaves maiores para manter a segurança \cite{grover:96}. Em resposta, o NIST iniciou o processo de padronização da Criptografia Pós-Quântica (PQC) \cite{NIST:2024}, com o objetivo de estabelecer algoritmos resistentes a ataques quânticos. Contudo, ainda há incertezas sobre o desempenho prático dos finalistas quanto ao tempo de execução
+, tamanho das chaves e viabilidade de implementação, o que dificulta sua adoção em larga escala. Surge, assim, a questão central: quais são as diferenças de desempenho entre os algoritmos finalistas do NIST PQC e suas implicações para aplicações reais de segurança da informação?
+\subsection{Objetivos}
+Com base no processo da padronização do NIST de Criptografia Pós-Quântica, este trabalho busca compreender melhor o desempenho dos algoritmos de criptografia pós-quântica finalistas do processo de padronização do NIST.
+\subsubsection{Objetivo principal}
+Portanto, o objetivo principal desta monografia é realizar uma análise comparativa de desempenho dos algoritmos finalistas do NIST PQC, avaliando métricas como tempo de execução, consumo de memória, tamanho de chave e eficiência em diferentes cenários de aplicação, a fim de identificar suas potencialidades e limitações para adoção prática em sistemas de segurança da informação.
+\subsubsection{Objetivos específicos}
+Para alcançar o objetivo principal, estabelecem-se os seguintes objetivos específicos:
+\begin{itemize}
+    \item Explorar os algoritmos Finalistas do NIST PQC para um melhor entendimento dos mesmos;
+    \item buscar um ambiente estável para a implementação os algoritmos;
+    \item Definir e aplicar métricas de avaliação de desempenho, a serem analisadas entre os algoritmos;
+    \item Comparar e interpretar os resultados obtidos nos experimentos, destacando pontos fortes e limitações de cada algoritmo;
+    \item Apontar recomendações sobre a viabilidade prática dos algoritmos em diferentes contextos de uso na segurança da informação.
+\end{itemize}
+\subsection{Contribuições}
+Este trabalho pretende contribuir de forma acadêmica e técnica para a área de segurança da informação ao oferecer uma análise comparativa de desempenho dos algoritmos finalistas do processo de padronização do NIST em criptografia pós-quântica. A partir da realização de experimentos práticos e da avaliação de métricas como tempo de execução, consumo de memória e tamanho de chave, busca-se identificar as principais vantagens e limitações de cada proposta. Além de fornecer subsídios para a escolha de algoritmos mais adequados a diferentes contextos de aplicação, a pesquisa também contribui para ampliar o entendimento da comunidade acadêmica e profissional acerca da viabilidade prática da criptografia pós-quântica.
+\subsection{organização da monografia}
+Este artigo está organizado da seguinte forma. A Seção~2
+descreve os Trabalhos Correlatos, situando esta pesquisa
+em relação aos estudos existentes sobre desempenho de
+algoritmos PQC. A Seção~3 detalha a Metodologia, definindo
+o ambiente de testes, os procedimentos de avaliação e as
+métricas adotadas. A Seção~4 descreve a implementação dos
+experimentos, incluindo a integração com a biblioteca
+\textit{liboqs}, o mecanismo de medição de tempo e a
+infraestrutura de perfilamento de memória. A
+Seção~5 apresenta os resultados e as análises nas cinco
+dimensões avaliadas: tamanho dos artefatos, desempenho
+temporal, impacto das configurações de compilação,
+escalabilidade com o tamanho da mensagem e consumo de
+memória. Por fim, a
+Seção~6 apresenta as conclusões do trabalho e aponta
+direções para pesquisas futuras.
+\section{Trabalhos Correlatos}
+\label{sec:Trabalhos}
+A transição para a \textit{criptografia pós-quântica} (PQC) representa um dos maiores desafios atuais da segurança digital. Com o avanço dos computadores quânticos, esquemas clássicos como RSA e ECC tornam-se vulneráveis, motivando o processo de padronização conduzido pelo NIST desde 2016. Após cinco rodadas, foram definidos quatro algoritmos principais: \textit{CRYSTALS-Kyber} (KEM), \textit{CRYSTALS-Dilithium} e \textit{Falcon} (assinaturas baseadas em reticulados), e \textit{SPHINCS+} (assinatura baseada em funções hash). Apesar da consolidação teórica, ainda faltam estudos experimentais que avaliem seu desempenho sob diferentes ambientes e configurações de compilação.
+\cite{Sosnowski:2023} analisaram a integração de algoritmos PQC ao protocolo TLS~1.3, avaliando KEMs e assinaturas  incluindo \textit{Kyber}, \textit{HQC}, \textit{Dilithium} e \textit{Falcon} quanto à latência e ao tempo de \textit{handshake}. Os resultados mostraram que as soluções pós-quânticas podem atingir desempenho comparável ou superior ao TLS clássico, especialmente em modos híbridos. No entanto, o estudo não aborda \textit{SPHINCS+} nem variações de compilador ou otimização.
+Em foco similar, \cite{Opilka:2024} compararam \textit{Dilithium}, \textit{Falcon} e \textit{SPHINCS+} em assinaturas digitais utilizando a biblioteca \textit{liboqs}. As métricas de geração de chaves, assinatura e verificação indicaram que \textit{Dilithium} possui melhor equilíbrio entre velocidade e segurança, enquanto \textit{SPHINCS+} se destaca em robustez, porém com custo computacional elevado. O estudo, contudo, não inclui KEMs nem analisa consumo de memória.
+O artigo \cite{Raavi:2025}   reforça esses resultados ao testar as mesmas assinaturas em cenários TLS~1.3, observando reduções de até 68\,\% na latência frente ao RSA-4096, mas sem incorporar esquemas de encapsulamento ou variações de compilação.
+\cite{Demir:2025} realizaram uma comparação direta entre o KEM \textit{Kyber} e a assinatura \textit{Dilithium}, medindo tempos de geração de chaves, encapsulamento e verificação em plataformas embarcadas e servidores x86-64. Concluíram que \textit{Kyber} é mais eficiente em encapsulamento e \textit{Dilithium} mantém verificação estável, mas o estudo não inclui \textit{Falcon} e \textit{SPHINCS+}, nem controla \textit{flags} de compilação.
+Por fim, \cite{abbasi:2025} apresentaram um \textit{benchmark} multiplataforma abrangendo \textit{Kyber}, \textit{NTRU}, \textit{Dilithium} e \textit{Falcon}, avaliando tempos de operação e níveis de segurança NIST~1,~3 e~5. Apesar do amplo escopo, o trabalho não inclui \textit{SPHINCS+} e carece de análise detalhada sobre otimizações e uso de recursos.
+Em síntese, como explicitado na tabela \ref{tab:correlatos}, os estudos revisados avançam na avaliação prática dos algoritmos PQC, mas nenhum realiza uma análise conjunta dos quatro finalistas do NIST sob condições experimentais homogêneas. Assim, este TCC propõe uma avaliação sistemática e reprodutível de \textit{Kyber}, \textit{Dilithium}, \textit{Falcon} e \textit{SPHINCS+}, explorando o impacto de diferentes \textit{flags} de compilação (\texttt{-O0} a \texttt{-O3}, \texttt{-march}, LTO) e níveis de segurança no desempenho, uso de memória e eficiência, contribuindo com uma base comparativa sólida para futuras implementações pós-quânticas.
+\begin{table*}[ht]
+\caption{Comparação entre trabalhos correlatos e a proposta deste TCC}
+\label{tab:correlatos}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{3.5cm} p{2.1cm} p{3cm} p{2.3cm} p{1.7cm} p{1.8cm} p{2.7cm}}
+\toprule
+\textbf{Autor / Ano} & \textbf{Ambiente de Teste} & \textbf{Algoritmos Avaliados} & \textbf{Métricas Principais} & \textbf{Variação de Compilação} & \textbf{implementa SPHINCS+?} & \textbf{Foco do Estudo} \\
+\midrule
+\cite{Sosnowski:2023} & TLS~1.3 (rede) & Kyber, HQC, Dilithium, Falcon & Latência, tempo de handshake & Não & Não & Integração PQC em protocolos TLS \\
+\midrule
+\cite{Opilka:2024} & Software (liboqs) & Dilithium, Falcon, SPHINCS+ & Geração de chaves, assinatura e verificação & Não & Sim & Desempenho de assinaturas digitais \\
+\midrule
+\cite{Raavi:2025} & TLS~1.3 (simulado) & Dilithium, Falcon, SPHINCS+ & Tempo e tamanho do handshake & Não & Sim & Assinaturas PQC em TLS \\
+\midrule
+\cite{Demir:2025} & Embarcado / x86-64 & Kyber, Dilithium & Keygen, encaps, sign, verify & Não & Não & Comparação entre KEM e assinatura \\
+\midrule
+\cite{abbasi:2025} & Multiplataforma (IoT / Cloud) & Kyber, NTRU, Dilithium, Falcon & Keygen, sign/verify, tempo total & Não & Não & Benchmark de múltiplos ambientes \\
+\midrule
+\textbf{Este trabalho} & Desktop / Servidor (controlado) &
+ML-KEM, HQC, ML-DSA, FN-DSA, SLH-DSA &
+Tempo de exec., tamanho de artefatos, variação de flags, níveis NIST e consumo de memória (\textit{stack}/\textit{heap}) &
+\textbf{Sim} (\texttt{-O0--O3}, \texttt{-march}, LTO) &
+\textbf{Sim} &
+Avaliação experimental completa e reprodutível em diferentes níveis de execução \\
+\bottomrule
+\end{tabular}
+} % fecha resizebox
+\end{table*}
+% ============================================================
+% SECAO 3 — Metodologia (foco: O QUE e POR QUE)
+% ============================================================
+\section{Metodologia}
+\label{sec:Metodologia}
+A avaliação experimental dos algoritmos pós-quânticos exige um ambiente
+de testes rigorosamente definido, de modo a garantir a
+reprodutibilidade, precisão e comparabilidade entre os resultados
+obtidos. Esta seção descreve os materiais utilizados, os critérios de
+seleção dos algoritmos e variantes avaliados, as métricas de desempenho
+adotadas e os procedimentos experimentais seguidos. Os detalhes técnicos
+da implementação, estrutura do código, integração com a biblioteca e
+mecanismo de medição são apresentados na Seção~\ref{sec:Implementacao}.
+\subsection{Materiais e Ambiente de Testes}
+A caracterização detalhada do ambiente experimental é fundamental para
+garantir a reprodutibilidade e a confiabilidade dos resultados obtidos.
+\subsubsection{Hardware e Sistema Operacional}
+Os experimentos foram realizados em um notebook ASUS TUF Gaming A15
+(modelo FA506NCR), equipado com o processador AMD Ryzen 7 7435HS,
+pertencente à microarquitetura Rembrandt (6~nm). O processador possui
+8 núcleos e 16 threads, operando a até 4,55~GHz em modo turbo, e
+oferece suporte a instruções modernas relevantes para algoritmos
+pós-quânticos, incluindo x86-64, SSE (1–4.2), SSSE3, AVX, AVX2, FMA3
+e SHA. O sistema dispõe de 16~GB de memória DDR5 em modo dual-channel
+a 4800~MHz efetivos e armazenamento SSD NVMe.
+A placa-mãe utilizada é uma ASUSTeK FA506NCR, versão 1.0, com chipset
+AMD Ryzen SOC / AMD FCH, e BIOS American Megatrends International LLC
+FA506NCR.304, atualizada em 08/01/2025, executando em modo UEFI com
+Secure Boot habilitado. A GPU NVIDIA GeForce RTX 3050 presente no
+equipamento não participou da execução dos algoritmos avaliados.
+O ambiente de software consiste no Microsoft Windows 11 Home,
+versão 10.0.26200 (Build 26200), com configurações de energia ajustadas
+para desempenho máximo e processos de segundo plano minimizados. Os
+experimentos foram executados sob o Windows Subsystem for Linux (WSL),
+com a distribuição Ubuntu 24.04.1 LTS, permitindo o uso nativo de
+ferramentas Linux sem virtualização completa.
+\subsubsection{Compilador e Dependências}
+A compilação dos algoritmos foi realizada com o compilador GCC versão
+13.3.0, disponibilizado pela distribuição Ubuntu 24.04.1 LTS sob WSL.
+As ferramentas de construção CMake versão 3.28.3 e Ninja-build versão
+1.11.1 foram utilizadas nos scripts de compilação da biblioteca e do
+projeto experimental.
+Para avaliar o impacto das otimizações de compilação no desempenho,
+foram empregadas as flags descritas na Tabela~\ref{tab:flags}. Essa
+análise permite quantificar o ganho obtido com vetorização automática,
+uso de instruções específicas da arquitetura e otimização em tempo de
+linkedição, aspectos relevantes para algoritmos PQC que fazem uso
+intensivo de operações aritméticas como NTT e FFT.
+\begin{table*}
+\centering
+\caption{Flags de otimização avaliadas e seus efeitos no desempenho.}
+\label{tab:flags}
+\begin{tabular}{|c|p{11cm}|}
+\hline
+\textbf{Flag} & \textbf{Descrição Técnica e Efeitos Esperados} \\
+\hline
+\texttt{-O0} & Desativa otimizações. Mantém o código literalmente como
+escrito, preservando estrutura e instruções redundantes. Serve como
+\textit{baseline} para avaliar o custo algorítmico puro. \\
+\hline
+\texttt{-O1} & Realiza otimizações leves, removendo código morto e
+redundâncias simples. Pouco impacto computacional, mas melhora tempos
+em rotinas pequenas. \\
+\hline
+\texttt{-O2} & Ativa otimizações amplas: desenrolamento moderado de
+loops, inlining seletivo, propagação de constantes, eliminação de
+subexpressões, melhor alocação de registradores. Fornece bom equilíbrio
+entre desempenho e tamanho do binário. \\
+\hline
+\texttt{-O3} & Nível agressivo de otimização. Inclui vetorização
+automática (SSE/AVX/AVX2), desenrolamento profundo de loops,
+\textit{pipelining} e heurísticas avançadas de reorganização de código.
+Produz ganhos substanciais em algoritmos de PQC baseados em NTT, FFT,
+hashing intensivo e amostragem gaussiana. \\
+\hline
+\texttt{-march=native} & Permite ao compilador utilizar instruções
+específicas do processador físico (AMD Ryzen 7 7435HS), incluindo AVX2,
+BMI2, SHA e FMA3. Essencial para explorar vetorização e aceleração por
+hardware. \\
+\hline
+\texttt{-flto} & Ativa otimização em tempo de linkedição (LTO),
+permitindo ao compilador otimizar o programa como um todo, eliminando
+fronteiras artificiais entre módulos. Reduz overhead em rotinas
+fortemente modularizadas, como as da \texttt{liboqs}. \\
+\hline
+\end{tabular}
+\end{table*}
+\subsubsection{Biblioteca Criptográfica}
+Para a realização dos experimentos empregou-se a \textit{Open Quantum
+Safe Library} (\textbf{liboqs}), mantida pelo projeto Open Quantum Safe
+(OQS). A liboqs reúne implementações atualizadas dos esquemas
+selecionados pelo NIST, incluindo os algoritmos avaliados neste estudo:
+os KEMs ML-KEM (Kyber) e HQC, e os esquemas de assinatura ML-DSA
+(Dilithium), FN-DSA (Falcon) e SLH-DSA (SPHINCS+).
+A principal vantagem da liboqs é sua API unificada, que permite executar
+geração de chaves, encapsulamento, decapsulamento, assinatura e
+verificação por meio de uma interface uniforme para todos os algoritmos.
+Essa padronização elimina discrepâncias entre os códigos de referência
+dos autores, garantindo consistência metodológica na comparação
+experimental. A biblioteca disponibiliza múltiplas variantes de cada
+algoritmo, cobrindo os níveis de segurança NIST~1, NIST~3 e NIST~5.
+\subsection{Procedimentos de Avaliação}
+Para cada algoritmo foram avaliadas as operações fundamentais:
+geração de chaves, encapsulamento e decapsulamento (KEMs), e
+geração de chaves, assinatura e verificação (esquemas de
+assinatura). Todas as variantes parametrizadas foram incluídas:
+ML-KEM-512, ML-KEM-768 e ML-KEM-1024; ML-DSA-44, ML-DSA-65
+e ML-DSA-87; FN-DSA-512 e FN-DSA-1024;
+SLH-DSA-SHAKE-128s/f, SLH-DSA-SHAKE-192s/f e
+SLH-DSA-SHAKE-256s/f; e HQC-128, HQC-192 e HQC-256,
+permitindo comparação entre níveis de segurança dentro de
+cada família criptográfica.
+
+
+Cada operação foi executada 200 vezes, precedidas de 10
+iterações de aquecimento para estabilização dos caches do
+processador. Esse número de repetições foi definido para
+garantir estabilidade estatística das medições, conforme
+prática adotada em estudos experimentais de criptografia
+pós-quântica~\cite{Opilka:2024, abbasi:2025}.
+
+
+Além dos testes individuais, foram conduzidos experimentos de
+escalabilidade para os algoritmos de assinatura digital,
+baseados no aumento progressivo do tamanho da mensagem de
+entrada. Os tamanhos avaliados variam de 1~B a 1~MB em
+potências de dois (21 pontos), permitindo analisar o impacto
+do hashing interno sobre o desempenho de cada família
+criptográfica. Essa análise não se aplica aos KEMs, pois suas
+operações não recebem mensagem como entrada: o encapsulamento
+opera exclusivamente sobre a chave pública, com saídas de
+tamanho fixo.
+
+
+\subsection{Métricas e Critérios de Comparação}
+
+
+A avaliação foi estruturada em cinco dimensões principais:
+
+
+\begin{enumerate}
+    \item \textbf{Tempo de execução}: métrica primária,
+    calculada como média, desvio-padrão, mediana e coeficiente
+    de variação (CV\%) das 200 repetições. A mediana é
+    preferível à média para comparações, por ser robusta a
+    outliers causados por interferências do sistema
+    operacional. O CV\% indica a estabilidade do algoritmo:
+    valores elevados, como os observados no Sign do ML-DSA,
+    refletem o comportamento probabilístico inerente ao
+    mecanismo de amostragem por rejeição.
+
+
+    \item \textbf{Tamanho dos artefatos}: chave pública,
+    chave secreta, ciphertext (KEMs) e assinatura (esquemas
+    de assinatura), extraídos das estruturas internas da
+    liboqs conforme as especificações oficiais de cada esquema.
+
+
+    \item \textbf{Impacto das flags de compilação}: variação
+    no tempo de execução obtida com cada configuração em
+    relação ao baseline \texttt{-O0}, avaliando a
+    sensibilidade de cada algoritmo à infraestrutura de
+    compilação moderna.
+
+
+    \item \textbf{Escalabilidade}: variação do tempo de
+    assinatura e verificação em função do tamanho da mensagem,
+    revelando o custo do hashing interno de cada família
+    criptográfica.
+
+
+    \item \textbf{Consumo de memória}: uso de pilha
+    (\textit{stack}) e pico de \textit{heap} de cada operação,
+    medido por técnicas complementares. O consumo de
+    \textit{stack} é obtido via \textit{stack painting} com
+    \textit{buffer} sentinela de 4\,MB em \textit{thread}
+    POSIX dedicada; o pico de \textit{heap} é obtido com
+    \texttt{valgrind --tool=massif}, capturando o valor máximo
+    de \texttt{mem\_heap\_B} durante a execução isolada de
+    cada operação. Ambas as medições são realizadas com
+    compilação \texttt{-O0} para preservar a estrutura real
+    de alocações.
+\end{enumerate}
+
+
+As comparações são realizadas entre algoritmos do mesmo nível
+de segurança NIST, garantindo equidade na análise.
+% ============================================================
+% SECAO 4 — Descricao das Implementacoes (foco: COMO)
+% ============================================================
+\section{Descrição das Implementações}
+\label{sec:Implementacao}
+Esta seção descreve os aspectos técnicos da implementação experimental:
+a organização do código, a integração com a liboqs, o mecanismo de
+medição de tempo e o registro dos resultados. Enquanto a
+Seção~\ref{sec:Metodologia} define \textit{o que} foi medido e
+\textit{por que}, esta seção detalha \textit{como} os experimentos
+foram executados, possibilitando a reprodução independente dos
+resultados.
+\subsection{Estrutura do Projeto}
+A implementação foi desenvolvida em linguagem C e organizada de forma
+modular, separando claramente os componentes de execução criptográfica,
+medição de desempenho e coleta de resultados. A estrutura de diretórios
+divide o projeto em módulos independentes para cada família de
+algoritmos (KEM e assinatura) e para os utilitários de temporização e
+estatística, facilitando a extensão futura com novos algoritmos ou
+métricas.
+\subsection{Integração com a biblioteca liboqs}
+Todas as operações criptográficas foram executadas via liboqs. Para os
+KEMs (ML-KEM e HQC), utilizou-se a interface \texttt{OQS\_KEM}, cujo
+fluxo de execução segue três etapas:
+\begin{enumerate}
+    \item Inicialização: \texttt{OQS\_KEM\_new()};
+    \item Geração de chaves: \texttt{OQS\_KEM\_keypair()};
+    \item Encapsulamento e decapsulamento: \texttt{OQS\_KEM\_encaps()}
+          e \texttt{OQS\_KEM\_decaps()}.
+\end{enumerate}
+Para os algoritmos de assinatura (ML-DSA, FN-DSA e SLH-DSA),
+utilizou-se a interface \texttt{OQS\_SIG}:
+\begin{enumerate}
+    \item Inicialização: \texttt{OQS\_SIG\_new()};
+    \item Geração de chaves: \texttt{OQS\_SIG\_keypair()};
+    \item Assinatura: \texttt{OQS\_SIG\_sign()};
+    \item Verificação: \texttt{OQS\_SIG\_verify()}.
+\end{enumerate}
+A interface uniforme entre todos os algoritmos reduz a complexidade da
+implementação e garante que diferenças nos resultados reflitam
+características dos algoritmos, não da infraestrutura de execução.
+Ao encerrar cada benchmark, a chave secreta é zerada via
+\texttt{OQS\_MEM\_secure\_free()}, seguindo boas práticas de segurança
+criptográfica.
+\subsection{Implementação dos Benchmarks}
+Cada rotina de benchmark executa o seguinte fluxo:
+\begin{enumerate}
+    \item Alocação dos buffers de chaves, ciphertext e assinatura;
+    \item Execução das iterações de aquecimento (sem medição);
+    \item Laço principal de 200 iterações, com medição individual
+          de cada operação;
+    \item Verificação de corretude a cada iteração para KEMs,
+          confirmando que os \textit{shared secrets} gerados por
+          encapsulamento e decapsulamento são idênticos; para
+          assinaturas, confirmando que a verificação retorna sucesso;
+    \item Cálculo das estatísticas e escrita no arquivo CSV.
+\end{enumerate}
+A verificação de corretude a cada iteração é um diferencial
+importante: garante que os tempos medidos correspondem a execuções
+válidas dos algoritmos, não a falhas silenciosas.
+\subsection{Medição do Tempo de Execução}
+A medição de tempo utiliza a função \texttt{clock\_gettime} com o
+relógio \texttt{CLOCK\_MONOTONIC}, pertencente à API POSIX do Linux.
+O procedimento em cada iteração é:
+\begin{enumerate}
+    \item Leitura do contador imediatamente antes da operação;
+    \item Execução da operação criptográfica;
+    \item Leitura do contador imediatamente após;
+    \item Cálculo da diferença, convertida para microssegundos.
+\end{enumerate}
+As funções de temporização são implementadas como \texttt{static inline}
+no código, eliminando o overhead de chamada de função nas medições
+críticas. A escolha do \texttt{CLOCK\_MONOTONIC} garante leituras
+estritamente crescentes, imunes a ajustes de NTP ou alterações manuais
+do relógio do sistema.
+\subsection{Medição do Consumo de Memória}
+\label{sec:impl-memoria}
+
+
+A medição de memória é realizada por dois programas distintos,
+compilados com \texttt{-O0 -g} para preservar o comportamento
+de alocação sem otimizações do compilador.
+
+
+\textbf{Stack painting (\texttt{memory\_benchmark.c}).}
+Para cada operação (\textit{keygen}, \textit{encap}/\textit{sign},
+\textit{decap}/\textit{verify}), uma \textit{thread} POSIX é criada
+com \texttt{pthread\_attr\_setstack()} apontando para um
+\textit{buffer} de 4\,MB previamente pintado com o byte
+sentinela~\texttt{0xAB}.
+Após o retorno da operação, o \textit{buffer} é varrido do endereço
+mais baixo em direção ao mais alto; o primeiro byte diferente
+de~\texttt{0xAB} delimita a região de \textit{stack} não utilizada,
+e o uso real é calculado como o complemento.
+O resultado reportado é a mediana de cinco execuções após dois
+aquecimentos.
+
+
+\textbf{Valgrind massif (\texttt{massif\_single.c}).}
+Um programa auxiliar executa exatamente \emph{uma} chamada da
+operação desejada por invocação, permitindo que o
+\texttt{valgrind --tool=massif} perfile o \textit{heap} daquela
+operação isolada.
+O \textit{script} \texttt{run\_massif\_all.sh} automatiza a execução
+para todos os algoritmos e operações; o \textit{script}
+\texttt{parse\_massif.py} extrai o valor de pico de
+\texttt{mem\_heap\_B} de cada arquivo \texttt{.massif} gerado e
+consolida os resultados em CSV\@.
+
+
+Como a versão do \texttt{liboqs} utilizada ainda adota os nomes
+internos originais (p.\,ex., \texttt{Falcon-512} em vez de
+\texttt{FN-DSA-512}), o programa \texttt{massif\_single.c} inclui
+uma tabela de mapeamento que traduz os nomes FIPS/NIST para os
+identificadores aceitos pela API\@.
+
+
+\subsection{Registro e Organização dos Resultados}
+Os resultados são exportados em arquivos CSV separados por categoria
+(KEMs e assinaturas), com uma linha por algoritmo contendo: nome do
+algoritmo, nível NIST, tamanhos dos artefatos, e para cada operação
+(KeyGen, Encaps/Sign, Decaps/Verify) os valores de média, desvio-padrão,
+mínimo e mediana em microssegundos. Esse formato permite importação
+direta em ferramentas de análise estatística e geração de gráficos para
+a seção de resultados.
+% ============================================================
+% SEÇÃO 5 — Implementações, Testes, Resultados e Análises
+% ============================================================
+\section{Implementações, Testes, Resultados e Análises}
+Esta seção apresenta os resultados obtidos nos experimentos
+realizados com os algoritmos de criptografia pós-quântica
+selecionados, organizados em cinco dimensões de análise.
+A primeira examina os tamanhos dos artefatos criptográficos
+gerados por cada algoritmo, por ser uma propriedade
+estrutural que independe do ambiente de execução.
+A segunda avalia o desempenho temporal das operações
+fundamentais de cada família, adotando a configuração
+\texttt{-O0} como referência de custo algorítmico puro.
+A terceira quantifica o impacto das 16 configurações de
+compilação avaliadas sobre o tempo de execução, por meio
+de mapas de calor que permitem identificar os padrões de
+sensibilidade de cada família às otimizações do compilador.
+A quarta analisa como os tempos de assinatura e verificação
+variam com o tamanho da mensagem, revelando o comportamento
+de escalabilidade de cada esquema.
+A quinta avalia o consumo de memória das operações
+criptográficas por meio de duas técnicas complementares:
+\textit{stack painting} para medir o uso de pilha e
+\texttt{valgrind --tool=massif} para medir o pico de
+\textit{heap}.
+As comparações entre algoritmos de famílias distintas são
+realizadas dentro do mesmo nível de segurança NIST,
+garantindo equidade na análise.
+% ------------------------------------------------------------
+% 5.1 — Tamanho dos Artefatos Criptográficos
+% ------------------------------------------------------------
+\subsection{Tamanho dos Artefatos Criptográficos}
+O tamanho dos artefatos criptográficos, compreendendo chaves,
+ciphertexts e assinaturas, é uma métrica estrutural de cada
+algoritmo, determinada por sua especificação e independente
+do ambiente de execução ou das configurações de compilação.
+A Tabela~\ref{tab:kem-tamanho} reúne os tamanhos dos
+artefatos dos algoritmos KEM, e a
+Tabela~\ref{tab:sig-tamanho} apresenta os dos esquemas de
+assinatura digital.
+\begin{table}[!htbp]
+\caption{Tamanho dos artefatos dos algoritmos KEM (em bytes).}
+\label{tab:kem-tamanho}
+\centering\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcrrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Nível} &
+  \textbf{PK (B)} & \textbf{SK (B)} &
+  \textbf{CT (B)} & \textbf{SS (B)} \\
+\midrule
+ML-KEM-512  & 1 &    800 &  1.632 &    768 & 32 \\
+ML-KEM-768  & 3 &  1.184 &  2.400 &  1.088 & 32 \\
+ML-KEM-1024 & 5 &  1.568 &  3.168 &  1.568 & 32 \\
+\midrule
+HQC-128  & 1 &  2.249 &  2.305 &  4.433 & 64 \\
+HQC-192  & 3 &  4.522 &  4.586 &  8.978 & 64 \\
+HQC-256  & 5 &  7.245 &  7.317 & 14.421 & 64 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+\begin{table}[!htbp]
+\caption{Tamanho dos artefatos dos esquemas de assinatura digital (em bytes).}
+\label{tab:sig-tamanho}
+\centering\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Nível} &
+  \textbf{PK (B)} & \textbf{SK (B)} &
+  \textbf{Assinatura (B)} \\
+\midrule
+ML-DSA-44 & 2 &  1.312 &  2.560 &  2.420 \\
+ML-DSA-65 & 3 &  1.952 &  4.032 &  3.309 \\
+ML-DSA-87 & 5 &  2.592 &  4.896 &  4.627 \\
+\midrule
+FN-DSA-512  & 1 &   897 &  1.281 &   656\textsuperscript{a} \\
+FN-DSA-1024 & 5 & 1.793 &  2.305 & 1.273\textsuperscript{a} \\
+\midrule
+SLH-DSA-SHAKE-128\textit{s} & 1 &  32 &   64 &  7.856 \\
+SLH-DSA-SHAKE-128\textit{f} & 1 &  32 &   64 & 17.088 \\
+SLH-DSA-SHAKE-192\textit{s} & 3 &  48 &   96 & 16.224 \\
+SLH-DSA-SHAKE-192\textit{f} & 3 &  48 &   96 & 35.664 \\
+SLH-DSA-SHAKE-256\textit{s} & 5 &  64 &  128 & 29.792 \\
+SLH-DSA-SHAKE-256\textit{f} & 5 &  64 &  128 & 49.856 \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize\textsuperscript{a}~Tamanho médio
+  observado; a assinatura do FN-DSA é de comprimento variável.}
+\end{tabular}%
+}
+\end{table}
+No grupo dos KEMs, o ML-KEM produz artefatos significativamente
+mais compactos que o HQC em todos os níveis de segurança.
+No nível 5, o ciphertext do HQC-256 alcança 14.421~B, valor
+aproximadamente 9,2 vezes superior ao do ML-KEM-1024
+(1.568~B). Essa disparidade é consequência das distintas
+bases matemáticas adotadas: o ML-KEM opera sobre módulos de
+reticulados com estrutura algébrica que viabiliza
+representações compactas, ao passo que o HQC fundamenta-se
+em códigos corretores de erros, exigindo ciphertexts
+proporcionalmente maiores para atingir o mesmo nível de
+segurança.
+No grupo dos esquemas de assinatura, o FN-DSA produz as
+assinaturas mais compactas, com 656~B no nível 1, resultado
+da codificação comprimida que explora a estrutura NTRU.
+No extremo oposto, as assinaturas do SLH-DSA variam de
+7.856~B (variante \textit{s}, nível 1) a 49.856~B (variante
+\textit{f}, nível 5), sendo as maiores do conjunto avaliado.
+Por outro lado, o SLH-DSA possui as menores chaves públicas
+(32 a 64~B), propriedade direta de sua construção baseada
+exclusivamente em funções de hash, que dispensa qualquer
+estrutura algébrica adicional. O ML-DSA ocupa uma posição
+intermediária equilibrada, com chaves e assinaturas moderadas
+e crescimento proporcional ao nível de segurança.
+Uma análise complementar relevante é o \textit{overhead total}
+de armazenamento por algoritmo, definido como a soma de chave
+pública, chave secreta e artefato gerado. Esse valor representa
+o custo mínimo de memória para operar um par de chaves em
+uma única transação. No grupo dos KEMs, o ML-KEM-512 impõe
+o menor overhead total (3.200~B), enquanto o HQC-256 exige
+28.983~B, diferença de 9,1$\times$ no mesmo nível de
+segurança. No grupo das assinaturas, o FN-DSA-512 é o mais
+econômico (2.834~B no total), beneficiado por suas assinaturas
+comprimidas. No extremo oposto, o SLH-DSA-SHAKE-128f acumula
+17.184~B, dos quais 99,4\% se concentram na assinatura.
+Uma propriedade estrutural do SLH-DSA merece atenção
+particular: a distribuição do overhead é radicalmente
+assimétrica. As chaves públicas e privadas somam no máximo
+192~B (nível 5), enquanto a assinatura pode superar 49~KiB.
+Em contextos onde a chave é armazenada localmente uma única
+vez e a assinatura é transmitida repetidamente, como em
+infraestruturas de chaves públicas, o custo dominante é a
+largura de banda por assinatura, não o armazenamento de
+chaves. O FN-DSA inverte essa lógica: assinaturas compactas
+(656~B) a um custo elevado de geração de chave, o que o
+favorece em cenários de chave de longa duração com muitas
+assinaturas por par de chaves.
+% ------------------------------------------------------------
+% 5.2 — Desempenho Temporal dos Algoritmos
+% ------------------------------------------------------------
+\subsection{Desempenho Temporal dos Algoritmos}
+Os tempos de execução foram medidos com a configuração
+\texttt{-O0}, adotada como referência por representar o
+custo algorítmico puro, sem interferência de otimizações
+do compilador. Cada operação foi executada 200 vezes,
+precedidas de 10 iterações de aquecimento. São reportados
+a média, o desvio-padrão e a mediana em microssegundos
+($\mu$s). A mediana é preferível à média para comparações
+por ser robusta a valores atípicos causados por
+interferências do sistema operacional.
+\subsubsection{Algoritmos KEM}
+A Tabela~\ref{tab:kem-tempo} reúne os tempos médios de
+execução dos algoritmos de encapsulamento de chaves.
+\begin{table}[!htbp]
+\caption{Desempenho temporal dos KEMs com \texttt{-O0}
+($\mu$s, $n=200$).}
+\label{tab:kem-tempo}
+\centering\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Nível} &
+  \textbf{KeyGen} & \textbf{Encaps} & \textbf{Decaps} \\
+\midrule
+ML-KEM-512  & 1 &   6,77 $\pm$ 1,29 &   7,16 $\pm$ 1,55 &   6,19 $\pm$ 0,16 \\
+ML-KEM-768  & 3 &  11,08 $\pm$ 3,45 &  11,10 $\pm$ 3,56 &  10,27 $\pm$ 1,48 \\
+ML-KEM-1024 & 5 &  15,01 $\pm$ 1,33 &  15,42 $\pm$ 1,43 &  14,85 $\pm$ 2,65 \\
+\midrule
+HQC-128  & 1 & 1.398 $\pm$ 573 &  2.712 $\pm$  17 &  4.114 $\pm$  55 \\
+HQC-192  & 3 & 4.161 $\pm$  45 &  8.353 $\pm$ 176 & 12.593 $\pm$ 221 \\
+HQC-256  & 5 & 7.403 $\pm$ 185 & 14.806 $\pm$ 365 & 22.322 $\pm$ 232 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+O ML-KEM supera o HQC em todas as operações e em todos os
+níveis de segurança avaliados. No nível 1, o ML-KEM-512
+executa o KeyGen em 6,77~$\mu$s, enquanto o HQC-128 requer
+1.398~$\mu$s para a mesma operação, razão de aproximadamente
+206$\times$. A diferença é mais acentuada no Decaps: o
+HQC-128 consome 4.114~$\mu$s contra 6,19~$\mu$s do
+ML-KEM-512, fator de 665$\times$. No nível 5, o HQC-256
+registra Decaps de 22.322~$\mu$s, valor 1.503$\times$ superior
+aos 14,85~$\mu$s do ML-KEM-1024.
+Essa vantagem resulta de dois fatores combinados: a estrutura
+algébrica baseada em módulos de reticulados viabiliza
+operações mais eficientes por meio da Transformada
+Número-Teórica (NTT), e a liboqs fornece implementação com
+instruções AVX2 nativas do processador AMD Ryzen 7 7435HS.
+O HQC, fundamentado em teoria de códigos, não dispõe de
+aceleração equivalente na versão avaliada.
+O desvio-padrão elevado do HQC-128 no KeyGen (573~$\mu$s,
+CV~$\approx$~41\%) indica sensibilidade às variações de
+carga do sistema nessa operação específica, ao passo que
+Encaps e Decaps mantêm comportamento estável ao longo das
+200 iterações.
+A análise do crescimento entre níveis de segurança revela
+comportamentos distintos entre as famílias. O ML-KEM exibe
+crescimento aproximadamente linear: o KeyGen do ML-KEM-1024
+consome 2,2$\times$ mais tempo que o do ML-KEM-512, razão
+próxima da esperada pelo aumento do parâmetro modular. O HQC
+apresenta crescimento supralinear: o KeyGen do HQC-256 consome
+5,3$\times$ mais que o do HQC-128, reflexo do custo de
+codificação e decodificação em esquemas baseados em códigos,
+cuja complexidade cresce mais que linearmente com o parâmetro
+de segurança.
+A assimetria entre operações também difere entre as famílias.
+No ML-KEM, as três operações são equivalentes em custo: Decaps
+representa apenas 0,86$\times$ a 0,99$\times$ o tempo de
+Encaps, e nenhuma operação excede duas vezes o custo das
+demais. No HQC, o Decaps é sistematicamente 1,5$\times$ mais
+lento que o Encaps e 3,0$\times$ mais lento que o KeyGen em
+todos os níveis. Esse padrão é intrínseco ao processo de
+decodificação de síndromes em códigos corretores de erros,
+que exige mais operações que a codificação correspondente.
+\subsubsection{Esquemas de Assinatura Digital: ML-DSA e FN-DSA}
+A Tabela~\ref{tab:sig-lattice-tempo} reúne os tempos de
+execução dos esquemas de assinatura baseados em reticulados.
+O coeficiente de variação (CV\%) da operação de assinatura
+é incluído por revelar diferenças estruturais relevantes
+entre os dois algoritmos.
+\begin{table}[!htbp]
+\caption{Desempenho de ML-DSA e FN-DSA com \texttt{-O0}
+($\mu$s, $n=200$).}
+\label{tab:sig-lattice-tempo}
+\centering\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcrrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Nível} &
+  \textbf{KeyGen} & \textbf{Sign} & \textbf{Verify} &
+  \textbf{CV\textsubscript{sign}} \\
+\midrule
+ML-DSA-44 & 2 &  22,25 &  57,42 & 21,35 & 62,0\% \\
+ML-DSA-65 & 3 &  40,56 &  96,71 & 38,14 & 58,4\% \\
+ML-DSA-87 & 5 &  65,05 & 113,72 & 61,35 & 51,5\% \\
+\midrule
+FN-DSA-512  & 1 & 4.913,81 & 175,32 & 34,39 & 3,4\% \\
+FN-DSA-1024 & 5 & 14.772,44 & 352,29 & 68,28 & 2,2\% \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+O ML-DSA mantém KeyGen, Sign e Verify na mesma ordem de
+grandeza, o que representa o melhor equilíbrio entre
+operações dentre os esquemas avaliados. O CV elevado do
+Sign (62,0\% no ML-DSA-44) é consequência do mecanismo de
+\textit{Fiat-Shamir with Aborts}: o algoritmo rejeita
+candidatos de assinatura que não satisfazem os critérios
+de segurança e reinicia a amostragem, gerando uma
+distribuição assimétrica com cauda longa à direita. Nesses
+casos, a mediana (44,98~$\mu$s no ML-DSA-44) é
+estatisticamente mais representativa do tempo típico que a
+média (57,42~$\mu$s).
+A razão entre a média e a mediana do Sign fornece uma medida
+direta do viés introduzido pela amostragem por rejeição. No
+ML-DSA-44, a média supera a mediana em 27,7\%; no ML-DSA-65
+essa diferença cai para 23,4\%; e no ML-DSA-87 para 18,1\%.
+Esse decréscimo é interpretável: variantes de nível de
+segurança mais alto utilizam parâmetros que reduzem a taxa
+de rejeição do protocolo, tornando a distribuição de tempos
+progressivamente menos assimétrica. A implicação prática é
+que sistemas que dimensionam timeouts com base na média do
+ML-DSA-44 podem subestimar o tempo real de execução em até
+28\% para um conjunto típico de requisições.
+O FN-DSA exibe perfil assimétrico: o KeyGen consome
+4.913,81~$\mu$s no nível 1, valor 28$\times$ superior ao
+Sign (175,32~$\mu$s) e 143$\times$ superior ao Verify
+(34,39~$\mu$s). O CV do Sign, inferior a 4\%, confirma
+comportamento determinístico nessa fase. O custo elevado
+do KeyGen é intrínseco ao processo de amostragem da base
+NTRU sobre a rede \textit{fast Fourier}, não constituindo
+anomalia experimental. Em cenários de chave efêmera, como
+protocolos que geram um novo par a cada sessão, esse custo
+é pago integralmente a cada conexão. Quando o par de chaves
+é reutilizado ao longo de múltiplas assinaturas, o FN-DSA
+torna-se competitivo: a partir da segunda assinatura, o
+custo amortizado por operação aproxima-se do Sign isolado
+(175~$\mu$s), desempenho inferior apenas ao ML-DSA-44
+(57~$\mu$s) entre os esquemas de nível 1.
+\subsubsection{Esquemas de Assinatura Digital: SLH-DSA}
+A Tabela~\ref{tab:slh-tempo} apresenta os tempos do SLH-DSA
+em separado, pois as operações de KeyGen e Sign operam na
+escala de milissegundos, incompatível com a escala de
+microssegundos dos demais esquemas.
+\begin{table}[!htbp]
+\caption{Desempenho do SLH-DSA com \texttt{-O0} (KeyGen
+e Sign em ms; Verify em $\mu$s; $n=200$).}
+\label{tab:slh-tempo}
+\centering\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Nível} &
+  \textbf{KeyGen (ms)} & \textbf{Sign (ms)} &
+  \textbf{Verify ($\mu$s)} \\
+\midrule
+SLH-DSA-SHAKE-128\textit{s} & 1 &  34,22 & 260,40 &  330,20 \\
+SLH-DSA-SHAKE-128\textit{f} & 1 &   0,57 &  13,39 &  896,51 \\
+\midrule
+SLH-DSA-SHAKE-192\textit{s} & 3 &  50,87 & 460,57 &  477,00 \\
+SLH-DSA-SHAKE-192\textit{f} & 3 &   0,83 &  21,40 & 1.345,31 \\
+\midrule
+SLH-DSA-SHAKE-256\textit{s} & 5 &  34,76 & 413,40 &  691,31 \\
+SLH-DSA-SHAKE-256\textit{f} & 5 &   2,18 &  43,41 & 1.309,24 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+O SLH-DSA registra o maior custo de assinatura dentre todos
+os esquemas avaliados. A variante \textit{s}, que prioriza
+assinaturas menores, requer até 460,57~ms por operação
+(SLH-DSA-SHAKE-192s), tornando-a inadequada para aplicações
+com alta frequência de assinaturas. A variante \textit{f}
+reduz esse custo entre 19$\times$ e 22$\times$, com a
+contrapartida de assinaturas maiores, conforme a
+Tabela~\ref{tab:sig-tamanho}.
+O comportamento se inverte na verificação: a variante
+\textit{f} é até 2$\times$ mais lenta que a \textit{s} no
+Verify, pois percorre um número maior de nós nas árvores de
+Merkle da estrutura FORS. Esse padrão traduz o compromisso
+fundamental do SLH-DSA: assinaturas menores implicam maior
+custo de geração, e menor custo de geração implica
+assinaturas maiores com verificação mais custosa.
+A comparação quantitativa entre as variantes revela que o
+trade-off não é uniforme entre os níveis de segurança. Para
+os níveis 1 e 3, o Sign da variante \textit{s} é
+aproximadamente 20$\times$ mais lento que o da \textit{f}
+(19,4$\times$ e 21,5$\times$, respectivamente), e o KeyGen
+é cerca de 60$\times$ mais lento (59,8$\times$ e
+61,0$\times$). No nível 5, essa disparidade cai para
+9,5$\times$ no Sign e 15,9$\times$ no KeyGen, indicando
+que os parâmetros da variante \textit{s} de 256 bits foram
+ajustados para uma relação mais equilibrada entre tamanho de
+assinatura e custo computacional. A verificação segue padrão
+análogo: a variante \textit{f} é 2,72$\times$, 2,82$\times$
+e 1,89$\times$ mais lenta no Verify que a \textit{s}, para
+os níveis 1, 3 e 5.
+O CV do Sign do SLH-DSA é inferior a 2\% em todas as
+variantes, confirmando comportamento determinístico em
+contraste direto com o ML-DSA, cujo CV ultrapassa 50\%.
+% ------------------------------------------------------------
+% 5.3 — Impacto das Configurações de Compilação
+% ------------------------------------------------------------
+\subsection{Impacto das Configurações de Compilação}
+Esta seção quantifica o efeito das 16 configurações de
+compilação sobre o desempenho de cada família criptográfica.
+As configurações resultam da combinação dos níveis
+\texttt{-O0} a \texttt{-O3} com as flags auxiliares
+\texttt{-march=native} e \texttt{-flto}, aplicadas
+isoladamente e em conjunto. As
+Figuras~\ref{fig:heatmap-kem}, \ref{fig:heatmap-sig} e
+\ref{fig:heatmap-slh} apresentam mapas de calor com os
+tempos de execução reais anotados em cada célula,
+normalizados por linha para destacar a variação relativa
+de cada algoritmo independentemente de sua magnitude
+absoluta. Células verdes identificam as configurações mais
+rápidas; vermelhas, as mais lentas.
+\subsubsection{Algoritmos KEM}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g6a_heatmap_kem.pdf}
+  \caption{Mapa de calor do tempo de Decaps dos KEMs por
+  configuração de compilação. Verde indica a configuração
+  mais rápida; vermelho, a mais lenta. Valores em $\mu$s
+  (ML-KEM) e ms (HQC), normalizados por linha.}
+  \label{fig:heatmap-kem}
+\end{figure}
+O mapa de calor da Figura~\ref{fig:heatmap-kem} revela um
+padrão inesperado para o ML-KEM: a configuração \texttt{-O0}
+figura entre as mais rápidas para todas as três variantes,
+enquanto \texttt{-O2} e \texttt{-O2~-flto} concentram as
+células mais vermelhas. O ML-KEM-512, por exemplo, registra
+Decaps de 6,2~$\mu$s com \texttt{-O0} e 6,9~$\mu$s com
+\texttt{-O2~-flto}, regressão de 11\%. Esse padrão decorre
+da arquitetura interna da liboqs: as implementações do
+ML-KEM utilizam código AVX2 escrito em assembly, compilado
+com otimizações próprias da biblioteca, independentemente
+das flags aplicadas ao código do \textit{harness} de
+benchmark. As variações observadas refletem diferenças no
+código de temporização e na pressão sobre o cache de
+instruções introduzida pelo binário do \textit{harness},
+não ganhos reais no núcleo criptográfico. Para o ML-KEM,
+a escolha das flags de compilação do código cliente é
+irrelevante para o desempenho final. Além disso, as
+flutuações observadas chegam a 0,89$\times$ no ML-KEM-512
+com \texttt{-O2\_lto}, magnitude comparável ao desvio-padrão
+das medições individuais, o que impede atribuir as variações
+a qualquer efeito real das flags.
+O HQC exibe padrão análogo: \texttt{-O0} e \texttt{-O3}
+alternam entre as células mais verdes, enquanto
+\texttt{-O2~-flto} e \texttt{-O2~-march=native} produzem
+os piores tempos. O HQC-256 Decaps varia de 22,3~ms com
+\texttt{-O0} a 24,7~ms com \texttt{-O2~-flto}, diferença
+de 10,7\%. Tal resultado indica que as implementações do
+HQC na liboqs já incorporam otimizações internas que não
+são amplificadas pelas flags de compilação aplicadas ao
+\textit{harness}.
+\subsubsection{ML-DSA e FN-DSA}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g6b_heatmap_sig.pdf}
+  \caption{Mapa de calor do tempo de Sign (ML-DSA) e KeyGen
+  (FN-DSA) por configuração de compilação. O padrão irregular
+  do ML-DSA contrasta com o gradiente estruturado do FN-DSA.
+  Valores normalizados por linha.}
+  \label{fig:heatmap-sig}
+\end{figure}
+A Figura~\ref{fig:heatmap-sig} expõe padrões contrastantes
+entre as duas famílias. Para o ML-DSA, o mapa de calor é
+irregular: não há gradiente consistente entre configurações,
+e células verdes e vermelhas alternam sem padrão direcional.
+O ML-DSA-65, por exemplo, registra Sign de 88,5~$\mu$s com
+\texttt{-O2\_native\_lto} (speedup de 1,09$\times$) e
+104,9~$\mu$s com \texttt{-O1\_native\_lto} (0,92$\times$),
+mas ambas as diferenças estão dentro da margem de dispersão
+natural do mecanismo de \textit{Fiat-Shamir with Aborts},
+cujo coeficiente de variação supera 50\%. A variabilidade
+estocástica do algoritmo domina o efeito das flags, tornando
+qualquer configuração equivalente na prática.
+O FN-DSA exibe comportamento oposto: o padrão é estruturado
+e consistente entre variantes. Para o KeyGen, a configuração
+\texttt{-O2~-march=native~-flto} produz os menores tempos
+em ambas as variantes, com 4.880,6~$\mu$s no FN-DSA-512
+(speedup de 1,007$\times$) e 14.364,2~$\mu$s no FN-DSA-1024
+(1,028$\times$). A configuração \texttt{-O2~-march=native}
+sem LTO apresenta, de forma contraintuitiva, os piores
+resultados: 5.459,7~$\mu$s no FN-DSA-512 (0,90$\times$),
+sugerindo que \texttt{-march=native} isolado pode introduzir
+pressão de registradores que prejudica a fase de amostragem
+gaussiana, efeito mitigado pelo LTO ao otimizar os limites
+entre módulos.
+\subsubsection{SLH-DSA}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g6c_heatmap_slh.pdf}
+  \caption{Mapa de calor do tempo de Sign do SLH-DSA-SHAKE
+  por configuração de compilação. A configuração
+  \texttt{-O2~-march=native~-flto} é consistentemente a mais
+  rápida; \texttt{-O2~-flto} é consistentemente a mais lenta.
+  Valores em ms, normalizados por linha.}
+  \label{fig:heatmap-slh}
+\end{figure}
+O mapa de calor da Figura~\ref{fig:heatmap-slh} exibe o
+padrão mais estruturado e interpretável dentre todas as
+famílias avaliadas. Para as seis variantes do SLH-DSA, a
+configuração \texttt{-O2~-march=native~-flto} concentra
+consistentemente as células mais verdes, enquanto
+\texttt{-O2~-flto} (sem \texttt{native}) concentra as
+mais vermelhas. Essa oposição é visível em todas as linhas
+do heatmap.
+O SLH-DSA-SHAKE-128s registra Sign de 260.056~$\mu$s com
+\texttt{-O2\_native\_lto} e 281.025~$\mu$s com
+\texttt{-O2\_lto}, speedups de 1,001$\times$ e 0,927$\times$
+respectivamente. O SLH-DSA-SHAKE-256s apresenta o maior
+ganho absoluto: 405.773~$\mu$s com \texttt{-O2\_native\_lto}
+frente a 440.057~$\mu$s com \texttt{-O2\_lto}, diferença
+de 34,3~ms por operação de assinatura.
+A explicação reside na estrutura computacional do algoritmo:
+o SLH-DSA realiza centenas de avaliações de SHAKE-256 por
+assinatura, operação que se beneficia diretamente das
+extensões SHA e AVX2 habilitadas por \texttt{-march=native}.
+O LTO isolado não acessa essas instruções por não ter
+informação da arquitetura alvo, introduzindo apenas overhead
+de linkedição sem ganho compensatório. Isso explica o fato
+de \texttt{-O2\_lto} produzir tempos superiores ao próprio
+\texttt{-O0} para o SLH-DSA.
+Vale destacar ainda um padrão transversal: a configuração
+\texttt{-O3} frequentemente regride em relação ao
+\texttt{-O2} da mesma família de flags. O
+SLH-DSA-SHAKE-128s, por exemplo, registra Sign de
+260.550~$\mu$s com \texttt{-O3} e 260.056~$\mu$s com
+\texttt{-O2\_native\_lto}. Esse comportamento é atribuído
+ao aumento do tamanho do código gerado pelas heurísticas
+agressivas do \texttt{-O3}: o desenrolamento excessivo de
+loops e o inlining profundo produzem binários maiores que
+exercem maior pressão sobre o cache de instruções (L1i),
+cujo impacto é especialmente pronunciado em funções
+altamente iterativas como a construção das árvores de Merkle.
+Para o SLH-DSA, o ponto de equilíbrio entre otimização e
+pressão de cache encontra-se em \texttt{-O2}, não em
+\texttt{-O3}.
+Os resultados desta seção evidenciam três regimes distintos
+de sensibilidade às flags de compilação. O ML-KEM é
+insensível porque seu núcleo crítico já está otimizado em
+assembly dentro da liboqs. O ML-DSA é governado por
+variabilidade estocástica, tornando qualquer conclusão sobre
+flags estatisticamente frágil. O SLH-DSA e o FN-DSA
+respondem de forma estruturada, com
+\texttt{-O2~-march=native~-flto} como configuração
+dominante, especialmente em operações que envolvem hashing
+intensivo ou amostragem sobre redes de reticulados.
+% ------------------------------------------------------------
+% 5.4 — Escalabilidade com o Tamanho da Mensagem
+% ------------------------------------------------------------
+\subsection{Escalabilidade com o Tamanho da Mensagem}
+Esta seção investiga como os tempos de assinatura e
+verificação variam em função do tamanho da mensagem, de
+1~B a 1~MiB em potências de dois (21 pontos), com a
+configuração \texttt{-O0} como referência. A análise não
+se aplica aos KEMs, cujas operações possuem entradas de
+tamanho fixo. As Figuras~\ref{fig:escala-sign-lattice},
+\ref{fig:escala-sign-slh-f} e \ref{fig:escala-sign-slh-s}
+cobrem as curvas de assinatura; as
+Figuras~\ref{fig:escala-verify-lattice} e
+\ref{fig:escala-verify-slh} cobrem as de verificação.
+\subsubsection{Assinatura: ML-DSA e FN-DSA}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g3a_escala_sign_lattice.pdf}
+  \caption{Tempo de assinatura em função do tamanho da
+  mensagem para ML-DSA e FN-DSA (\texttt{-O0}). Todas as
+  curvas exibem crescimento linear com inclinação
+  $\approx$2,1~$\mu$s/KiB a partir de 1~KiB, dominada
+  pelo custo do SHAKE-256.}
+  \label{fig:escala-sign-lattice}
+\end{figure}
+A Figura~\ref{fig:escala-sign-lattice} mostra que todas as
+variantes do ML-DSA e do FN-DSA exibem o mesmo padrão:
+tempo praticamente constante de 1~B até aproximadamente
+1~KiB, seguido de crescimento linear com o tamanho da
+mensagem. A inclinação dessa fase linear é praticamente
+idêntica para todos os algoritmos, entre 2,08 e
+2,16~$\mu$s/KiB, o que evidencia que o gargalo de
+escalabilidade não é o núcleo criptográfico de cada
+esquema, mas a função SHAKE-256 aplicada à mensagem antes
+da assinatura, cuja taxa de processamento no AMD Ryzen 7
+7435HS corresponde a aproximadamente 476~MB/s.
+Embora a inclinação seja a mesma, os fatores de crescimento
+de 1~B a 1~MiB diferem substancialmente: o ML-DSA-44, com
+tempo base de 56,6~$\mu$s, cresce 38,7$\times$ até
+2.189,5~$\mu$s; o FN-DSA-1024, com base de 339,2~$\mu$s,
+cresce apenas 7,3$\times$ até 2.477,7~$\mu$s. Em valores
+absolutos, todos os algoritmos convergem para a faixa de
+2.189 a 2.478~$\mu$s no 1~MiB, confirmando que o hash
+domina o tempo total para mensagens grandes.
+Uma implicação prática direta desse resultado é que o custo
+de assinar mensagens de diferentes tamanhos com ML-DSA ou
+FN-DSA é fortemente dependente do volume: assinar um
+documento de 1~MiB com ML-DSA-44 custa 38,7$\times$ mais
+que assinar uma mensagem de 1~B. Para aplicações que
+processam documentos grandes com frequência, como sistemas
+de assinatura de contratos ou registros eletrônicos, esse
+crescimento linear pode tornar-se um gargalo, e a análise
+de desempenho deve ser conduzida com mensagens
+representativas do caso de uso real, não com mensagens
+mínimas.
+\subsubsection{Assinatura: SLH-DSA}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g3b_escala_sign_slh_f.pdf}
+  \caption{Tempo de assinatura em função do tamanho da
+  mensagem para as variantes \textit{f} do SLH-DSA
+  (\texttt{-O0}). As curvas são aproximadamente constantes;
+  o crescimento de 1~B a 1~MiB não ultrapassa 33\%.}
+  \label{fig:escala-sign-slh-f}
+\end{figure}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g3c_escala_sign_slh_s.pdf}
+  \caption{Tempo de assinatura em função do tamanho da
+  mensagem para as variantes \textit{s} do SLH-DSA
+  (\texttt{-O0}). O crescimento de 1~B a 1~MiB é inferior
+  a 3,2\% em todas as variantes.}
+  \label{fig:escala-sign-slh-s}
+\end{figure}
+As Figuras~\ref{fig:escala-sign-slh-f} e
+\ref{fig:escala-sign-slh-s} apresentam o resultado mais
+expressivo desta análise: o tempo de assinatura do SLH-DSA
+é praticamente insensível ao tamanho da mensagem.
+Para as variantes \textit{f}
+(Figura~\ref{fig:escala-sign-slh-f}), as curvas permanecem
+essencialmente planas ao longo de toda a faixa avaliada,
+com crescimento restrito às mensagens maiores. O
+SLH-DSA-SHAKE-128f varia de 13.401~$\mu$s (1~B) a
+17.801~$\mu$s (1~MiB), fator de 1,33$\times$. O
+SLH-DSA-SHAKE-256f registra variação de 43.380~$\mu$s a
+47.720~$\mu$s, fator de apenas 1,10$\times$. As inclinações
+das variantes \textit{f}, entre 4,20 e 4,26~$\mu$s/KiB,
+são cerca do dobro das observadas para ML-DSA e FN-DSA,
+indicando que o SLH-DSA aplica internamente um hashing mais
+extenso da mensagem antes de iniciar a construção das
+árvores de Merkle.
+Para as variantes \textit{s}
+(Figura~\ref{fig:escala-sign-slh-s}), o comportamento
+aproxima-se ainda mais do constante. O SLH-DSA-SHAKE-128s
+varia de 260.269~$\mu$s a 268.518~$\mu$s, acréscimo de
+apenas 3,2\% sobre um custo base de 260~ms. O
+SLH-DSA-SHAKE-192s cresce 1,2\%, e o SLH-DSA-SHAKE-256s,
+1,3\%. As inclinações entre 4,23 e 6,30~$\mu$s/KiB
+representam fração desprezível do custo total: para o
+SLH-DSA-192s, o hash de 1~MiB adiciona cerca de 4,3~ms
+sobre um custo base de 460~ms, contribuição inferior a 1\%.
+Esse comportamento é consequência direta da estrutura do
+algoritmo: o custo dominante é a construção das árvores
+de Merkle da estrutura FORS e da hiper-árvore
+XMS\textsuperscript{MT}, fixo e independente da mensagem.
+A mensagem é hashada uma única vez antes de alimentar o
+processo de assinatura, representando custo marginal no
+cômputo total.
+A insensibilidade ao tamanho da mensagem tem uma implicação
+prática relevante: o SLH-DSA oferece latência de assinatura
+previsível independentemente do volume de dados. Para cenários
+de assinatura de documentos grandes, como PDFs ou imagens de
+firmware, o SLH-DSA-SHAKE-128f registra tempos entre
+13,4~ms e 17,8~ms de 1~B a 1~MiB, variação de apenas 4,4~ms.
+O ML-DSA-44 é mais rápido para mensagens pequenas, mas o
+SLH-DSA permanece mais lento em termos absolutos para qualquer
+tamanho avaliado. Em contrapartida, a \textit{estabilidade}
+do seu tempo de assinatura pode ser vantajosa em sistemas de
+tempo real que demandam garantias de latência máxima.
+\subsubsection{Verificação: ML-DSA e FN-DSA}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g5a_escala_verify_lattice.pdf}
+  \caption{Tempo de verificação em função do tamanho da
+  mensagem para ML-DSA e FN-DSA (\texttt{-O0}). A inclinação
+  de $\approx$2,1~$\mu$s/KiB é idêntica à da assinatura,
+  confirmando que o gargalo é o SHAKE-256.}
+  \label{fig:escala-verify-lattice}
+\end{figure}
+A Figura~\ref{fig:escala-verify-lattice} mostra que a
+verificação segue o mesmo padrão da assinatura: constante
+até aproximadamente 1~KiB, linear a partir daí, com
+inclinação de 2,08 a 2,16~$\mu$s/KiB. Os fatores de
+crescimento de 1~B a 1~MiB são mais elevados que os da
+assinatura porque os tempos base de verificação são
+menores: o ML-DSA-44 cresce 100,5$\times$ (de 21,4~$\mu$s
+a 2.152~$\mu$s) e o FN-DSA-512 cresce 65,1$\times$ (de
+34,0~$\mu$s a 2.211~$\mu$s). As cinco curvas convergem
+para valores próximos em 1~MiB (entre 2.152 e 2.250~$\mu$s),
+reforçando que o SHAKE-256 é o gargalo universal da fase
+de verificação para mensagens grandes.
+A uniformidade da inclinação de $\approx$2,1~$\mu$s/KiB
+entre todos os algoritmos na verificação é um resultado que
+transcende a comparação de desempenho: indica que, para
+mensagens grandes, o custo de verificação de uma assinatura
+digital baseada em SHAKE-256 é determinado essencialmente
+pelo hardware e pelo tamanho da mensagem, sendo
+independente do esquema criptográfico adotado. Para o
+dimensionamento de sistemas de verificação em lote, isso
+significa que verificar 1.000 assinaturas sobre documentos
+de 1~MiB custará aproximadamente o mesmo tempo de hash para
+ML-DSA-44 ou FN-DSA-512.
+\subsubsection{Verificação: SLH-DSA}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{graficos/g5b_escala_verify_slh.pdf}
+  \caption{Tempo de verificação em função do tamanho da
+  mensagem para todas as variantes do SLH-DSA (\texttt{-O0}).
+  Ao contrário da assinatura, a verificação cresce linearmente
+  em todas as variantes com inclinação $\approx$2,1~$\mu$s/KiB.
+  Linhas sólidas representam a variante \textit{s}; tracejadas,
+  a variante \textit{f}.}
+  \label{fig:escala-verify-slh}
+\end{figure}
+A Figura~\ref{fig:escala-verify-slh} reúne as curvas de
+verificação das seis variantes do SLH-DSA. Ao contrário
+da assinatura, a verificação cresce linearmente com a
+mensagem em todas as variantes, com inclinação entre 2,12
+e 2,14~$\mu$s/KiB, valor que coincide com o observado para
+ML-DSA e FN-DSA. Isso confirma que, na fase de verificação,
+o SLH-DSA percorre apenas um caminho da árvore de Merkle
+(custo fixo e pequeno) e hasha a mensagem completa, operação
+que passa a dominar o tempo para mensagens maiores.
+As variantes \textit{f} (tracejadas) partem de tempos base
+superiores aos das \textit{s} (sólidas) do mesmo nível:
+o SLH-128f inicia em 898~$\mu$s, enquanto o SLH-128s inicia
+em 331~$\mu$s. Ambas convergem para valores próximos em
+1~MiB (3.077 e 2.517~$\mu$s, respectivamente). A redução
+gradual desse intervalo ocorre porque a fração de tempo
+dedicada ao hash da mensagem torna-se dominante em ambas
+as variantes, diluindo a diferença nos tempos base.
+Do ponto de vista prático, a verificação do SLH-DSA
+apresenta um perfil favorável para aplicações de alta
+frequência com mensagens grandes: o tempo base de
+verificação para mensagens pequenas varia de 331~$\mu$s
+a 1.309~$\mu$s conforme a variante, mas a inclinação de
+2,1~$\mu$s/KiB é a mesma dos demais esquemas. Para mensagens
+de 1~MiB, todas as variantes convergem para a faixa de
+2,5 a 4,1~ms, apenas marginalmente superior aos 2,2~ms do
+ML-DSA e FN-DSA. Em sistemas onde a verificação de
+documentos grandes é a operação dominante, a penalidade de
+verificação do SLH-DSA é pequena em termos absolutos, mesmo
+que o custo de assinatura seja ordens de grandeza mais
+elevado.
+% ------------------------------------------------------------
+% 5.5 — Consumo de Memória
+% ------------------------------------------------------------
+\subsection{Consumo de Memória}
+\label{sec:res-memoria}
+
+
+O consumo de memória foi avaliado por duas técnicas
+complementares: \textit{stack painting} para medir o uso
+de pilha e \texttt{valgrind --tool=massif} para medir o
+pico de \textit{heap}. Ambas as medições foram realizadas
+com compilação \texttt{-O0}, sem otimizações, para refletir
+o comportamento real de alocação de cada algoritmo.
+É importante notar que o pico de \textit{heap} capturado
+pelo Valgrind mede o máximo de memória alocada \emph{durante}
+a execução, incluindo alocações transientes que são liberadas
+ao término da operação; o delta líquido de \textit{heap}
+entre o início e o fim de cada operação é nulo, pois o
+\textit{liboqs} não deixa alocações persistentes após o
+retorno das funções.
+
+
+\subsubsection{Uso de Pilha (\textit{Stack})}
+\label{sec:res-stack}
+
+
+As Tabelas~\ref{tab:stack_kem} e~\ref{tab:stack_sig}
+apresentam o uso de \textit{stack} para os KEMs e para
+os esquemas de assinatura, respectivamente.
+
+
+\begin{table}[ht]
+\centering
+\caption{Uso de memória \textit{stack} por KEM e operação
+(bytes). Medido via \textit{stack painting} com
+\texttt{pthread} de 4\,MB e compilação \texttt{-O0}.}
+\label{tab:stack_kem}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen} & \textbf{Encap} & \textbf{Decap} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-KEM (FIPS\,203)}} \\[2pt]
+\quad ML-KEM-512  &  13.520 &  16.160 &  16.960 \\
+\quad ML-KEM-768  &  17.648 &  20.784 &  21.904 \\
+\quad ML-KEM-1024 &  22.768 &  26.448 &  28.048 \\
+\midrule
+\multicolumn{4}{l}{\textit{HQC}} \\[2pt]
+\quad HQC-128 &  38.576 &  56.448 &  60.896 \\
+\quad HQC-192 &  70.688 & 106.752 & 115.760 \\
+\quad HQC-256 & 108.768 & 166.592 & 181.040 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\caption{Uso de memória \textit{stack} por esquema de
+assinatura e operação (bytes). Medido via \textit{stack
+painting} com \texttt{pthread} de 4\,MB e compilação
+\texttt{-O0}.}
+\label{tab:stack_sig}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen} & \textbf{Sign} & \textbf{Verify} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-DSA (FIPS\,204)}} \\[2pt]
+\quad ML-DSA-44 &  28.304 &  53.456 &  25.968 \\
+\quad ML-DSA-65 &  33.456 &  83.312 &  29.072 \\
+\quad ML-DSA-87 &  41.648 & 117.072 &  35.472 \\
+\midrule
+\multicolumn{4}{l}{\textit{FN-DSA (FIPS\,206)}} \\[2pt]
+\quad FN-DSA-512  &  23.608 &  49.584 &   9.064 \\
+\quad FN-DSA-1024 &  40.504 &  90.736 &  13.160 \\
+\midrule
+\multicolumn{4}{l}{\textit{SLH-DSA-SHAKE (FIPS\,205)}} \\[2pt]
+\quad SLH-DSA-SHAKE-128s &  14.480 &  13.744 &   8.464 \\
+\quad SLH-DSA-SHAKE-128f &  14.000 &  13.360 &   8.464 \\
+\quad SLH-DSA-SHAKE-192s &  20.976 &  19.504 &   9.328 \\
+\quad SLH-DSA-SHAKE-192f &  20.240 &  18.928 &   9.360 \\
+\quad SLH-DSA-SHAKE-256s &  29.744 &  27.312 &  10.480 \\
+\quad SLH-DSA-SHAKE-256f &  29.104 &  26.800 &  10.512 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+O uso de \textit{stack} é a métrica que melhor diferencia
+os algoritmos sob análise.
+Entre os KEMs, o ML-KEM apresenta consumo reduzido e
+previsível: a operação mais custosa, \textit{decap} do
+ML-KEM-1024, consome apenas 28.048 bytes. O HQC, por outro
+lado, exige consideravelmente mais pilha: o \textit{decap}
+do HQC-256 chega a 181.040 bytes, cerca de 6,5 vezes o
+valor equivalente do ML-KEM-1024. Esse comportamento é
+esperado dado o tamanho dos vetores polinomiais e os buffers
+intermediários que o HQC emprega internamente.
+
+
+Entre os esquemas de assinatura, o ML-DSA é o mais exigente:
+a operação \textit{sign} do ML-DSA-87 consome 117.072 bytes,
+reflexo dos vetores de comprometimento e das matrizes de
+desafio manipulados durante a geração da assinatura. O
+FN-DSA destaca-se pelo baixo consumo de \textit{stack} na
+verificação: 9.064 bytes para FN-DSA-512 e 13.160 bytes
+para FN-DSA-1024.
+
+
+O resultado mais surpreendente desta análise pertence ao
+SLH-DSA-SHAKE: apesar de registrar o maior custo
+computacional de assinatura de todo o conjunto avaliado
+(até 460\,ms), seu uso de \textit{stack} é o menor entre
+todos os esquemas de assinatura. A verificação das variantes
+SLH-DSA-SHAKE-128s e -128f consome apenas 8.464 bytes,
+valor inferior ao do próprio FN-DSA-512 (9.064 bytes) na
+mesma operação. As operações de assinatura ficam entre
+13.360 bytes (SLH-DSA-SHAKE-128f) e 27.312 bytes
+(SLH-DSA-SHAKE-256s), intervalo comparável ao do ML-KEM-512.
+Essa propriedade é consequência direta da arquitetura
+baseada em funções hash: o SLH-DSA não emprega matrizes
+nem vetores polinomiais de grande porte alocados em pilha;
+toda a computação se realiza por chamadas iterativas de
+SHAKE-256 com estado interno reduzido. Assim, o SLH-DSA
+combina alto custo de CPU com uso mínimo de \textit{stack},
+tornando-o uma opção viável em ambientes com restrições
+severas de pilha que toleram latência elevada de assinatura.
+
+
+\subsubsection{Pico de Heap (Valgrind \texttt{massif})}
+\label{sec:res-heap}
+
+
+As Tabelas~\ref{tab:heap_kem} e~\ref{tab:heap_sig}
+apresentam o pico de uso de \textit{heap} medido pelo
+\texttt{valgrind --tool=massif}. Para as variantes
+SLH-DSA-SHAKE, os dados de \textit{heap} estão disponíveis,
+pois foram coletados com o programa \texttt{massif\_single.c}
+de forma independente do benchmark de \textit{stack}.
+
+
+\begin{table}[ht]
+\centering
+\caption{Pico de \textit{heap} por KEM e operação (KB).
+Medido com \texttt{valgrind --tool=massif}; valor de pico
+de \texttt{mem\_heap\_B} para cada operação isolada.}
+\label{tab:heap_kem}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen (KB)} & \textbf{Encap (KB)} & \textbf{Decap (KB)} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-KEM (FIPS\,203)}} \\[2pt]
+\quad ML-KEM-512  & 204,97 & 204,97 & 204,97 \\
+\quad ML-KEM-768  & 207,17 & 207,17 & 207,17 \\
+\quad ML-KEM-1024 & 208,00 & 208,17 & 208,17 \\
+\midrule
+\multicolumn{4}{l}{\textit{HQC}} \\[2pt]
+\quad HQC-128 & 211,07 & 211,07 & 211,07 \\
+\quad HQC-192 & 219,74 & 219,74 & 219,74 \\
+\quad HQC-256 & 230,60 & 230,60 & 230,60 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\caption{Pico de \textit{heap} por esquema de assinatura
+digital e operação (KB). Medido com
+\texttt{valgrind --tool=massif}; valor de pico de
+\texttt{mem\_heap\_B} para cada operação isolada.}
+\label{tab:heap_sig}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen (KB)} & \textbf{Sign (KB)} & \textbf{Verify (KB)} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-DSA (FIPS\,204)}} \\[2pt]
+\quad ML-DSA-44 & 207,92 & 208,90 & 208,90 \\
+\quad ML-DSA-65 & 211,02 & 211,02 & 211,83 \\
+\quad ML-DSA-87 & 214,37 & 214,59 & 214,59 \\
+\midrule
+\multicolumn{4}{l}{\textit{FN-DSA (FIPS\,206)}} \\[2pt]
+\quad FN-DSA-512  & 204,64 & 204,81 & 204,81 \\
+\quad FN-DSA-1024 & 207,16 & 207,38 & 207,38 \\
+\midrule
+\multicolumn{4}{l}{\textit{SLH-DSA-SHAKE (FIPS\,205)}} \\[2pt]
+\quad SLH-DSA-SHAKE-128s & 210,31 & 210,31 & 210,31 \\
+\quad SLH-DSA-SHAKE-128f & 219,32 & 219,32 & 219,32 \\
+\quad SLH-DSA-SHAKE-192s & 218,52 & 218,52 & 218,52 \\
+\quad SLH-DSA-SHAKE-192f & 237,51 & 237,51 & 237,51 \\
+\quad SLH-DSA-SHAKE-256s & 231,82 & 231,82 & 231,82 \\
+\quad SLH-DSA-SHAKE-256f & 251,42 & 251,42 & 251,42 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+Ao contrário do \textit{stack}, o pico de \textit{heap}
+não constitui um fator diferenciador expressivo entre os
+algoritmos. Os valores observados situam-se em uma faixa
+estreita, de aproximadamente 204,64\,KB (FN-DSA-512) a
+251,42\,KB (SLH-DSA-SHAKE-256f), uma variação total
+inferior a 47\,KB em todo o conjunto avaliado.
+
+
+Essa uniformidade é explicada pela arquitetura interna do
+\texttt{liboqs}: a biblioteca realiza uma alocação de
+contexto durante a inicialização do objeto de algoritmo
+(\texttt{OQS\_KEM\_new} / \texttt{OQS\_SIG\_new}), que
+representa o grosso do \textit{heap} medido pelo Valgrind,
+independentemente do algoritmo selecionado. As alocações
+transitórias da operação em si são adicionadas durante a
+execução e liberadas ao término, resultando em variações
+pequenas entre operações do mesmo algoritmo.
+
+
+O crescimento do pico entre variantes de maior nível de
+segurança reflete principalmente o tamanho dos buffers
+internos: o SLH-DSA-SHAKE-256f, com parâmetros mais
+conservadores e assinaturas maiores, apresenta o maior
+pico (251,42\,KB), enquanto o FN-DSA-512 registra o menor
+(204,64\,KB). Para efeitos de seleção de algoritmo em
+sistemas com restrição de memória dinâmica, o \textit{heap}
+não é o fator limitante: todos os algoritmos operam dentro
+de uma faixa compatível com sistemas de propósito geral,
+e o \textit{stack} é o critério relevante para ambientes
+com restrições severas de memória.
+% ============================================================
+% SEÇÃO 6 — Conclusão
+% ============================================================
+\section{Conclusão}
+Este trabalho apresentou uma análise experimental de
+desempenho dos algoritmos finalistas do processo de
+padronização do NIST para criptografia pós-quântica,
+avaliando ML-KEM, HQC, ML-DSA, FN-DSA e SLH-DSA sob
+cinco dimensões: tamanho dos artefatos criptográficos,
+desempenho temporal das operações fundamentais, sensibilidade
+às configurações de compilação, escalabilidade com o
+tamanho da mensagem e consumo de memória. Os experimentos
+foram conduzidos com a biblioteca liboqs sobre hardware
+x86-64 com suporte a instruções AVX2, SHA e FMA3, cobrindo
+16 configurações de compilação e todas as variantes
+paramétricas de cada algoritmo nos níveis de segurança
+NIST 1, 3 e 5.
+Os resultados evidenciam que nenhum algoritmo domina todas
+as dimensões simultaneamente, e que a escolha adequada
+depende do equilíbrio entre as propriedades relevantes para
+cada aplicação. No grupo dos KEMs, o ML-KEM supera o HQC
+em desempenho por um fator de 200$\times$ a 1.503$\times$
+dependendo da operação e do nível de segurança, beneficiado
+por implementações com instruções SIMD e pela eficiência da
+Transformada Número-Teórica sobre módulos de reticulados.
+O HQC, apesar do custo computacional elevado, oferece
+diversificação da base matemática ao fundamentar-se em
+teoria de códigos corretores de erros, propriedade relevante
+em cenários que demandam resistência a múltiplas classes de
+ataques.
+No grupo das assinaturas digitais, o ML-DSA apresenta o
+melhor equilíbrio geral: as três operações fundamentais
+operam na mesma ordem de grandeza, e o algoritmo é
+competitivo em todos os níveis de segurança avaliados. Seu
+principal ponto de atenção é o alto coeficiente de variação
+do Sign (51\% a 62\%), decorrente do mecanismo de
+\textit{Fiat-Shamir with Aborts}, que torna a média
+estatisticamente menos representativa que a mediana para
+dimensionamento de sistemas. O FN-DSA ocupa uma posição
+distinta: o custo de geração de chave é 28$\times$ superior
+ao de assinatura no nível 1, tornando-o desfavorável em
+cenários de chave efêmera, mas competitivo quando o par de
+chaves é reutilizado ao longo de múltiplas operações. O
+SLH-DSA concentra o maior custo computacional de assinatura
+(até 460~ms na variante \textit{s}, nível 3), compensado
+por duas propriedades estruturais: comportamento
+determinístico e independência quase total do tempo de
+assinatura em relação ao tamanho da mensagem, com crescimento
+inferior a 3,2\% de 1~B a 1~MiB.
+
+
+O consumo de memória revelou que o \textit{stack} é a
+dimensão mais discriminante entre os algoritmos nessa
+métrica. O HQC exige até 6,5 vezes mais pilha que o ML-KEM
+no nível de segurança equivalente, reflexo de seu design
+baseado em vetores densos. O resultado mais inesperado
+desta dimensão pertence ao SLH-DSA-SHAKE: apesar de
+registrar o maior custo computacional de assinatura, seu
+uso de \textit{stack} é o mais baixo de todo o conjunto —
+a verificação do SLH-DSA-SHAKE-128s consome apenas
+8.464 bytes, superando inclusive o FN-DSA-512 (9.064 bytes)
+nessa métrica. Essa propriedade decorre de sua arquitetura
+iterativa baseada em funções hash, sem alocação de matrizes
+polinomiais em pilha. O pico de \textit{heap}, por sua vez,
+é dominado pelo \textit{overhead} de inicialização do
+\texttt{liboqs} e varia menos de 47\,KB entre todos os
+algoritmos avaliados, não constituindo critério
+diferenciador para seleção em sistemas de propósito geral.
+
+
+A análise das configurações de compilação revelou três
+regimes distintos de sensibilidade. O ML-KEM é insensível
+às flags do código cliente, pois seu núcleo criptográfico
+já está otimizado em assembly dentro da liboqs, e as
+variações observadas são estatisticamente indistinguíveis
+do ruído de medição. O ML-DSA é governado pela
+variabilidade estocástica do algoritmo, que domina qualquer
+efeito de compilação. O FN-DSA e o SLH-DSA respondem de
+forma estruturada, com a combinação
+\texttt{-O2~-march=native~-flto} produzindo consistentemente
+os melhores tempos ao habilitar instruções SHA e AVX2 da
+arquitetura. Um achado transversal é que o nível \texttt{-O3}
+frequentemente regride em relação ao \texttt{-O2} por
+introduzir pressão excessiva sobre o cache de instruções,
+sugerindo que o ponto de equilíbrio entre otimização e
+localidade de cache encontra-se em \texttt{-O2} para
+algoritmos com funções altamente iterativas.
+A análise de escalabilidade identificou um gargalo universal:
+a função SHAKE-256 aplicada à mensagem impõe uma inclinação
+de $\approx$2,1~$\mu$s/KiB em todas as operações de
+assinatura e verificação, para todos os algoritmos avaliados.
+Esse resultado indica que, para mensagens grandes, o custo
+de assinatura e verificação é determinado primariamente pelo
+hardware e pelo tamanho da mensagem, e não pelo esquema
+criptográfico adotado. A exceção é o Sign do SLH-DSA, cujo
+custo base das árvores de Merkle domina completamente o hash
+da mensagem, tornando-o praticamente constante ao longo de
+toda a faixa avaliada.
+Dois achados merecem destaque como contribuições específicas
+deste trabalho. O primeiro é a quantificação do viés
+introduzido pela amostragem por rejeição no ML-DSA: a média
+do Sign supera a mediana em 27,7\% no ML-DSA-44, diferença
+que decresce para 18,1\% no ML-DSA-87 à medida que os
+parâmetros do nível de segurança mais alto reduzem a taxa
+de rejeição do protocolo. Essa assimetria implica que
+sistemas dimensionados com base na média aritmética
+subestimarão o tempo real de execução em até 28\% para
+um conjunto típico de requisições, e que a mediana é a
+estatística adequada para planejamento de capacidade em
+aplicações baseadas em ML-DSA. O segundo achado é a
+inclinação universal de $\approx$2,1~$\mu$s/KiB imposta
+pelo SHAKE-256 em todas as operações de assinatura e
+verificação de todos os algoritmos avaliados, indicando
+que o gargalo de escalabilidade para mensagens grandes
+é determinado pelo hardware, não pelo esquema criptográfico.
+Nenhum dos trabalhos correlatos revisados reporta qualquer
+um desses dois resultados.
+O trabalho apresenta duas limitações principais.
+Os experimentos foram conduzidos em uma única plataforma
+de hardware sob WSL, e os resultados podem diferir em
+ambientes de execução distintos, como servidores bare metal,
+processadores ARM ou plataformas embarcadas com suporte
+limitado a extensões SIMD.
+Por fim, a análise das configurações de compilação avalia
+exclusivamente o desempenho temporal, sem verificar a
+preservação das propriedades de segurança de cada algoritmo
+sob diferentes níveis de otimização. Implementações
+criptográficas seguras frequentemente dependem de execução
+em tempo constante (\textit{constant-time}) para resistir
+a ataques de canal lateral por temporização. Otimizações
+agressivas do compilador, como vetorização automática e
+reorganização de instruções presentes nos níveis
+\texttt{-O2} e \texttt{-O3}, podem alterar os padrões de
+execução de forma a comprometer essas garantias. Assim,
+os ganhos de desempenho identificados na Seção~5.3 não
+devem ser interpretados como recomendação de adoção direta
+dessas configurações sem validação independente das
+propriedades de segurança, especialmente em contextos onde
+a resistência a ataques de canal lateral é requisito.
+Os resultados obtidos respondem à questão central proposta
+na introdução: as diferenças de desempenho entre os
+algoritmos finalistas do NIST PQC são substanciais em todas
+as dimensões avaliadas, e nenhum esquema domina os demais
+em todas as métricas simultaneamente. Essa diversidade de
+perfis não é uma limitação do processo de padronização;
+pelo contrário, reflete a intenção deliberada do NIST de
+oferecer alternativas adequadas a contextos distintos,
+desde aplicações de baixa latência até cenários que exigem
+assinaturas compactas, comportamento determinístico ou
+diversificação da base matemática. A transição da
+criptografia clássica para o paradigma pós-quântico
+demandará escolhas informadas por dados experimentais,
+e este trabalho contribui com uma base comparativa
+reprodutível para subsidiar essas decisões. Os resultados
+foram exportados em formato CSV padronizado, com metodologia
+documentada e verificação de corretude por iteração,
+permitindo reprodução independente e extensão para novos
+algoritmos, plataformas ou métricas em estudos futuros.
+\subsection{Trabalhos Futuros}
+Os resultados e limitações identificados neste trabalho
+apontam para diversas direções de pesquisa que podem
+aprofundar ou complementar a análise realizada.
+\textbf{Novos algoritmos do processo de padronização do NIST.}
+O processo de padronização conduzido pelo NIST ainda não
+está encerrado: rodadas adicionais avaliaram candidatos
+suplementares, e novos esquemas podem ser incorporados ao
+conjunto de algoritmos padronizados. Uma extensão natural
+deste trabalho é a inclusão desses candidatos na mesma
+infraestrutura de benchmark, permitindo comparação direta
+com os algoritmos aqui avaliados sob as mesmas condições
+experimentais.
+\textbf{Validação das propriedades de segurança sob diferentes
+flags de compilação.}
+Este trabalho avaliou exclusivamente o impacto das flags
+sobre o desempenho temporal, sem verificar se as
+propriedades de segurança, em especial a execução em tempo
+constante (\textit{constant-time}), são preservadas em cada
+configuração. Trabalhos futuros podem empregar ferramentas
+de análise estática e dinâmica de temporização, como
+\cite{Reparaz:2017} e
+\cite{Almeida:2016}, para identificar
+configurações de compilação que introduzem dependência de
+dados no tempo de execução, comprometendo a resistência a
+ataques de canal lateral.
+\textbf{Expansão das configurações de compilação.}
+As 16 configurações avaliadas combinam quatro níveis de
+otimização com \texttt{-march=native} e \texttt{-flto}.
+Estudos futuros podem ampliar esse espaço com
+\textit{Profile-Guided Optimization} (PGO), que utiliza
+dados de execução real para guiar as decisões do compilador,
+com a \textit{polyhedral model optimization}
+(\texttt{-floop-nest-optimize}), e com comparações entre
+compiladores distintos, como GCC e Clang/LLVM, cujas
+heurísticas de vetorização diferem significativamente para
+código com padrões de acesso irregular como NTT e hashing
+iterativo.
+\textbf{Avaliação em plataformas embarcadas e IoT.}
+Os experimentos foram realizados sobre um processador
+x86-64 com suporte completo a instruções AVX2 e SHA. O
+desempenho relativo entre os algoritmos pode diferir
+substancialmente em arquiteturas ARM Cortex-M ou RISC-V
+sem extensões SIMD, cenário relevante para dispositivos
+IoT e sistemas embarcados que constituem um dos principais
+casos de uso da criptografia pós-quântica. Estudos em
+plataformas como Raspberry Pi, STM32 e ESP32 permitiriam
+avaliar a viabilidade prática dos algoritmos em ambientes
+com restrições severas de processamento e energia.
+\textbf{Integração com protocolos de comunicação reais.}
+Este trabalho avaliou os algoritmos em isolamento. Uma
+extensão relevante é a medição do impacto sobre protocolos
+reais, como TLS~1.3 e SSH, onde o custo de cada operação
+criptográfica é distribuído ao longo do handshake e de
+sessões de longa duração. Estudos como o de
+\cite{Sosnowski:2023} demonstraram que o desempenho de
+PQC em contexto de protocolo pode diferir das medições
+isoladas, e a análise combinada de KEMs e esquemas de
+assinatura no mesmo handshake permitiria avaliar o custo
+total da migração pós-quântica.
+\textbf{Benchmarks com modo híbrido clássico e pós-quântico.}
+A estratégia de migração recomendada pelo NIST e por
+organismos como o IETF prevê um período de uso híbrido, em
+que algoritmos clássicos (como X25519 e ECDSA) operam em
+paralelo com os seus substitutos pós-quânticos. Avaliar o
+overhead combinado de pares híbridos (por exemplo,
+X25519~+~ML-KEM e Ed25519~+~ML-DSA) é uma extensão
+direta deste trabalho com impacto prático imediato para
+engenheiros e arquitetos de sistemas de segurança em
+processo de migração.
+\bibliographystyle{apalike-sol}
+\bibliography{refs}
+\end{document}

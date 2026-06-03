@@ -1,0 +1,143 @@
+% ============================================================
+% tables_memoria.tex
+%
+% Tabelas de uso de memória para algoritmos PQC (TCC).
+% Inclua no documento com: \input{tables_memoria}
+%
+% Pacotes necessários:
+%   \usepackage{booktabs}
+%   \usepackage{multirow}
+%   \usepackage[utf8]{inputenc}
+%
+% Metodologia de medição:
+%   - Stack  : stack painting via pthread (4 MB de buffer sentinela)
+%   - Heap   : Valgrind --tool=massif, pico de mem_heap_B
+% ============================================================
+
+
+% ============================================================
+% Tabela 1: Stack — KEMs
+% ============================================================
+\begin{table}[ht]
+\centering
+\caption{Uso de memória \textit{stack} por mecanismo de encapsulamento de
+chave (KEM) e operação, em bytes. Medido via \textit{stack painting}
+com \texttt{pthread} de 4\,MB e compilação \texttt{-O0}.}
+\label{tab:stack_kem}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen (B)} & \textbf{Encap (B)} & \textbf{Decap (B)} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-KEM (FIPS 203)}} \\[2pt]
+\quad ML-KEM-512  &  13\,520 &  16\,160 &  16\,960 \\
+\quad ML-KEM-768  &  17\,648 &  20\,784 &  21\,904 \\
+\quad ML-KEM-1024 &  22\,768 &  26\,448 &  28\,048 \\
+\midrule
+\multicolumn{4}{l}{\textit{HQC}} \\[2pt]
+\quad HQC-128 &  38\,576 &  56\,448 &  60\,896 \\
+\quad HQC-192 &  70\,688 & 106\,752 & 115\,760 \\
+\quad HQC-256 & 108\,768 & 166\,592 & 181\,040 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+% Tabela 2: Stack — Assinaturas Digitais
+% ============================================================
+\begin{table}[ht]
+\centering
+\caption{Uso de memória \textit{stack} por esquema de assinatura digital
+e operação, em bytes. Medido via \textit{stack painting}
+com \texttt{pthread} de 4\,MB e compilação \texttt{-O0}.
+Dados para SLH-DSA-SHAKE não disponíveis para esta métrica
+(medição pendente com variantes SHAKE).}
+\label{tab:stack_sig}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen (B)} & \textbf{Sign (B)} & \textbf{Verify (B)} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-DSA (FIPS 204)}} \\[2pt]
+\quad ML-DSA-44 &  28\,304 &  53\,456 &  25\,968 \\
+\quad ML-DSA-65 &  33\,456 &  83\,312 &  29\,072 \\
+\quad ML-DSA-87 &  41\,648 & 117\,072 &  35\,472 \\
+\midrule
+\multicolumn{4}{l}{\textit{FN-DSA (FIPS 206)}} \\[2pt]
+\quad FN-DSA-512  &  23\,608 &  49\,584 &   9\,064 \\
+\quad FN-DSA-1024 &  40\,504 &  90\,736 &  13\,160 \\
+\midrule
+\multicolumn{4}{l}{\textit{SLH-DSA-SHAKE (FIPS 205)}} \\[2pt]
+\quad SLH-DSA-SHAKE-128s & --- & --- & --- \\
+\quad SLH-DSA-SHAKE-128f & --- & --- & --- \\
+\quad SLH-DSA-SHAKE-192s & --- & --- & --- \\
+\quad SLH-DSA-SHAKE-192f & --- & --- & --- \\
+\quad SLH-DSA-SHAKE-256s & --- & --- & --- \\
+\quad SLH-DSA-SHAKE-256f & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+% Tabela 3: Pico de Heap — KEMs (Valgrind massif)
+% ============================================================
+\begin{table}[ht]
+\centering
+\caption{Pico de uso de memória \textit{heap} por mecanismo de
+encapsulamento de chave (KEM) e operação, em KB.
+Medido com \texttt{valgrind --tool=massif}.
+Os valores representam o máximo de \texttt{mem\_heap\_B}
+ao longo da execução de cada operação isolada.}
+\label{tab:heap_kem}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen (KB)} & \textbf{Encap (KB)} & \textbf{Decap (KB)} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-KEM (FIPS 203)}} \\[2pt]
+\quad ML-KEM-512  & 204.97 & 204.97 & 204.97 \\
+\quad ML-KEM-768  & 207.17 & 207.17 & 207.17 \\
+\quad ML-KEM-1024 & 208.00 & 208.17 & 208.17 \\
+\midrule
+\multicolumn{4}{l}{\textit{HQC}} \\[2pt]
+\quad HQC-128 & 211.07 & 211.07 & 211.07 \\
+\quad HQC-192 & 219.74 & 219.74 & 219.74 \\
+\quad HQC-256 & 230.60 & 230.60 & 230.60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+% Tabela 4: Pico de Heap — Assinaturas Digitais (Valgrind massif)
+% ============================================================
+\begin{table}[ht]
+\centering
+\caption{Pico de uso de memória \textit{heap} por esquema de assinatura
+digital e operação, em KB.
+Medido com \texttt{valgrind --tool=massif}.
+Os valores representam o máximo de \texttt{mem\_heap\_B}
+ao longo da execução de cada operação isolada.}
+\label{tab:heap_sig}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Algoritmo} & \textbf{Keygen (KB)} & \textbf{Sign (KB)} & \textbf{Verify (KB)} \\
+\midrule
+\multicolumn{4}{l}{\textit{ML-DSA (FIPS 204)}} \\[2pt]
+\quad ML-DSA-44 & 207.92 & 208.90 & 208.90 \\
+\quad ML-DSA-65 & 211.02 & 211.02 & 211.83 \\
+\quad ML-DSA-87 & 214.37 & 214.59 & 214.59 \\
+\midrule
+\multicolumn{4}{l}{\textit{FN-DSA (FIPS 206)}} \\[2pt]
+\quad FN-DSA-512  & 204.64 & 204.81 & 204.81 \\
+\quad FN-DSA-1024 & 207.16 & 207.38 & 207.38 \\
+\midrule
+\multicolumn{4}{l}{\textit{SLH-DSA-SHAKE (FIPS 205)}} \\[2pt]
+\quad SLH-DSA-SHAKE-128s & 210.31 & 210.31 & 210.31 \\
+\quad SLH-DSA-SHAKE-128f & 219.32 & 219.32 & 219.32 \\
+\quad SLH-DSA-SHAKE-192s & 218.52 & 218.52 & 218.52 \\
+\quad SLH-DSA-SHAKE-192f & 237.51 & 237.51 & 237.51 \\
+\quad SLH-DSA-SHAKE-256s & 231.82 & 231.82 & 231.82 \\
+\quad SLH-DSA-SHAKE-256f & 251.42 & 251.42 & 251.42 \\
+\bottomrule
+\end{tabular}
+\end{table}
