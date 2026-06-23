@@ -1,0 +1,126 @@
+============================================================
+  Benchmark de Memória PQC — liboqs
+  Heap : mallinfo2() (delta líquido)
+  Stack: stack painting (thread POSIX com buffer sentinela)
+  RSS  : /proc/self/status (VmRSS)
+  Buffer de stack: 4 MB | Warm-up: 2 | Runs: 5
+============================================================
+
+[ KEMs ]
+  KEM  : ML-KEM-512
+    pk=800 B  sk=1632 B  ct=768 B  ss=32 B
+  KEM  : ML-KEM-768
+    pk=1184 B  sk=2400 B  ct=1088 B  ss=32 B
+  KEM  : ML-KEM-1024
+    pk=1568 B  sk=3168 B  ct=1568 B  ss=32 B
+  KEM  : HQC-128
+    pk=2249 B  sk=2305 B  ct=4433 B  ss=64 B
+  KEM  : HQC-192
+    pk=4522 B  sk=4586 B  ct=8978 B  ss=64 B
+  KEM  : HQC-256
+    pk=7245 B  sk=7317 B  ct=14421 B  ss=64 B
+
+[ Assinaturas Digitais ]
+  SIG  : ML-DSA-44
+    pk=1312 B  sk=2560 B  sig_max=2420 B
+  SIG  : ML-DSA-65
+    pk=1952 B  sk=4032 B  sig_max=3309 B
+  SIG  : ML-DSA-87
+    pk=2592 B  sk=4896 B  sig_max=4627 B
+  SIG  : Falcon-512
+    pk=897 B  sk=1281 B  sig_max=752 B
+  SIG  : Falcon-1024
+    pk=1793 B  sk=2305 B  sig_max=1462 B
+  SIG  : SPHINCS+-SHAKE-128s-simple
+    pk=32 B  sk=64 B  sig_max=7856 B
+  SIG  : SPHINCS+-SHAKE-128f-simple
+    pk=32 B  sk=64 B  sig_max=17088 B
+  SIG  : SPHINCS+-SHAKE-192s-simple
+    pk=48 B  sk=96 B  sig_max=16224 B
+  SIG  : SPHINCS+-SHAKE-192f-simple
+    pk=48 B  sk=96 B  sig_max=35664 B
+  SIG  : SPHINCS+-SHAKE-256s-simple
+    pk=64 B  sk=128 B  sig_max=29792 B
+  SIG  : SPHINCS+-SHAKE-256f-simple
+    pk=64 B  sk=128 B  sig_max=49856 B
+
+Algoritmo                                Op         Heap delta (B)  Stack (bytes) RSS delta (KB)
+---------------------------------------- -------- ---------------- -------------- -------------
+
+ML-KEM-512                               keygen                  0          13456             0
+ML-KEM-512                               encap                   0          16096             0
+ML-KEM-512                               decap                   0          16896             0
+
+ML-KEM-768                               keygen                  0          17584             0
+ML-KEM-768                               encap                   0          20720             0
+ML-KEM-768                               decap                   0          21840             0
+
+ML-KEM-1024                              keygen                  0          22704             0
+ML-KEM-1024                              encap                   0          26384             0
+ML-KEM-1024                              decap                   0          27984             0
+
+HQC-128                                  keygen                  0          38512             0
+HQC-128                                  encap                   0          56384             0
+HQC-128                                  decap                   0          60832             0
+
+HQC-192                                  keygen                  0          70624             0
+HQC-192                                  encap                   0         106688             0
+HQC-192                                  decap                   0         115696             0
+
+HQC-256                                  keygen                  0         108704             0
+HQC-256                                  encap                   0         166528             0
+HQC-256                                  decap                   0         180976             0
+
+ML-DSA-44                                keygen                  0          28240             0
+ML-DSA-44                                sign                    0          53392             0
+ML-DSA-44                                verify                  0          25904             0
+
+ML-DSA-65                                keygen                  0          33392             0
+ML-DSA-65                                sign                    0          83248             0
+ML-DSA-65                                verify                  0          29008             0
+
+ML-DSA-87                                keygen                  0          41584             0
+ML-DSA-87                                sign                    0         117008             0
+ML-DSA-87                                verify                  0          35408             0
+
+Falcon-512                               keygen                  0          23544             0
+Falcon-512                               sign                    0          49520             0
+Falcon-512                               verify                  0           9000             0
+
+Falcon-1024                              keygen                  0          40440             0
+Falcon-1024                              sign                    0          90672             0
+Falcon-1024                              verify                  0          13096             0
+
+SPHINCS+-SHAKE-128s-simple               keygen                  0          14416             0
+SPHINCS+-SHAKE-128s-simple               sign                    0          13680             0
+SPHINCS+-SHAKE-128s-simple               verify                  0           8400             0
+
+SPHINCS+-SHAKE-128f-simple               keygen                  0          13936             0
+SPHINCS+-SHAKE-128f-simple               sign                    0          13296             0
+SPHINCS+-SHAKE-128f-simple               verify                  0           8400             0
+
+SPHINCS+-SHAKE-192s-simple               keygen                  0          20912             0
+SPHINCS+-SHAKE-192s-simple               sign                    0          19440             0
+SPHINCS+-SHAKE-192s-simple               verify                  0           9264             0
+
+SPHINCS+-SHAKE-192f-simple               keygen                  0          20176             0
+SPHINCS+-SHAKE-192f-simple               sign                    0          18864             0
+SPHINCS+-SHAKE-192f-simple               verify                  0           9296             0
+
+SPHINCS+-SHAKE-256s-simple               keygen                  0          29680             0
+SPHINCS+-SHAKE-256s-simple               sign                    0          27248             0
+SPHINCS+-SHAKE-256s-simple               verify                  0          10416             0
+
+SPHINCS+-SHAKE-256f-simple               keygen                  0          29040             0
+SPHINCS+-SHAKE-256f-simple               sign                    0          26736             0
+SPHINCS+-SHAKE-256f-simple               verify                  0          10448             0
+
+---------------------------------------- -------- ---------------- -------------- -------------
+
+Resultados salvos em: memory_results.csv
+
+NOTA: heap_delta_bytes = 0 para todos os algoritmos é esperado.
+      O liboqs libera todas as alocações dentro de cada chamada.
+      Para medir o PICO de heap durante a execução, use:
+        valgrind --tool=massif ./massif_single <alg> <op>
+

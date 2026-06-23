@@ -1,0 +1,31 @@
+========================================================================
+  RESUMO: impacto das 16 configs de flags no uso de STACK
+  Baseline: -O0  |  Total de casos: 51 (algoritmo × operação)
+========================================================================
+
+  Configuração              Flags                           Max Δ    Min Δ  Veredito
+  ----------------------------------------------------------------------
+  O0                        -O0                                +0       +0  ✓  idêntico ao baseline
+  O0_lto                    -O0 -flto                          +0       +0  ✓  idêntico ao baseline
+  O0_native                 -O0 -march=native                  +0       +0  ✓  idêntico ao baseline
+  O0_lto_native             -O0 -flto -march=native            +0       +0  ✓  idêntico ao baseline
+  O1                        -O1                               -64      -64  ✓  reduziu até -64B
+  O1_lto                    -O1 -flto                         -64      -64  ✓  reduziu até -64B
+  O1_native                 -O1 -march=native                 -64      -64  ✓  reduziu até -64B
+  O1_lto_native             -O1 -flto -march=native           -64      -64  ✓  reduziu até -64B
+  O2                        -O2                               -64      -64  ✓  reduziu até -64B
+  O2_lto                    -O2 -flto                         -64      -64  ✓  reduziu até -64B
+  O2_native                 -O2 -march=native                 -64      -64  ✓  reduziu até -64B
+  O2_lto_native             -O2 -flto -march=native           -64      -64  ✓  reduziu até -64B
+  O3                        -O3                               -64      -64  ✓  reduziu até -64B
+  O3_lto                    -O3 -flto                         -64      -64  ✓  reduziu até -64B
+  O3_native                 -O3 -march=native                 -64      -64  ✓  reduziu até -64B
+  O3_lto_native             -O3 -flto -march=native           -64      -65  ✓  reduziu até -65B
+
+========================================================================
+  CONCLUSÃO: ✓ VALIDADO
+  Nenhuma das 16 configurações produziu uso de stack MAIOR
+  que o medido com -O0. Os valores reportados no TCC são
+  limites superiores conservadores válidos para todas as
+  combinações de flags avaliadas.
+========================================================================

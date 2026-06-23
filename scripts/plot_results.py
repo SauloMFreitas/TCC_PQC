@@ -106,8 +106,8 @@ def plot_g1():
     ax.set_yscale("log")
     ax.set_xticks(x)
     ax.set_xticklabels(algs, rotation=30, ha="right")
-    ax.set_ylabel("Tempo ($\\mu$s) — escala log")
-    ax.set_xlabel("Algoritmo")
+    ax.set_ylabel("Time ($\\mu$s) — log scale")
+    ax.set_xlabel("Algorithm")
 
     # linha divisória entre famílias
     ax.axvline(x=2.5, color="gray", linewidth=0.8, linestyle="--", alpha=0.6)
@@ -128,7 +128,7 @@ def plot_g1():
     path = f"{OUT_DIR}/g1_kem_log.pdf"
     fig.savefig(path)
     plt.close(fig)
-    print(f"  Salvo: {path}")
+    print(f"  Saved: {path}")
 
 
 # ======================================================================
@@ -175,8 +175,8 @@ def plot_g2():
     ax.set_yscale("log")
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=7.5)
-    ax.set_ylabel("Tempo ($\\mu$s) — escala log")
-    ax.set_xlabel("Algoritmo")
+    ax.set_ylabel("Time ($\\mu$s) — log scale")
+    ax.set_xlabel("Algorithm")
 
     # divisórias de família
     for xv, lbl in [(2.5, ""), (4.5, "")]:
@@ -197,7 +197,7 @@ def plot_g2():
     path = f"{OUT_DIR}/g2_sig_log.pdf"
     fig.savefig(path)
     plt.close(fig)
-    print(f"  Salvo: {path}")
+    print(f"  Saved: {path}")
 
 
 # ======================================================================
@@ -226,10 +226,11 @@ def plot_g3():
 
     def setup_ax(ax, ylabel, title):
         ax.set_xscale("log", base=2)
+        ax.set_yscale("log")                          # <-- adicionar
         ax.set_xticks(x_ticks)
         ax.set_xticklabels(x_labels, rotation=30, ha="right", fontsize=7.5)
         ax.set_ylabel(ylabel)
-        ax.set_xlabel("Tamanho da mensagem")
+        ax.set_xlabel("Message size")
         ax.set_title(title, fontsize=9)
         ax.legend(fontsize=7.5, framealpha=0.75, ncol=2, loc="upper left")
         ax.yaxis.set_major_formatter(
@@ -250,11 +251,11 @@ def plot_g3():
         ax_a.plot(msg_bytes, get_sign(alg), color=color, linestyle=ls,
                   marker=marker, markersize=3.5, linewidth=1.4,
                   markevery=4, label=alg)
-    setup_ax(ax_a, "Tempo de assinatura (µs)",
-             "Escalabilidade de Sign — ML-DSA e FN-DSA (−O0)")
+    setup_ax(ax_a, "Signing time",
+             "Sign Scalability — ML-DSA and FN-DSA (−O0)")
     fig_a.tight_layout()
     fig_a.savefig(f"{OUT_DIR}/g3a_escala_sign_lattice.pdf"); plt.close(fig_a)
-    print(f"  Salvo: {OUT_DIR}/g3a_escala_sign_lattice.pdf")
+    print(f"  Saved: {OUT_DIR}/g3a_escala_sign_lattice.pdf")
 
     # --- G3b: SLH-DSA variantes f (128f / 192f / 256f) ---
     fig_b, ax_b = plt.subplots(figsize=(7.2, 3.6))
@@ -266,11 +267,11 @@ def plot_g3():
         ax_b.plot(msg_bytes, get_sign(alg), color=color, linestyle=ls,
                   marker=marker, markersize=3.5, linewidth=1.4,
                   markevery=4, label=alg)
-    setup_ax(ax_b, "Tempo de assinatura (µs)",
-             "Escalabilidade de Sign — SLH-DSA variantes f (−O0)")
+    setup_ax(ax_b, "Signing time",
+             "Sign Scalability — SLH-DSA f variants (−O0)")
     fig_b.tight_layout()
     fig_b.savefig(f"{OUT_DIR}/g3b_escala_sign_slh_f.pdf"); plt.close(fig_b)
-    print(f"  Salvo: {OUT_DIR}/g3b_escala_sign_slh_f.pdf")
+    print(f"  Saved: {OUT_DIR}/g3b_escala_sign_slh_f.pdf")
 
     # --- G3c: SLH-DSA variantes s (128s / 192s / 256s) ---
     fig_c, ax_c = plt.subplots(figsize=(7.2, 3.6))
@@ -282,11 +283,11 @@ def plot_g3():
         ax_c.plot(msg_bytes, get_sign(alg), color=color, linestyle=ls,
                   marker=marker, markersize=3.5, linewidth=1.4,
                   markevery=4, label=alg)
-    setup_ax(ax_c, "Tempo de assinatura (µs)",
-             "Escalabilidade de Sign — SLH-DSA variantes s (−O0)")
+    setup_ax(ax_c, "Signing time",
+             "Sign Scalability — SLH-DSA s variants (−O0)")
     fig_c.tight_layout()
     fig_c.savefig(f"{OUT_DIR}/g3c_escala_sign_slh_s.pdf"); plt.close(fig_c)
-    print(f"  Salvo: {OUT_DIR}/g3c_escala_sign_slh_s.pdf")
+    print(f"  Saved: {OUT_DIR}/g3c_escala_sign_slh_s.pdf")
 
 
 # ======================================================================
@@ -385,11 +386,11 @@ def plot_g4():
         ax.set_xticks(x)
         ax.set_xticklabels(cfg_labels, fontsize=7)
         ax.set_ylabel(f"Speedup vs. \\texttt{{-O0}}")
-        ax.set_xlabel("Configuração de compilação")
+        ax.set_xlabel("Compilation configuration")
         ax.set_ylim(0.82, 1.20)
         ax.yaxis.set_major_formatter(
             ticker.FuncFormatter(lambda v, _: f"{v:.2f}×"))
-        ax.set_title(f"Speedup por configuração de compilação — {alg} ({unit})",
+        ax.set_title(f"Speedup by compilation configuration — {alg} ({unit})",
                      fontsize=9)
 
         # legenda operações
@@ -404,17 +405,17 @@ def plot_g4():
             Patch(fc="#D87D2A", label="O3"),
         ]
         l1 = ax.legend(handles=op_handles, loc="upper left",
-                       fontsize=7, framealpha=0.7, title="Operação",
+                       fontsize=7, framealpha=0.7, title="Operation",
                        title_fontsize=7)
         ax.add_artist(l1)
         ax.legend(handles=level_handles, loc="upper right",
-                  fontsize=7, framealpha=0.7, title="Nível -O",
+                  fontsize=7, framealpha=0.7, title="-O Level",
                   title_fontsize=7, ncol=2)
 
         fig.tight_layout()
         fig.savefig(filename, bbox_inches="tight")
         plt.close(fig)
-        print(f"  Salvo: {filename}")
+        print(f"  Saved: {filename}")
 
     # KEM
     for alg in ["ML-KEM-512","ML-KEM-768","ML-KEM-1024",
@@ -473,10 +474,11 @@ def plot_g5():
 
     def setup_ax(ax, ylabel, title):
         ax.set_xscale("log", base=2)
+        ax.set_yscale("log")                          # <-- adicionar
         ax.set_xticks(x_ticks)
         ax.set_xticklabels(x_labels, rotation=30, ha="right", fontsize=7.5)
         ax.set_ylabel(ylabel)
-        ax.set_xlabel("Tamanho da mensagem")
+        ax.set_xlabel("Message size")
         ax.set_title(title, fontsize=9)
         ax.yaxis.set_major_formatter(
             ticker.FuncFormatter(lambda v, _:
@@ -495,11 +497,11 @@ def plot_g5():
         ax_a.plot(msg_bytes, get_verify(alg), color=color, linestyle=ls,
                   marker=marker, markersize=3.5, linewidth=1.4,
                   markevery=4, label=alg)
-    setup_ax(ax_a, "Tempo de verificação (µs)",
-             "Escalabilidade de Verify — ML-DSA e FN-DSA (−O0)")
+    setup_ax(ax_a, "Verification time",
+             "Verify Scalability — ML-DSA and FN-DSA (−O0)")
     fig_a.tight_layout()
     fig_a.savefig(f"{OUT_DIR}/g5a_escala_verify_lattice.pdf"); plt.close(fig_a)
-    print(f"  Salvo: {OUT_DIR}/g5a_escala_verify_lattice.pdf")
+    print(f"  Saved: {OUT_DIR}/g5a_escala_verify_lattice.pdf")
 
     # --- G5b: SLH-DSA todos os 6 ---
     fig_b, ax_b = plt.subplots(figsize=(7.2, 3.6))
@@ -516,11 +518,11 @@ def plot_g5():
         ax_b.plot(msg_bytes, get_verify(alg), color=color, linestyle=ls,
                   marker=marker, markersize=3.5, linewidth=1.4,
                   markevery=4, label=label, alpha=0.9 if "s" in alg[-1] else 0.6)
-    setup_ax(ax_b, "Tempo de verificação (µs)",
-             "Escalabilidade de Verify — SLH-DSA todas as variantes (−O0)")
+    setup_ax(ax_b, "Verification time",
+             "Verify Scalability — SLH-DSA all variants (−O0)")
     fig_b.tight_layout()
     fig_b.savefig(f"{OUT_DIR}/g5b_escala_verify_slh.pdf"); plt.close(fig_b)
-    print(f"  Salvo: {OUT_DIR}/g5b_escala_verify_slh.pdf")
+    print(f"  Saved: {OUT_DIR}/g5b_escala_verify_slh.pdf")
 
 
 # adiciona chamadas ao bloco principal
@@ -630,60 +632,60 @@ def plot_g6():
     mat_k, ylbl_k, ann_k = build_matrix(kem_rows)
     fig_k, ax_k = plt.subplots(figsize=(7.2, 2.8))
     draw_heatmap(ax_k, mat_k, ylbl_k, ann_k,
-                 "KEM — tempo de execução por configuração de compilação\n"
-                 "(verde = mais rápido, vermelho = mais lento; normalizado por linha)")
+                 "KEM — execution time by compilation configuration\n"
+                 "(green = fastest, red = slowest; normalized per row)")
     fig_k.colorbar(
         plt.cm.ScalarMappable(cmap="RdYlGn_r"),
         ax=ax_k, orientation="vertical", fraction=0.02, pad=0.02,
-        label="Relativo (0 = mín, 1 = máx por algoritmo)"
+        label="Relative (0 = min, 1 = max per algorithm)"
     )
     fig_k.tight_layout()
     path_k = f"{OUT_DIR}/g6a_heatmap_kem.pdf"
     fig_k.savefig(path_k)
     plt.close(fig_k)
-    print(f"  Salvo: {path_k}")
+    print(f"  Saved: {path_k}")
 
     # --- figura SIG: ML-DSA + FN-DSA ---
     mat_s, ylbl_s, ann_s = build_matrix(sig_rows)
     fig_s, ax_s = plt.subplots(figsize=(7.2, 2.8))
     draw_heatmap(ax_s, mat_s, ylbl_s, ann_s,
-                 "ML-DSA / FN-DSA — tempo de execução por configuração\n"
-                 "(verde = mais rápido, vermelho = mais lento; normalizado por linha)")
+                 "ML-DSA / FN-DSA — execution time by configuration\n"
+                 "(green = fastest, red = slowest; normalized per row)")
     fig_s.colorbar(
         plt.cm.ScalarMappable(cmap="RdYlGn_r"),
         ax=ax_s, orientation="vertical", fraction=0.02, pad=0.02,
-        label="Relativo (0 = mín, 1 = máx por algoritmo)"
+        label="Relative (0 = min, 1 = max per algorithm)"
     )
     fig_s.tight_layout()
     path_s = f"{OUT_DIR}/g6b_heatmap_sig.pdf"
     fig_s.savefig(path_s)
     plt.close(fig_s)
-    print(f"  Salvo: {path_s}")
+    print(f"  Saved: {path_s}")
 
     # --- figura SIG: SLH-DSA ---
     mat_slh, ylbl_slh, ann_slh = build_matrix(slh_rows)
     fig_slh, ax_slh = plt.subplots(figsize=(7.2, 3.2))
     draw_heatmap(ax_slh, mat_slh, ylbl_slh, ann_slh,
-                 "SLH-DSA-SHAKE — tempo de assinatura por configuração (ms)\n"
-                 "(verde = mais rápido, vermelho = mais lento; normalizado por linha)")
+                 "SLH-DSA-SHAKE — signing time by configuration (ms)\n"
+                 "(green = fastest, red = slowest; normalized per row)")
     fig_slh.colorbar(
         plt.cm.ScalarMappable(cmap="RdYlGn_r"),
         ax=ax_slh, orientation="vertical", fraction=0.02, pad=0.02,
-        label="Relativo (0 = mín, 1 = máx por algoritmo)"
+        label="Relative (0 = min, 1 = max per algorithm)"
     )
     fig_slh.tight_layout()
     path_slh = f"{OUT_DIR}/g6c_heatmap_slh.pdf"
     fig_slh.savefig(path_slh)
     plt.close(fig_slh)
-    print(f"  Salvo: {path_slh}")
+    print(f"  Saved: {path_slh}")
 
 
 if __name__ == '__main__':
-    print('Gerando gráficos...')
+    print('Generating plots...')
     plot_g1()
     plot_g2()
     plot_g3()
     plot_g4()
     plot_g5()
     plot_g6()
-    print('Concluído. Arquivos em ./graficos/')
+    print('Done. Files in ./graficos/')

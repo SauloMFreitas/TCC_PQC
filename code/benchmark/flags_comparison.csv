@@ -1,0 +1,817 @@
+algoritmo,operacao,flags,stack_bytes,delta_vs_O0,delta_pct_vs_O0
+Falcon-1024,keygen,-O0,40504,0,0.00
+Falcon-1024,sign,-O0,90736,0,0.00
+Falcon-1024,verify,-O0,13160,0,0.00
+Falcon-512,keygen,-O0,23608,0,0.00
+Falcon-512,sign,-O0,49584,0,0.00
+Falcon-512,verify,-O0,9064,0,0.00
+HQC-128,decap,-O0,60896,0,0.00
+HQC-128,encap,-O0,56448,0,0.00
+HQC-128,keygen,-O0,38576,0,0.00
+HQC-192,decap,-O0,115760,0,0.00
+HQC-192,encap,-O0,106752,0,0.00
+HQC-192,keygen,-O0,70688,0,0.00
+HQC-256,decap,-O0,181040,0,0.00
+HQC-256,encap,-O0,166592,0,0.00
+HQC-256,keygen,-O0,108768,0,0.00
+ML-DSA-44,keygen,-O0,28304,0,0.00
+ML-DSA-44,sign,-O0,53456,0,0.00
+ML-DSA-44,verify,-O0,25968,0,0.00
+ML-DSA-65,keygen,-O0,33456,0,0.00
+ML-DSA-65,sign,-O0,83312,0,0.00
+ML-DSA-65,verify,-O0,29072,0,0.00
+ML-DSA-87,keygen,-O0,41648,0,0.00
+ML-DSA-87,sign,-O0,117072,0,0.00
+ML-DSA-87,verify,-O0,35472,0,0.00
+ML-KEM-1024,decap,-O0,28048,0,0.00
+ML-KEM-1024,encap,-O0,26448,0,0.00
+ML-KEM-1024,keygen,-O0,22768,0,0.00
+ML-KEM-512,decap,-O0,16960,0,0.00
+ML-KEM-512,encap,-O0,16160,0,0.00
+ML-KEM-512,keygen,-O0,13520,0,0.00
+ML-KEM-768,decap,-O0,21904,0,0.00
+ML-KEM-768,encap,-O0,20784,0,0.00
+ML-KEM-768,keygen,-O0,17648,0,0.00
+SPHINCS+-SHAKE-128f-simple,keygen,-O0,14000,0,0.00
+SPHINCS+-SHAKE-128f-simple,sign,-O0,13360,0,0.00
+SPHINCS+-SHAKE-128f-simple,verify,-O0,8464,0,0.00
+SPHINCS+-SHAKE-128s-simple,keygen,-O0,14480,0,0.00
+SPHINCS+-SHAKE-128s-simple,sign,-O0,13744,0,0.00
+SPHINCS+-SHAKE-128s-simple,verify,-O0,8464,0,0.00
+SPHINCS+-SHAKE-192f-simple,keygen,-O0,20240,0,0.00
+SPHINCS+-SHAKE-192f-simple,sign,-O0,18928,0,0.00
+SPHINCS+-SHAKE-192f-simple,verify,-O0,9360,0,0.00
+SPHINCS+-SHAKE-192s-simple,keygen,-O0,20976,0,0.00
+SPHINCS+-SHAKE-192s-simple,sign,-O0,19504,0,0.00
+SPHINCS+-SHAKE-192s-simple,verify,-O0,9328,0,0.00
+SPHINCS+-SHAKE-256f-simple,keygen,-O0,29104,0,0.00
+SPHINCS+-SHAKE-256f-simple,sign,-O0,26800,0,0.00
+SPHINCS+-SHAKE-256f-simple,verify,-O0,10512,0,0.00
+SPHINCS+-SHAKE-256s-simple,keygen,-O0,29744,0,0.00
+SPHINCS+-SHAKE-256s-simple,sign,-O0,27312,0,0.00
+SPHINCS+-SHAKE-256s-simple,verify,-O0,10480,0,0.00
+Falcon-1024,keygen,-O0 -flto,40504,0,0.00
+Falcon-1024,sign,-O0 -flto,90736,0,0.00
+Falcon-1024,verify,-O0 -flto,13160,0,0.00
+Falcon-512,keygen,-O0 -flto,23608,0,0.00
+Falcon-512,sign,-O0 -flto,49584,0,0.00
+Falcon-512,verify,-O0 -flto,9064,0,0.00
+HQC-128,decap,-O0 -flto,60896,0,0.00
+HQC-128,encap,-O0 -flto,56448,0,0.00
+HQC-128,keygen,-O0 -flto,38576,0,0.00
+HQC-192,decap,-O0 -flto,115760,0,0.00
+HQC-192,encap,-O0 -flto,106752,0,0.00
+HQC-192,keygen,-O0 -flto,70688,0,0.00
+HQC-256,decap,-O0 -flto,181040,0,0.00
+HQC-256,encap,-O0 -flto,166592,0,0.00
+HQC-256,keygen,-O0 -flto,108768,0,0.00
+ML-DSA-44,keygen,-O0 -flto,28304,0,0.00
+ML-DSA-44,sign,-O0 -flto,53456,0,0.00
+ML-DSA-44,verify,-O0 -flto,25968,0,0.00
+ML-DSA-65,keygen,-O0 -flto,33456,0,0.00
+ML-DSA-65,sign,-O0 -flto,83312,0,0.00
+ML-DSA-65,verify,-O0 -flto,29072,0,0.00
+ML-DSA-87,keygen,-O0 -flto,41648,0,0.00
+ML-DSA-87,sign,-O0 -flto,117072,0,0.00
+ML-DSA-87,verify,-O0 -flto,35472,0,0.00
+ML-KEM-1024,decap,-O0 -flto,28048,0,0.00
+ML-KEM-1024,encap,-O0 -flto,26448,0,0.00
+ML-KEM-1024,keygen,-O0 -flto,22768,0,0.00
+ML-KEM-512,decap,-O0 -flto,16960,0,0.00
+ML-KEM-512,encap,-O0 -flto,16160,0,0.00
+ML-KEM-512,keygen,-O0 -flto,13520,0,0.00
+ML-KEM-768,decap,-O0 -flto,21904,0,0.00
+ML-KEM-768,encap,-O0 -flto,20784,0,0.00
+ML-KEM-768,keygen,-O0 -flto,17648,0,0.00
+SPHINCS+-SHAKE-128f-simple,keygen,-O0 -flto,14000,0,0.00
+SPHINCS+-SHAKE-128f-simple,sign,-O0 -flto,13360,0,0.00
+SPHINCS+-SHAKE-128f-simple,verify,-O0 -flto,8464,0,0.00
+SPHINCS+-SHAKE-128s-simple,keygen,-O0 -flto,14480,0,0.00
+SPHINCS+-SHAKE-128s-simple,sign,-O0 -flto,13744,0,0.00
+SPHINCS+-SHAKE-128s-simple,verify,-O0 -flto,8464,0,0.00
+SPHINCS+-SHAKE-192f-simple,keygen,-O0 -flto,20240,0,0.00
+SPHINCS+-SHAKE-192f-simple,sign,-O0 -flto,18928,0,0.00
+SPHINCS+-SHAKE-192f-simple,verify,-O0 -flto,9360,0,0.00
+SPHINCS+-SHAKE-192s-simple,keygen,-O0 -flto,20976,0,0.00
+SPHINCS+-SHAKE-192s-simple,sign,-O0 -flto,19504,0,0.00
+SPHINCS+-SHAKE-192s-simple,verify,-O0 -flto,9328,0,0.00
+SPHINCS+-SHAKE-256f-simple,keygen,-O0 -flto,29104,0,0.00
+SPHINCS+-SHAKE-256f-simple,sign,-O0 -flto,26800,0,0.00
+SPHINCS+-SHAKE-256f-simple,verify,-O0 -flto,10512,0,0.00
+SPHINCS+-SHAKE-256s-simple,keygen,-O0 -flto,29744,0,0.00
+SPHINCS+-SHAKE-256s-simple,sign,-O0 -flto,27312,0,0.00
+SPHINCS+-SHAKE-256s-simple,verify,-O0 -flto,10480,0,0.00
+Falcon-1024,keygen,-O0 -march=native,40504,0,0.00
+Falcon-1024,sign,-O0 -march=native,90736,0,0.00
+Falcon-1024,verify,-O0 -march=native,13160,0,0.00
+Falcon-512,keygen,-O0 -march=native,23608,0,0.00
+Falcon-512,sign,-O0 -march=native,49584,0,0.00
+Falcon-512,verify,-O0 -march=native,9064,0,0.00
+HQC-128,decap,-O0 -march=native,60896,0,0.00
+HQC-128,encap,-O0 -march=native,56448,0,0.00
+HQC-128,keygen,-O0 -march=native,38576,0,0.00
+HQC-192,decap,-O0 -march=native,115760,0,0.00
+HQC-192,encap,-O0 -march=native,106752,0,0.00
+HQC-192,keygen,-O0 -march=native,70688,0,0.00
+HQC-256,decap,-O0 -march=native,181040,0,0.00
+HQC-256,encap,-O0 -march=native,166592,0,0.00
+HQC-256,keygen,-O0 -march=native,108768,0,0.00
+ML-DSA-44,keygen,-O0 -march=native,28304,0,0.00
+ML-DSA-44,sign,-O0 -march=native,53456,0,0.00
+ML-DSA-44,verify,-O0 -march=native,25968,0,0.00
+ML-DSA-65,keygen,-O0 -march=native,33456,0,0.00
+ML-DSA-65,sign,-O0 -march=native,83312,0,0.00
+ML-DSA-65,verify,-O0 -march=native,29072,0,0.00
+ML-DSA-87,keygen,-O0 -march=native,41648,0,0.00
+ML-DSA-87,sign,-O0 -march=native,117072,0,0.00
+ML-DSA-87,verify,-O0 -march=native,35472,0,0.00
+ML-KEM-1024,decap,-O0 -march=native,28048,0,0.00
+ML-KEM-1024,encap,-O0 -march=native,26448,0,0.00
+ML-KEM-1024,keygen,-O0 -march=native,22768,0,0.00
+ML-KEM-512,decap,-O0 -march=native,16960,0,0.00
+ML-KEM-512,encap,-O0 -march=native,16160,0,0.00
+ML-KEM-512,keygen,-O0 -march=native,13520,0,0.00
+ML-KEM-768,decap,-O0 -march=native,21904,0,0.00
+ML-KEM-768,encap,-O0 -march=native,20784,0,0.00
+ML-KEM-768,keygen,-O0 -march=native,17648,0,0.00
+SPHINCS+-SHAKE-128f-simple,keygen,-O0 -march=native,14000,0,0.00
+SPHINCS+-SHAKE-128f-simple,sign,-O0 -march=native,13360,0,0.00
+SPHINCS+-SHAKE-128f-simple,verify,-O0 -march=native,8464,0,0.00
+SPHINCS+-SHAKE-128s-simple,keygen,-O0 -march=native,14480,0,0.00
+SPHINCS+-SHAKE-128s-simple,sign,-O0 -march=native,13744,0,0.00
+SPHINCS+-SHAKE-128s-simple,verify,-O0 -march=native,8464,0,0.00
+SPHINCS+-SHAKE-192f-simple,keygen,-O0 -march=native,20240,0,0.00
+SPHINCS+-SHAKE-192f-simple,sign,-O0 -march=native,18928,0,0.00
+SPHINCS+-SHAKE-192f-simple,verify,-O0 -march=native,9360,0,0.00
+SPHINCS+-SHAKE-192s-simple,keygen,-O0 -march=native,20976,0,0.00
+SPHINCS+-SHAKE-192s-simple,sign,-O0 -march=native,19504,0,0.00
+SPHINCS+-SHAKE-192s-simple,verify,-O0 -march=native,9328,0,0.00
+SPHINCS+-SHAKE-256f-simple,keygen,-O0 -march=native,29104,0,0.00
+SPHINCS+-SHAKE-256f-simple,sign,-O0 -march=native,26800,0,0.00
+SPHINCS+-SHAKE-256f-simple,verify,-O0 -march=native,10512,0,0.00
+SPHINCS+-SHAKE-256s-simple,keygen,-O0 -march=native,29744,0,0.00
+SPHINCS+-SHAKE-256s-simple,sign,-O0 -march=native,27312,0,0.00
+SPHINCS+-SHAKE-256s-simple,verify,-O0 -march=native,10480,0,0.00
+Falcon-1024,keygen,-O0 -flto -march=native,40504,0,0.00
+Falcon-1024,sign,-O0 -flto -march=native,90736,0,0.00
+Falcon-1024,verify,-O0 -flto -march=native,13160,0,0.00
+Falcon-512,keygen,-O0 -flto -march=native,23608,0,0.00
+Falcon-512,sign,-O0 -flto -march=native,49584,0,0.00
+Falcon-512,verify,-O0 -flto -march=native,9064,0,0.00
+HQC-128,decap,-O0 -flto -march=native,60896,0,0.00
+HQC-128,encap,-O0 -flto -march=native,56448,0,0.00
+HQC-128,keygen,-O0 -flto -march=native,38576,0,0.00
+HQC-192,decap,-O0 -flto -march=native,115760,0,0.00
+HQC-192,encap,-O0 -flto -march=native,106752,0,0.00
+HQC-192,keygen,-O0 -flto -march=native,70688,0,0.00
+HQC-256,decap,-O0 -flto -march=native,181040,0,0.00
+HQC-256,encap,-O0 -flto -march=native,166592,0,0.00
+HQC-256,keygen,-O0 -flto -march=native,108768,0,0.00
+ML-DSA-44,keygen,-O0 -flto -march=native,28304,0,0.00
+ML-DSA-44,sign,-O0 -flto -march=native,53456,0,0.00
+ML-DSA-44,verify,-O0 -flto -march=native,25968,0,0.00
+ML-DSA-65,keygen,-O0 -flto -march=native,33456,0,0.00
+ML-DSA-65,sign,-O0 -flto -march=native,83312,0,0.00
+ML-DSA-65,verify,-O0 -flto -march=native,29072,0,0.00
+ML-DSA-87,keygen,-O0 -flto -march=native,41648,0,0.00
+ML-DSA-87,sign,-O0 -flto -march=native,117072,0,0.00
+ML-DSA-87,verify,-O0 -flto -march=native,35472,0,0.00
+ML-KEM-1024,decap,-O0 -flto -march=native,28048,0,0.00
+ML-KEM-1024,encap,-O0 -flto -march=native,26448,0,0.00
+ML-KEM-1024,keygen,-O0 -flto -march=native,22768,0,0.00
+ML-KEM-512,decap,-O0 -flto -march=native,16960,0,0.00
+ML-KEM-512,encap,-O0 -flto -march=native,16160,0,0.00
+ML-KEM-512,keygen,-O0 -flto -march=native,13520,0,0.00
+ML-KEM-768,decap,-O0 -flto -march=native,21904,0,0.00
+ML-KEM-768,encap,-O0 -flto -march=native,20784,0,0.00
+ML-KEM-768,keygen,-O0 -flto -march=native,17648,0,0.00
+SPHINCS+-SHAKE-128f-simple,keygen,-O0 -flto -march=native,14000,0,0.00
+SPHINCS+-SHAKE-128f-simple,sign,-O0 -flto -march=native,13360,0,0.00
+SPHINCS+-SHAKE-128f-simple,verify,-O0 -flto -march=native,8464,0,0.00
+SPHINCS+-SHAKE-128s-simple,keygen,-O0 -flto -march=native,14480,0,0.00
+SPHINCS+-SHAKE-128s-simple,sign,-O0 -flto -march=native,13744,0,0.00
+SPHINCS+-SHAKE-128s-simple,verify,-O0 -flto -march=native,8464,0,0.00
+SPHINCS+-SHAKE-192f-simple,keygen,-O0 -flto -march=native,20240,0,0.00
+SPHINCS+-SHAKE-192f-simple,sign,-O0 -flto -march=native,18928,0,0.00
+SPHINCS+-SHAKE-192f-simple,verify,-O0 -flto -march=native,9360,0,0.00
+SPHINCS+-SHAKE-192s-simple,keygen,-O0 -flto -march=native,20976,0,0.00
+SPHINCS+-SHAKE-192s-simple,sign,-O0 -flto -march=native,19504,0,0.00
+SPHINCS+-SHAKE-192s-simple,verify,-O0 -flto -march=native,9328,0,0.00
+SPHINCS+-SHAKE-256f-simple,keygen,-O0 -flto -march=native,29104,0,0.00
+SPHINCS+-SHAKE-256f-simple,sign,-O0 -flto -march=native,26800,0,0.00
+SPHINCS+-SHAKE-256f-simple,verify,-O0 -flto -march=native,10512,0,0.00
+SPHINCS+-SHAKE-256s-simple,keygen,-O0 -flto -march=native,29744,0,0.00
+SPHINCS+-SHAKE-256s-simple,sign,-O0 -flto -march=native,27312,0,0.00
+SPHINCS+-SHAKE-256s-simple,verify,-O0 -flto -march=native,10480,0,0.00
+Falcon-1024,keygen,-O1,40440,-64,-0.16
+Falcon-1024,sign,-O1,90672,-64,-0.07
+Falcon-1024,verify,-O1,13096,-64,-0.49
+Falcon-512,keygen,-O1,23544,-64,-0.27
+Falcon-512,sign,-O1,49520,-64,-0.13
+Falcon-512,verify,-O1,9000,-64,-0.71
+HQC-128,decap,-O1,60832,-64,-0.11
+HQC-128,encap,-O1,56384,-64,-0.11
+HQC-128,keygen,-O1,38512,-64,-0.17
+HQC-192,decap,-O1,115696,-64,-0.06
+HQC-192,encap,-O1,106688,-64,-0.06
+HQC-192,keygen,-O1,70624,-64,-0.09
+HQC-256,decap,-O1,180976,-64,-0.04
+HQC-256,encap,-O1,166528,-64,-0.04
+HQC-256,keygen,-O1,108704,-64,-0.06
+ML-DSA-44,keygen,-O1,28240,-64,-0.23
+ML-DSA-44,sign,-O1,53392,-64,-0.12
+ML-DSA-44,verify,-O1,25904,-64,-0.25
+ML-DSA-65,keygen,-O1,33392,-64,-0.19
+ML-DSA-65,sign,-O1,83248,-64,-0.08
+ML-DSA-65,verify,-O1,29008,-64,-0.22
+ML-DSA-87,keygen,-O1,41584,-64,-0.15
+ML-DSA-87,sign,-O1,117008,-64,-0.05
+ML-DSA-87,verify,-O1,35408,-64,-0.18
+ML-KEM-1024,decap,-O1,27984,-64,-0.23
+ML-KEM-1024,encap,-O1,26384,-64,-0.24
+ML-KEM-1024,keygen,-O1,22704,-64,-0.28
+ML-KEM-512,decap,-O1,16896,-64,-0.38
+ML-KEM-512,encap,-O1,16096,-64,-0.40
+ML-KEM-512,keygen,-O1,13456,-64,-0.47
+ML-KEM-768,decap,-O1,21840,-64,-0.29
+ML-KEM-768,encap,-O1,20720,-64,-0.31
+ML-KEM-768,keygen,-O1,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O1,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O1,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O1,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O1,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O1,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O1,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O1,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O1,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O1,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O1,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O1,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O1,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O1,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O1,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O1,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O1,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O1,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O1,10416,-64,-0.61
+Falcon-1024,keygen,-O1 -flto,40440,-64,-0.16
+Falcon-1024,sign,-O1 -flto,90672,-64,-0.07
+Falcon-1024,verify,-O1 -flto,13096,-64,-0.49
+Falcon-512,keygen,-O1 -flto,23544,-64,-0.27
+Falcon-512,sign,-O1 -flto,49520,-64,-0.13
+Falcon-512,verify,-O1 -flto,9000,-64,-0.71
+HQC-128,decap,-O1 -flto,60832,-64,-0.11
+HQC-128,encap,-O1 -flto,56384,-64,-0.11
+HQC-128,keygen,-O1 -flto,38512,-64,-0.17
+HQC-192,decap,-O1 -flto,115696,-64,-0.06
+HQC-192,encap,-O1 -flto,106688,-64,-0.06
+HQC-192,keygen,-O1 -flto,70624,-64,-0.09
+HQC-256,decap,-O1 -flto,180976,-64,-0.04
+HQC-256,encap,-O1 -flto,166528,-64,-0.04
+HQC-256,keygen,-O1 -flto,108704,-64,-0.06
+ML-DSA-44,keygen,-O1 -flto,28240,-64,-0.23
+ML-DSA-44,sign,-O1 -flto,53392,-64,-0.12
+ML-DSA-44,verify,-O1 -flto,25904,-64,-0.25
+ML-DSA-65,keygen,-O1 -flto,33392,-64,-0.19
+ML-DSA-65,sign,-O1 -flto,83248,-64,-0.08
+ML-DSA-65,verify,-O1 -flto,29008,-64,-0.22
+ML-DSA-87,keygen,-O1 -flto,41584,-64,-0.15
+ML-DSA-87,sign,-O1 -flto,117008,-64,-0.05
+ML-DSA-87,verify,-O1 -flto,35408,-64,-0.18
+ML-KEM-1024,decap,-O1 -flto,27984,-64,-0.23
+ML-KEM-1024,encap,-O1 -flto,26384,-64,-0.24
+ML-KEM-1024,keygen,-O1 -flto,22704,-64,-0.28
+ML-KEM-512,decap,-O1 -flto,16896,-64,-0.38
+ML-KEM-512,encap,-O1 -flto,16096,-64,-0.40
+ML-KEM-512,keygen,-O1 -flto,13456,-64,-0.47
+ML-KEM-768,decap,-O1 -flto,21840,-64,-0.29
+ML-KEM-768,encap,-O1 -flto,20720,-64,-0.31
+ML-KEM-768,keygen,-O1 -flto,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O1 -flto,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O1 -flto,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O1 -flto,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O1 -flto,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O1 -flto,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O1 -flto,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O1 -flto,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O1 -flto,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O1 -flto,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O1 -flto,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O1 -flto,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O1 -flto,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O1 -flto,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O1 -flto,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O1 -flto,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O1 -flto,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O1 -flto,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O1 -flto,10416,-64,-0.61
+Falcon-1024,keygen,-O1 -march=native,40440,-64,-0.16
+Falcon-1024,sign,-O1 -march=native,90672,-64,-0.07
+Falcon-1024,verify,-O1 -march=native,13096,-64,-0.49
+Falcon-512,keygen,-O1 -march=native,23544,-64,-0.27
+Falcon-512,sign,-O1 -march=native,49520,-64,-0.13
+Falcon-512,verify,-O1 -march=native,9000,-64,-0.71
+HQC-128,decap,-O1 -march=native,60832,-64,-0.11
+HQC-128,encap,-O1 -march=native,56384,-64,-0.11
+HQC-128,keygen,-O1 -march=native,38512,-64,-0.17
+HQC-192,decap,-O1 -march=native,115696,-64,-0.06
+HQC-192,encap,-O1 -march=native,106688,-64,-0.06
+HQC-192,keygen,-O1 -march=native,70624,-64,-0.09
+HQC-256,decap,-O1 -march=native,180976,-64,-0.04
+HQC-256,encap,-O1 -march=native,166528,-64,-0.04
+HQC-256,keygen,-O1 -march=native,108704,-64,-0.06
+ML-DSA-44,keygen,-O1 -march=native,28240,-64,-0.23
+ML-DSA-44,sign,-O1 -march=native,53392,-64,-0.12
+ML-DSA-44,verify,-O1 -march=native,25904,-64,-0.25
+ML-DSA-65,keygen,-O1 -march=native,33392,-64,-0.19
+ML-DSA-65,sign,-O1 -march=native,83248,-64,-0.08
+ML-DSA-65,verify,-O1 -march=native,29008,-64,-0.22
+ML-DSA-87,keygen,-O1 -march=native,41584,-64,-0.15
+ML-DSA-87,sign,-O1 -march=native,117008,-64,-0.05
+ML-DSA-87,verify,-O1 -march=native,35408,-64,-0.18
+ML-KEM-1024,decap,-O1 -march=native,27984,-64,-0.23
+ML-KEM-1024,encap,-O1 -march=native,26384,-64,-0.24
+ML-KEM-1024,keygen,-O1 -march=native,22704,-64,-0.28
+ML-KEM-512,decap,-O1 -march=native,16896,-64,-0.38
+ML-KEM-512,encap,-O1 -march=native,16096,-64,-0.40
+ML-KEM-512,keygen,-O1 -march=native,13456,-64,-0.47
+ML-KEM-768,decap,-O1 -march=native,21840,-64,-0.29
+ML-KEM-768,encap,-O1 -march=native,20720,-64,-0.31
+ML-KEM-768,keygen,-O1 -march=native,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O1 -march=native,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O1 -march=native,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O1 -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O1 -march=native,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O1 -march=native,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O1 -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O1 -march=native,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O1 -march=native,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O1 -march=native,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O1 -march=native,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O1 -march=native,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O1 -march=native,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O1 -march=native,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O1 -march=native,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O1 -march=native,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O1 -march=native,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O1 -march=native,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O1 -march=native,10416,-64,-0.61
+Falcon-1024,keygen,-O1 -flto -march=native,40440,-64,-0.16
+Falcon-1024,sign,-O1 -flto -march=native,90672,-64,-0.07
+Falcon-1024,verify,-O1 -flto -march=native,13096,-64,-0.49
+Falcon-512,keygen,-O1 -flto -march=native,23544,-64,-0.27
+Falcon-512,sign,-O1 -flto -march=native,49520,-64,-0.13
+Falcon-512,verify,-O1 -flto -march=native,9000,-64,-0.71
+HQC-128,decap,-O1 -flto -march=native,60832,-64,-0.11
+HQC-128,encap,-O1 -flto -march=native,56384,-64,-0.11
+HQC-128,keygen,-O1 -flto -march=native,38512,-64,-0.17
+HQC-192,decap,-O1 -flto -march=native,115696,-64,-0.06
+HQC-192,encap,-O1 -flto -march=native,106688,-64,-0.06
+HQC-192,keygen,-O1 -flto -march=native,70624,-64,-0.09
+HQC-256,decap,-O1 -flto -march=native,180976,-64,-0.04
+HQC-256,encap,-O1 -flto -march=native,166528,-64,-0.04
+HQC-256,keygen,-O1 -flto -march=native,108704,-64,-0.06
+ML-DSA-44,keygen,-O1 -flto -march=native,28240,-64,-0.23
+ML-DSA-44,sign,-O1 -flto -march=native,53392,-64,-0.12
+ML-DSA-44,verify,-O1 -flto -march=native,25904,-64,-0.25
+ML-DSA-65,keygen,-O1 -flto -march=native,33392,-64,-0.19
+ML-DSA-65,sign,-O1 -flto -march=native,83248,-64,-0.08
+ML-DSA-65,verify,-O1 -flto -march=native,29008,-64,-0.22
+ML-DSA-87,keygen,-O1 -flto -march=native,41584,-64,-0.15
+ML-DSA-87,sign,-O1 -flto -march=native,117008,-64,-0.05
+ML-DSA-87,verify,-O1 -flto -march=native,35408,-64,-0.18
+ML-KEM-1024,decap,-O1 -flto -march=native,27984,-64,-0.23
+ML-KEM-1024,encap,-O1 -flto -march=native,26384,-64,-0.24
+ML-KEM-1024,keygen,-O1 -flto -march=native,22704,-64,-0.28
+ML-KEM-512,decap,-O1 -flto -march=native,16896,-64,-0.38
+ML-KEM-512,encap,-O1 -flto -march=native,16096,-64,-0.40
+ML-KEM-512,keygen,-O1 -flto -march=native,13456,-64,-0.47
+ML-KEM-768,decap,-O1 -flto -march=native,21840,-64,-0.29
+ML-KEM-768,encap,-O1 -flto -march=native,20720,-64,-0.31
+ML-KEM-768,keygen,-O1 -flto -march=native,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O1 -flto -march=native,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O1 -flto -march=native,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O1 -flto -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O1 -flto -march=native,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O1 -flto -march=native,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O1 -flto -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O1 -flto -march=native,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O1 -flto -march=native,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O1 -flto -march=native,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O1 -flto -march=native,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O1 -flto -march=native,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O1 -flto -march=native,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O1 -flto -march=native,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O1 -flto -march=native,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O1 -flto -march=native,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O1 -flto -march=native,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O1 -flto -march=native,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O1 -flto -march=native,10416,-64,-0.61
+Falcon-1024,keygen,-O2,40440,-64,-0.16
+Falcon-1024,sign,-O2,90672,-64,-0.07
+Falcon-1024,verify,-O2,13096,-64,-0.49
+Falcon-512,keygen,-O2,23544,-64,-0.27
+Falcon-512,sign,-O2,49520,-64,-0.13
+Falcon-512,verify,-O2,9000,-64,-0.71
+HQC-128,decap,-O2,60832,-64,-0.11
+HQC-128,encap,-O2,56384,-64,-0.11
+HQC-128,keygen,-O2,38512,-64,-0.17
+HQC-192,decap,-O2,115696,-64,-0.06
+HQC-192,encap,-O2,106688,-64,-0.06
+HQC-192,keygen,-O2,70624,-64,-0.09
+HQC-256,decap,-O2,180976,-64,-0.04
+HQC-256,encap,-O2,166528,-64,-0.04
+HQC-256,keygen,-O2,108704,-64,-0.06
+ML-DSA-44,keygen,-O2,28240,-64,-0.23
+ML-DSA-44,sign,-O2,53392,-64,-0.12
+ML-DSA-44,verify,-O2,25904,-64,-0.25
+ML-DSA-65,keygen,-O2,33392,-64,-0.19
+ML-DSA-65,sign,-O2,83248,-64,-0.08
+ML-DSA-65,verify,-O2,29008,-64,-0.22
+ML-DSA-87,keygen,-O2,41584,-64,-0.15
+ML-DSA-87,sign,-O2,117008,-64,-0.05
+ML-DSA-87,verify,-O2,35408,-64,-0.18
+ML-KEM-1024,decap,-O2,27984,-64,-0.23
+ML-KEM-1024,encap,-O2,26384,-64,-0.24
+ML-KEM-1024,keygen,-O2,22704,-64,-0.28
+ML-KEM-512,decap,-O2,16896,-64,-0.38
+ML-KEM-512,encap,-O2,16096,-64,-0.40
+ML-KEM-512,keygen,-O2,13456,-64,-0.47
+ML-KEM-768,decap,-O2,21840,-64,-0.29
+ML-KEM-768,encap,-O2,20720,-64,-0.31
+ML-KEM-768,keygen,-O2,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O2,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O2,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O2,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O2,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O2,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O2,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O2,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O2,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O2,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O2,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O2,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O2,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O2,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O2,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O2,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O2,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O2,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O2,10416,-64,-0.61
+Falcon-1024,keygen,-O2 -flto,40440,-64,-0.16
+Falcon-1024,sign,-O2 -flto,90672,-64,-0.07
+Falcon-1024,verify,-O2 -flto,13096,-64,-0.49
+Falcon-512,keygen,-O2 -flto,23544,-64,-0.27
+Falcon-512,sign,-O2 -flto,49520,-64,-0.13
+Falcon-512,verify,-O2 -flto,9000,-64,-0.71
+HQC-128,decap,-O2 -flto,60832,-64,-0.11
+HQC-128,encap,-O2 -flto,56384,-64,-0.11
+HQC-128,keygen,-O2 -flto,38512,-64,-0.17
+HQC-192,decap,-O2 -flto,115696,-64,-0.06
+HQC-192,encap,-O2 -flto,106688,-64,-0.06
+HQC-192,keygen,-O2 -flto,70624,-64,-0.09
+HQC-256,decap,-O2 -flto,180976,-64,-0.04
+HQC-256,encap,-O2 -flto,166528,-64,-0.04
+HQC-256,keygen,-O2 -flto,108704,-64,-0.06
+ML-DSA-44,keygen,-O2 -flto,28240,-64,-0.23
+ML-DSA-44,sign,-O2 -flto,53392,-64,-0.12
+ML-DSA-44,verify,-O2 -flto,25904,-64,-0.25
+ML-DSA-65,keygen,-O2 -flto,33392,-64,-0.19
+ML-DSA-65,sign,-O2 -flto,83248,-64,-0.08
+ML-DSA-65,verify,-O2 -flto,29008,-64,-0.22
+ML-DSA-87,keygen,-O2 -flto,41584,-64,-0.15
+ML-DSA-87,sign,-O2 -flto,117008,-64,-0.05
+ML-DSA-87,verify,-O2 -flto,35408,-64,-0.18
+ML-KEM-1024,decap,-O2 -flto,27984,-64,-0.23
+ML-KEM-1024,encap,-O2 -flto,26384,-64,-0.24
+ML-KEM-1024,keygen,-O2 -flto,22704,-64,-0.28
+ML-KEM-512,decap,-O2 -flto,16896,-64,-0.38
+ML-KEM-512,encap,-O2 -flto,16096,-64,-0.40
+ML-KEM-512,keygen,-O2 -flto,13456,-64,-0.47
+ML-KEM-768,decap,-O2 -flto,21840,-64,-0.29
+ML-KEM-768,encap,-O2 -flto,20720,-64,-0.31
+ML-KEM-768,keygen,-O2 -flto,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O2 -flto,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O2 -flto,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O2 -flto,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O2 -flto,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O2 -flto,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O2 -flto,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O2 -flto,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O2 -flto,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O2 -flto,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O2 -flto,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O2 -flto,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O2 -flto,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O2 -flto,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O2 -flto,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O2 -flto,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O2 -flto,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O2 -flto,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O2 -flto,10416,-64,-0.61
+Falcon-1024,keygen,-O2 -march=native,40440,-64,-0.16
+Falcon-1024,sign,-O2 -march=native,90672,-64,-0.07
+Falcon-1024,verify,-O2 -march=native,13096,-64,-0.49
+Falcon-512,keygen,-O2 -march=native,23544,-64,-0.27
+Falcon-512,sign,-O2 -march=native,49520,-64,-0.13
+Falcon-512,verify,-O2 -march=native,9000,-64,-0.71
+HQC-128,decap,-O2 -march=native,60832,-64,-0.11
+HQC-128,encap,-O2 -march=native,56384,-64,-0.11
+HQC-128,keygen,-O2 -march=native,38512,-64,-0.17
+HQC-192,decap,-O2 -march=native,115696,-64,-0.06
+HQC-192,encap,-O2 -march=native,106688,-64,-0.06
+HQC-192,keygen,-O2 -march=native,70624,-64,-0.09
+HQC-256,decap,-O2 -march=native,180976,-64,-0.04
+HQC-256,encap,-O2 -march=native,166528,-64,-0.04
+HQC-256,keygen,-O2 -march=native,108704,-64,-0.06
+ML-DSA-44,keygen,-O2 -march=native,28240,-64,-0.23
+ML-DSA-44,sign,-O2 -march=native,53392,-64,-0.12
+ML-DSA-44,verify,-O2 -march=native,25904,-64,-0.25
+ML-DSA-65,keygen,-O2 -march=native,33392,-64,-0.19
+ML-DSA-65,sign,-O2 -march=native,83248,-64,-0.08
+ML-DSA-65,verify,-O2 -march=native,29008,-64,-0.22
+ML-DSA-87,keygen,-O2 -march=native,41584,-64,-0.15
+ML-DSA-87,sign,-O2 -march=native,117008,-64,-0.05
+ML-DSA-87,verify,-O2 -march=native,35408,-64,-0.18
+ML-KEM-1024,decap,-O2 -march=native,27984,-64,-0.23
+ML-KEM-1024,encap,-O2 -march=native,26384,-64,-0.24
+ML-KEM-1024,keygen,-O2 -march=native,22704,-64,-0.28
+ML-KEM-512,decap,-O2 -march=native,16896,-64,-0.38
+ML-KEM-512,encap,-O2 -march=native,16096,-64,-0.40
+ML-KEM-512,keygen,-O2 -march=native,13456,-64,-0.47
+ML-KEM-768,decap,-O2 -march=native,21840,-64,-0.29
+ML-KEM-768,encap,-O2 -march=native,20720,-64,-0.31
+ML-KEM-768,keygen,-O2 -march=native,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O2 -march=native,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O2 -march=native,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O2 -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O2 -march=native,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O2 -march=native,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O2 -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O2 -march=native,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O2 -march=native,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O2 -march=native,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O2 -march=native,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O2 -march=native,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O2 -march=native,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O2 -march=native,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O2 -march=native,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O2 -march=native,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O2 -march=native,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O2 -march=native,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O2 -march=native,10416,-64,-0.61
+Falcon-1024,keygen,-O2 -flto -march=native,40440,-64,-0.16
+Falcon-1024,sign,-O2 -flto -march=native,90672,-64,-0.07
+Falcon-1024,verify,-O2 -flto -march=native,13096,-64,-0.49
+Falcon-512,keygen,-O2 -flto -march=native,23544,-64,-0.27
+Falcon-512,sign,-O2 -flto -march=native,49520,-64,-0.13
+Falcon-512,verify,-O2 -flto -march=native,9000,-64,-0.71
+HQC-128,decap,-O2 -flto -march=native,60832,-64,-0.11
+HQC-128,encap,-O2 -flto -march=native,56384,-64,-0.11
+HQC-128,keygen,-O2 -flto -march=native,38512,-64,-0.17
+HQC-192,decap,-O2 -flto -march=native,115696,-64,-0.06
+HQC-192,encap,-O2 -flto -march=native,106688,-64,-0.06
+HQC-192,keygen,-O2 -flto -march=native,70624,-64,-0.09
+HQC-256,decap,-O2 -flto -march=native,180976,-64,-0.04
+HQC-256,encap,-O2 -flto -march=native,166528,-64,-0.04
+HQC-256,keygen,-O2 -flto -march=native,108704,-64,-0.06
+ML-DSA-44,keygen,-O2 -flto -march=native,28240,-64,-0.23
+ML-DSA-44,sign,-O2 -flto -march=native,53392,-64,-0.12
+ML-DSA-44,verify,-O2 -flto -march=native,25904,-64,-0.25
+ML-DSA-65,keygen,-O2 -flto -march=native,33392,-64,-0.19
+ML-DSA-65,sign,-O2 -flto -march=native,83248,-64,-0.08
+ML-DSA-65,verify,-O2 -flto -march=native,29008,-64,-0.22
+ML-DSA-87,keygen,-O2 -flto -march=native,41584,-64,-0.15
+ML-DSA-87,sign,-O2 -flto -march=native,117008,-64,-0.05
+ML-DSA-87,verify,-O2 -flto -march=native,35408,-64,-0.18
+ML-KEM-1024,decap,-O2 -flto -march=native,27984,-64,-0.23
+ML-KEM-1024,encap,-O2 -flto -march=native,26384,-64,-0.24
+ML-KEM-1024,keygen,-O2 -flto -march=native,22704,-64,-0.28
+ML-KEM-512,decap,-O2 -flto -march=native,16896,-64,-0.38
+ML-KEM-512,encap,-O2 -flto -march=native,16096,-64,-0.40
+ML-KEM-512,keygen,-O2 -flto -march=native,13456,-64,-0.47
+ML-KEM-768,decap,-O2 -flto -march=native,21840,-64,-0.29
+ML-KEM-768,encap,-O2 -flto -march=native,20720,-64,-0.31
+ML-KEM-768,keygen,-O2 -flto -march=native,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O2 -flto -march=native,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O2 -flto -march=native,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O2 -flto -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O2 -flto -march=native,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O2 -flto -march=native,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O2 -flto -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O2 -flto -march=native,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O2 -flto -march=native,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O2 -flto -march=native,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O2 -flto -march=native,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O2 -flto -march=native,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O2 -flto -march=native,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O2 -flto -march=native,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O2 -flto -march=native,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O2 -flto -march=native,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O2 -flto -march=native,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O2 -flto -march=native,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O2 -flto -march=native,10416,-64,-0.61
+Falcon-1024,keygen,-O3,40440,-64,-0.16
+Falcon-1024,sign,-O3,90672,-64,-0.07
+Falcon-1024,verify,-O3,13096,-64,-0.49
+Falcon-512,keygen,-O3,23544,-64,-0.27
+Falcon-512,sign,-O3,49520,-64,-0.13
+Falcon-512,verify,-O3,9000,-64,-0.71
+HQC-128,decap,-O3,60832,-64,-0.11
+HQC-128,encap,-O3,56384,-64,-0.11
+HQC-128,keygen,-O3,38512,-64,-0.17
+HQC-192,decap,-O3,115696,-64,-0.06
+HQC-192,encap,-O3,106688,-64,-0.06
+HQC-192,keygen,-O3,70624,-64,-0.09
+HQC-256,decap,-O3,180976,-64,-0.04
+HQC-256,encap,-O3,166528,-64,-0.04
+HQC-256,keygen,-O3,108704,-64,-0.06
+ML-DSA-44,keygen,-O3,28240,-64,-0.23
+ML-DSA-44,sign,-O3,53392,-64,-0.12
+ML-DSA-44,verify,-O3,25904,-64,-0.25
+ML-DSA-65,keygen,-O3,33392,-64,-0.19
+ML-DSA-65,sign,-O3,83248,-64,-0.08
+ML-DSA-65,verify,-O3,29008,-64,-0.22
+ML-DSA-87,keygen,-O3,41584,-64,-0.15
+ML-DSA-87,sign,-O3,117008,-64,-0.05
+ML-DSA-87,verify,-O3,35408,-64,-0.18
+ML-KEM-1024,decap,-O3,27984,-64,-0.23
+ML-KEM-1024,encap,-O3,26384,-64,-0.24
+ML-KEM-1024,keygen,-O3,22704,-64,-0.28
+ML-KEM-512,decap,-O3,16896,-64,-0.38
+ML-KEM-512,encap,-O3,16096,-64,-0.40
+ML-KEM-512,keygen,-O3,13456,-64,-0.47
+ML-KEM-768,decap,-O3,21840,-64,-0.29
+ML-KEM-768,encap,-O3,20720,-64,-0.31
+ML-KEM-768,keygen,-O3,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O3,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O3,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O3,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O3,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O3,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O3,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O3,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O3,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O3,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O3,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O3,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O3,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O3,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O3,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O3,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O3,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O3,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O3,10416,-64,-0.61
+Falcon-1024,keygen,-O3 -flto,40440,-64,-0.16
+Falcon-1024,sign,-O3 -flto,90672,-64,-0.07
+Falcon-1024,verify,-O3 -flto,13096,-64,-0.49
+Falcon-512,keygen,-O3 -flto,23544,-64,-0.27
+Falcon-512,sign,-O3 -flto,49520,-64,-0.13
+Falcon-512,verify,-O3 -flto,9000,-64,-0.71
+HQC-128,decap,-O3 -flto,60832,-64,-0.11
+HQC-128,encap,-O3 -flto,56384,-64,-0.11
+HQC-128,keygen,-O3 -flto,38512,-64,-0.17
+HQC-192,decap,-O3 -flto,115696,-64,-0.06
+HQC-192,encap,-O3 -flto,106688,-64,-0.06
+HQC-192,keygen,-O3 -flto,70624,-64,-0.09
+HQC-256,decap,-O3 -flto,180976,-64,-0.04
+HQC-256,encap,-O3 -flto,166528,-64,-0.04
+HQC-256,keygen,-O3 -flto,108704,-64,-0.06
+ML-DSA-44,keygen,-O3 -flto,28240,-64,-0.23
+ML-DSA-44,sign,-O3 -flto,53392,-64,-0.12
+ML-DSA-44,verify,-O3 -flto,25904,-64,-0.25
+ML-DSA-65,keygen,-O3 -flto,33392,-64,-0.19
+ML-DSA-65,sign,-O3 -flto,83248,-64,-0.08
+ML-DSA-65,verify,-O3 -flto,29008,-64,-0.22
+ML-DSA-87,keygen,-O3 -flto,41584,-64,-0.15
+ML-DSA-87,sign,-O3 -flto,117008,-64,-0.05
+ML-DSA-87,verify,-O3 -flto,35408,-64,-0.18
+ML-KEM-1024,decap,-O3 -flto,27984,-64,-0.23
+ML-KEM-1024,encap,-O3 -flto,26384,-64,-0.24
+ML-KEM-1024,keygen,-O3 -flto,22704,-64,-0.28
+ML-KEM-512,decap,-O3 -flto,16896,-64,-0.38
+ML-KEM-512,encap,-O3 -flto,16096,-64,-0.40
+ML-KEM-512,keygen,-O3 -flto,13456,-64,-0.47
+ML-KEM-768,decap,-O3 -flto,21840,-64,-0.29
+ML-KEM-768,encap,-O3 -flto,20720,-64,-0.31
+ML-KEM-768,keygen,-O3 -flto,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O3 -flto,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O3 -flto,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O3 -flto,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O3 -flto,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O3 -flto,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O3 -flto,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O3 -flto,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O3 -flto,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O3 -flto,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O3 -flto,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O3 -flto,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O3 -flto,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O3 -flto,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O3 -flto,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O3 -flto,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O3 -flto,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O3 -flto,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O3 -flto,10416,-64,-0.61
+Falcon-1024,keygen,-O3 -march=native,40440,-64,-0.16
+Falcon-1024,sign,-O3 -march=native,90672,-64,-0.07
+Falcon-1024,verify,-O3 -march=native,13096,-64,-0.49
+Falcon-512,keygen,-O3 -march=native,23544,-64,-0.27
+Falcon-512,sign,-O3 -march=native,49520,-64,-0.13
+Falcon-512,verify,-O3 -march=native,9000,-64,-0.71
+HQC-128,decap,-O3 -march=native,60832,-64,-0.11
+HQC-128,encap,-O3 -march=native,56384,-64,-0.11
+HQC-128,keygen,-O3 -march=native,38512,-64,-0.17
+HQC-192,decap,-O3 -march=native,115696,-64,-0.06
+HQC-192,encap,-O3 -march=native,106688,-64,-0.06
+HQC-192,keygen,-O3 -march=native,70624,-64,-0.09
+HQC-256,decap,-O3 -march=native,180976,-64,-0.04
+HQC-256,encap,-O3 -march=native,166528,-64,-0.04
+HQC-256,keygen,-O3 -march=native,108704,-64,-0.06
+ML-DSA-44,keygen,-O3 -march=native,28240,-64,-0.23
+ML-DSA-44,sign,-O3 -march=native,53392,-64,-0.12
+ML-DSA-44,verify,-O3 -march=native,25904,-64,-0.25
+ML-DSA-65,keygen,-O3 -march=native,33392,-64,-0.19
+ML-DSA-65,sign,-O3 -march=native,83248,-64,-0.08
+ML-DSA-65,verify,-O3 -march=native,29008,-64,-0.22
+ML-DSA-87,keygen,-O3 -march=native,41584,-64,-0.15
+ML-DSA-87,sign,-O3 -march=native,117008,-64,-0.05
+ML-DSA-87,verify,-O3 -march=native,35408,-64,-0.18
+ML-KEM-1024,decap,-O3 -march=native,27984,-64,-0.23
+ML-KEM-1024,encap,-O3 -march=native,26384,-64,-0.24
+ML-KEM-1024,keygen,-O3 -march=native,22704,-64,-0.28
+ML-KEM-512,decap,-O3 -march=native,16896,-64,-0.38
+ML-KEM-512,encap,-O3 -march=native,16096,-64,-0.40
+ML-KEM-512,keygen,-O3 -march=native,13456,-64,-0.47
+ML-KEM-768,decap,-O3 -march=native,21840,-64,-0.29
+ML-KEM-768,encap,-O3 -march=native,20720,-64,-0.31
+ML-KEM-768,keygen,-O3 -march=native,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O3 -march=native,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O3 -march=native,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O3 -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O3 -march=native,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O3 -march=native,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O3 -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O3 -march=native,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O3 -march=native,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O3 -march=native,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O3 -march=native,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O3 -march=native,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O3 -march=native,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O3 -march=native,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O3 -march=native,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O3 -march=native,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O3 -march=native,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O3 -march=native,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O3 -march=native,10416,-64,-0.61
+Falcon-1024,keygen,-O3 -flto -march=native,40440,-64,-0.16
+Falcon-1024,sign,-O3 -flto -march=native,90671,-65,-0.07
+Falcon-1024,verify,-O3 -flto -march=native,13096,-64,-0.49
+Falcon-512,keygen,-O3 -flto -march=native,23544,-64,-0.27
+Falcon-512,sign,-O3 -flto -march=native,49520,-64,-0.13
+Falcon-512,verify,-O3 -flto -march=native,9000,-64,-0.71
+HQC-128,decap,-O3 -flto -march=native,60832,-64,-0.11
+HQC-128,encap,-O3 -flto -march=native,56384,-64,-0.11
+HQC-128,keygen,-O3 -flto -march=native,38512,-64,-0.17
+HQC-192,decap,-O3 -flto -march=native,115696,-64,-0.06
+HQC-192,encap,-O3 -flto -march=native,106688,-64,-0.06
+HQC-192,keygen,-O3 -flto -march=native,70624,-64,-0.09
+HQC-256,decap,-O3 -flto -march=native,180976,-64,-0.04
+HQC-256,encap,-O3 -flto -march=native,166528,-64,-0.04
+HQC-256,keygen,-O3 -flto -march=native,108704,-64,-0.06
+ML-DSA-44,keygen,-O3 -flto -march=native,28240,-64,-0.23
+ML-DSA-44,sign,-O3 -flto -march=native,53392,-64,-0.12
+ML-DSA-44,verify,-O3 -flto -march=native,25904,-64,-0.25
+ML-DSA-65,keygen,-O3 -flto -march=native,33392,-64,-0.19
+ML-DSA-65,sign,-O3 -flto -march=native,83248,-64,-0.08
+ML-DSA-65,verify,-O3 -flto -march=native,29008,-64,-0.22
+ML-DSA-87,keygen,-O3 -flto -march=native,41584,-64,-0.15
+ML-DSA-87,sign,-O3 -flto -march=native,117008,-64,-0.05
+ML-DSA-87,verify,-O3 -flto -march=native,35408,-64,-0.18
+ML-KEM-1024,decap,-O3 -flto -march=native,27984,-64,-0.23
+ML-KEM-1024,encap,-O3 -flto -march=native,26384,-64,-0.24
+ML-KEM-1024,keygen,-O3 -flto -march=native,22704,-64,-0.28
+ML-KEM-512,decap,-O3 -flto -march=native,16896,-64,-0.38
+ML-KEM-512,encap,-O3 -flto -march=native,16096,-64,-0.40
+ML-KEM-512,keygen,-O3 -flto -march=native,13456,-64,-0.47
+ML-KEM-768,decap,-O3 -flto -march=native,21840,-64,-0.29
+ML-KEM-768,encap,-O3 -flto -march=native,20720,-64,-0.31
+ML-KEM-768,keygen,-O3 -flto -march=native,17584,-64,-0.36
+SPHINCS+-SHAKE-128f-simple,keygen,-O3 -flto -march=native,13936,-64,-0.46
+SPHINCS+-SHAKE-128f-simple,sign,-O3 -flto -march=native,13296,-64,-0.48
+SPHINCS+-SHAKE-128f-simple,verify,-O3 -flto -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-128s-simple,keygen,-O3 -flto -march=native,14416,-64,-0.44
+SPHINCS+-SHAKE-128s-simple,sign,-O3 -flto -march=native,13680,-64,-0.47
+SPHINCS+-SHAKE-128s-simple,verify,-O3 -flto -march=native,8400,-64,-0.76
+SPHINCS+-SHAKE-192f-simple,keygen,-O3 -flto -march=native,20176,-64,-0.32
+SPHINCS+-SHAKE-192f-simple,sign,-O3 -flto -march=native,18864,-64,-0.34
+SPHINCS+-SHAKE-192f-simple,verify,-O3 -flto -march=native,9296,-64,-0.68
+SPHINCS+-SHAKE-192s-simple,keygen,-O3 -flto -march=native,20912,-64,-0.31
+SPHINCS+-SHAKE-192s-simple,sign,-O3 -flto -march=native,19440,-64,-0.33
+SPHINCS+-SHAKE-192s-simple,verify,-O3 -flto -march=native,9264,-64,-0.69
+SPHINCS+-SHAKE-256f-simple,keygen,-O3 -flto -march=native,29040,-64,-0.22
+SPHINCS+-SHAKE-256f-simple,sign,-O3 -flto -march=native,26736,-64,-0.24
+SPHINCS+-SHAKE-256f-simple,verify,-O3 -flto -march=native,10448,-64,-0.61
+SPHINCS+-SHAKE-256s-simple,keygen,-O3 -flto -march=native,29680,-64,-0.22
+SPHINCS+-SHAKE-256s-simple,sign,-O3 -flto -march=native,27248,-64,-0.23
+SPHINCS+-SHAKE-256s-simple,verify,-O3 -flto -march=native,10416,-64,-0.61
