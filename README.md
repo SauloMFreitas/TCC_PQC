@@ -124,13 +124,13 @@ Clone diretamente no diretório esperado pelo projeto (`code/libs/liboqs`) e ins
 ```bash
 git clone --depth 1 --branch 0.10.1 \\
     https://github.com/open-quantum-safe/liboqs.git \\
-    ~/TCC/TCC_PQC/code/libs/liboqs
-cd ~/TCC/TCC_PQC/code/libs/liboqs
+    ~/TCC_PQC/code/libs/liboqs
+cd ~/TCC_PQC/code/libs/liboqs
 
 cmake -B build -GNinja \\
     -DCMAKE_BUILD_TYPE=Release \\
     -DBUILD_SHARED_LIBS=ON \\
-    -DCMAKE_INSTALL_PREFIX=~/TCC/TCC_PQC/code/libs/liboqs_install \\
+    -DCMAKE_INSTALL_PREFIX=~/TCC_PQC/code/libs/liboqs_install \\
     -DOQS_ENABLE_KEM_HQC=ON \\
     -DOQS_ENABLE_KEM_ML_KEM=ON \\
     -DOQS_ENABLE_SIG_ML_DSA=ON \\
@@ -153,9 +153,9 @@ cmake --install build
 ### Compilar
 
 ```bash
-cd ~/TCC/TCC_PQC/code
+cd ~/TCC_PQC/code
 mkdir -p build && cd build
-cmake .. -DOQS_DIR=~/TCC/TCC_PQC/code/libs/liboqs/build
+cmake .. -DOQS_DIR=~/TCC_PQC/code/libs/liboqs/build
 cmake --build . -j$(nproc)
 ```
 
@@ -276,7 +276,7 @@ verify_mean_us, verify_stddev_us, verify_min_us, verify_median_us
 ### Opção A — Script automático (recomendado)
 
 ```bash
-cd ~/TCC/TCC_PQC/code/benchmark
+cd ~/TCC_PQC/code/benchmark
 bash build_and_run.sh
 ```
 
@@ -287,7 +287,7 @@ Compila a liboqs (se necessário), compila os programas de memória e executa o 
 #### Compilar
 
 ```bash
-cd ~/TCC/TCC_PQC/code/benchmark
+cd ~/TCC_PQC/code/benchmark
 mkdir -p build && cd build
 cmake .. -DCMAKE_PREFIX_PATH=../../libs/liboqs_install
 cmake --build . --parallel $(nproc)
@@ -296,14 +296,14 @@ cmake --build . --parallel $(nproc)
 #### Executar benchmark de stack
 
 ```bash
-cd ~/TCC/TCC_PQC/code/benchmark/build
+cd ~/TCC_PQC/code/benchmark/build
 ./memory_benchmark
 ```
 
 #### Executar Valgrind massif para todos os algoritmos
 
 ```bash
-cd ~/TCC/TCC_PQC/code/benchmark/build
+cd ~/TCC_PQC/code/benchmark/build
 bash ../run_massif_all.sh
 ```
 
@@ -388,7 +388,7 @@ A versão do liboqs utilizada ainda adota nomes internos pré-padronização. Os
 ## Compilar o Artigo (LaTeX)
 
 ```bash
-cd ~/TCC/TCC_PQC/code
+cd ~/TCC_PQC/code
 pdflatex tcc_pqc.tex
 bibtex tcc_pqc
 pdflatex tcc_pqc.tex
