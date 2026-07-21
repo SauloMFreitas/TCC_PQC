@@ -33,7 +33,7 @@ Benchmark comparativo de desempenho dos algoritmos finalistas do processo de pad
 
 ## Estrutura do Repositório
 
-\`\`\`
+```
 TCC_PQC/
 ├── README.md
 ├── code/
@@ -92,7 +92,7 @@ TCC_PQC/
 │           ├── memory_benchmark
 │           ├── massif_single
 │           └── massif_out/              # Arquivos .massif individuais (um por alg×op)
-\`\`\`
+```
 
 ---
 
@@ -110,18 +110,18 @@ TCC_PQC/
 
 ### Instalar dependências (Ubuntu / Linux Mint)
 
-\`\`\`bash
+```bash
 sudo apt update
 sudo apt install -y build-essential cmake ninja-build libssl-dev git valgrind python3
-\`\`\`
+```
 
 ---
 
 ## Compilar a liboqs
 
-Clone diretamente no diretório esperado pelo projeto (\`code/libs/liboqs\`) e instale em \`code/libs/liboqs_install\`, que é o prefixo usado pelo benchmark de memória.
+Clone diretamente no diretório esperado pelo projeto (`code/libs/liboqs`) e instale em `code/libs/liboqs_install`, que é o prefixo usado pelo benchmark de memória.
 
-\`\`\`bash
+```bash
 git clone --depth 1 --branch 0.10.1 \\
     https://github.com/open-quantum-safe/liboqs.git \\
     ~/TCC/TCC_PQC/code/libs/liboqs
@@ -140,11 +140,11 @@ cmake -B build -GNinja \\
     -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/x86_64-linux-gnu/libcrypto.so \\
     -DOPENSSL_SSL_LIBRARY=/usr/lib/x86_64-linux-gnu/libssl.so
 
-cmake --build build -j\$(nproc)
+cmake --build build -j$(nproc)
 cmake --install build
-\`\`\`
+```
 
-> O passo \`cmake --install build\` é obrigatório: sem ele o diretório \`libs/liboqs_install/\` não é criado e o benchmark de memória (que usa esse prefixo) não compila.
+> O passo `cmake --install build` é obrigatório: sem ele o diretório `libs/liboqs_install/` não é criado e o benchmark de memória (que usa esse prefixo) não compila.
 
 ---
 
@@ -152,16 +152,16 @@ cmake --install build
 
 ### Compilar
 
-\`\`\`bash
+```bash
 cd ~/TCC/TCC_PQC/code
 mkdir -p build && cd build
 cmake .. -DOQS_DIR=~/TCC/TCC_PQC/code/libs/liboqs/build
-cmake --build . -j\$(nproc)
-\`\`\`
+cmake --build . -j$(nproc)
+```
 
 O CMake gera **16 executáveis** automaticamente, um por configuração de compilação:
 
-\`\`\`
+```
 full_bench-O0             full_bench-O0_native
 full_bench-O0_lto         full_bench-O0_native_lto
 full_bench-O1             full_bench-O1_native
@@ -170,64 +170,64 @@ full_bench-O2             full_bench-O2_native
 full_bench-O2_lto         full_bench-O2_native_lto
 full_bench-O3             full_bench-O3_native
 full_bench-O3_lto         full_bench-O3_native_lto
-\`\`\`
+```
 
 | Sufixo | Flags de compilação |
 |---|---|
-| \`Ox\` | \`-Ox\` |
-| \`Ox_native\` | \`-Ox -march=native\` |
-| \`Ox_lto\` | \`-Ox -flto\` |
-| \`Ox_native_lto\` | \`-Ox -march=native -flto\` |
+| `Ox` | `-Ox` |
+| `Ox_native` | `-Ox -march=native` |
+| `Ox_lto` | `-Ox -flto` |
+| `Ox_native_lto` | `-Ox -march=native -flto` |
 
 ### Modos de execução
 
-\`\`\`bash
+```bash
 ./full_bench-O2 [modo]
-\`\`\`
+```
 
 | Modo | O que executa |
 |---|---|
-| \`all\` | Todos os algoritmos (sem escalabilidade) |
-| \`scale\` | Todos os algoritmos + escalabilidade de mensagem |
-| \`kem\` | Apenas ML-KEM e HQC |
-| \`sig\` | Apenas ML-DSA, FN-DSA e SLH-DSA |
-| \`mlkem\` | Apenas ML-KEM |
-| \`hqc\` | Apenas HQC |
-| \`mldsa\` | Apenas ML-DSA |
-| \`falcon\` | Apenas FN-DSA |
-| \`sphincs\` | Apenas SLH-DSA |
-| \`scale_mldsa\` | ML-DSA + escalabilidade |
-| \`scale_falcon\` | FN-DSA + escalabilidade |
-| \`scale_sphincs\` | SLH-DSA + escalabilidade |
+| `all` | Todos os algoritmos (sem escalabilidade) |
+| `scale` | Todos os algoritmos + escalabilidade de mensagem |
+| `kem` | Apenas ML-KEM e HQC |
+| `sig` | Apenas ML-DSA, FN-DSA e SLH-DSA |
+| `mlkem` | Apenas ML-KEM |
+| `hqc` | Apenas HQC |
+| `mldsa` | Apenas ML-DSA |
+| `falcon` | Apenas FN-DSA |
+| `sphincs` | Apenas SLH-DSA |
+| `scale_mldsa` | ML-DSA + escalabilidade |
+| `scale_falcon` | FN-DSA + escalabilidade |
+| `scale_sphincs` | SLH-DSA + escalabilidade |
 
 ### Rodar todos os 16 executáveis
 
-\`\`\`bash
+```bash
 cd build
 for exec in \\
     full_bench-O0 full_bench-O0_native full_bench-O0_lto full_bench-O0_native_lto \\
     full_bench-O1 full_bench-O1_native full_bench-O1_lto full_bench-O1_native_lto \\
     full_bench-O2 full_bench-O2_native full_bench-O2_lto full_bench-O2_native_lto \\
     full_bench-O3 full_bench-O3_native full_bench-O3_lto full_bench-O3_native_lto; do
-    echo "====== \$exec ======"
-    ./\$exec scale
+    echo "====== $exec ======"
+    ./$exec scale
 done
-\`\`\`
+```
 
 ### Atalhos CMake
 
-\`\`\`bash
+```bash
 cmake --build . --target run        # modo all
 cmake --build . --target run_kem    # modo kem
 cmake --build . --target run_sig    # modo sig
 cmake --build . --target run_scale  # modo scale
-\`\`\`
+```
 
 ### Resultados gerados
 
-Os CSVs são salvos em \`build/results/\`, organizados por configuração:
+Os CSVs são salvos em `build/results/`, organizados por configuração:
 
-\`\`\`
+```
 build/results/
 ├── O0/
 │   ├── kem.csv
@@ -239,35 +239,35 @@ build/results/
     ├── kem.csv
     ├── sig.csv
     └── sig_scale.csv
-\`\`\`
+```
 
-#### Colunas de \`kem.csv\`
+#### Colunas de `kem.csv`
 
-\`\`\`
+```
 algoritmo_nist, algoritmo_oqs, nivel_nist,
 pk_bytes, sk_bytes, ct_bytes, ss_bytes,
 keygen_mean_us, keygen_stddev_us, keygen_min_us, keygen_median_us,
 encaps_mean_us, encaps_stddev_us, encaps_min_us, encaps_median_us,
 decaps_mean_us, decaps_stddev_us, decaps_min_us, decaps_median_us
-\`\`\`
+```
 
-#### Colunas de \`sig.csv\`
+#### Colunas de `sig.csv`
 
-\`\`\`
+```
 algoritmo_nist, algoritmo_oqs, nivel_nist,
 pk_bytes, sk_bytes, sig_max_bytes, sig_real_bytes,
 keygen_mean_us, keygen_stddev_us, keygen_min_us, keygen_median_us,
 sign_mean_us,   sign_stddev_us,   sign_min_us,   sign_median_us,
 verify_mean_us, verify_stddev_us, verify_min_us, verify_median_us
-\`\`\`
+```
 
-#### Colunas de \`sig_scale.csv\`
+#### Colunas de `sig_scale.csv`
 
-\`\`\`
+```
 algoritmo_nist, nivel_nist, msg_bytes,
 sign_mean_us,  sign_stddev_us,  sign_min_us,  sign_median_us,
 verify_mean_us, verify_stddev_us, verify_min_us, verify_median_us
-\`\`\`
+```
 
 ---
 
@@ -275,43 +275,43 @@ verify_mean_us, verify_stddev_us, verify_min_us, verify_median_us
 
 ### Opção A — Script automático (recomendado)
 
-\`\`\`bash
+```bash
 cd ~/TCC/TCC_PQC/code/benchmark
 bash build_and_run.sh
-\`\`\`
+```
 
-Compila a liboqs (se necessário), compila os programas de memória e executa o benchmark de stack. O CSV é salvo em \`benchmark/memory_results_tcc.csv\`.
+Compila a liboqs (se necessário), compila os programas de memória e executa o benchmark de stack. O CSV é salvo em `benchmark/memory_results_tcc.csv`.
 
 ### Opção B — Passo a passo manual
 
 #### Compilar
 
-\`\`\`bash
+```bash
 cd ~/TCC/TCC_PQC/code/benchmark
 mkdir -p build && cd build
 cmake .. -DCMAKE_PREFIX_PATH=../../libs/liboqs_install
-cmake --build . --parallel \$(nproc)
-\`\`\`
+cmake --build . --parallel $(nproc)
+```
 
 #### Executar benchmark de stack
 
-\`\`\`bash
+```bash
 cd ~/TCC/TCC_PQC/code/benchmark/build
 ./memory_benchmark
-\`\`\`
+```
 
 #### Executar Valgrind massif para todos os algoritmos
 
-\`\`\`bash
+```bash
 cd ~/TCC/TCC_PQC/code/benchmark/build
 bash ../run_massif_all.sh
-\`\`\`
+```
 
-Salva os arquivos \`.massif\` em \`build/massif_out/\` e gera \`massif_results_heap_tcc.csv\`.
+Salva os arquivos `.massif` em `build/massif_out/` e gera `massif_results_heap_tcc.csv`.
 
-#### Executar \`massif_single\` manualmente
+#### Executar `massif_single` manualmente
 
-\`\`\`bash
+```bash
 # Testa um algoritmo diretamente (sem Valgrind):
 ./massif_single ML-KEM-512 keygen
 ./massif_single FN-DSA-512 verify      # aceita nome NIST
@@ -325,16 +325,16 @@ valgrind --tool=massif \\
 
 # Visualizar resultado:
 ms_print massif.ML-DSA-44.sign.out | head -40
-\`\`\`
+```
 
 ### Resultados gerados
 
 | Arquivo | Conteúdo |
 |---|---|
-| \`benchmark/memory_results_tcc.csv\` | Uso de stack (bytes) por algoritmo e operação |
-| \`benchmark/massif_results_heap_tcc.csv\` | Pico de heap (KB/MB) por algoritmo e operação |
+| `benchmark/memory_results_tcc.csv` | Uso de stack (bytes) por algoritmo e operação |
+| `benchmark/massif_results_heap_tcc.csv` | Pico de heap (KB/MB) por algoritmo e operação |
 
-Para descrição detalhada de cada coluna, consulte [\`code/resumo_colunas_csv.md\`](code/resumo_colunas_csv.md).
+Para descrição detalhada de cada coluna, consulte [`code/resumo_colunas_csv.md`](code/resumo_colunas_csv.md).
 
 ---
 
@@ -342,28 +342,28 @@ Para descrição detalhada de cada coluna, consulte [\`code/resumo_colunas_csv.m
 
 ### Timer
 
-A medição de tempo usa \`clock_gettime(CLOCK_MONOTONIC)\` no Linux. As funções são implementadas como \`static inline\` para eliminar overhead de chamada nas medições críticas.
+A medição de tempo usa `clock_gettime(CLOCK_MONOTONIC)` no Linux. As funções são implementadas como `static inline` para eliminar overhead de chamada nas medições críticas.
 
 ### Verificação de corretude
 
 A cada iteração do benchmark o resultado é verificado:
 
 - **KEMs**: os shared secrets gerados por Encaps e Decaps são comparados byte a byte.
-- **Assinaturas**: o retorno de Verify é verificado como \`OQS_SUCCESS\`.
+- **Assinaturas**: o retorno de Verify é verificado como `OQS_SUCCESS`.
 
 Falhas de corretude abortam o benchmark com mensagem de erro.
 
 ### Detecção automática de configuração
 
-Cada executável detecta seu próprio nível de otimização a partir do nome (\`argv[0]\`): \`full_bench-O2_native\` extrai o sufixo \`O2_native\` e o usa como subdiretório de resultados e rótulo no banner.
+Cada executável detecta seu próprio nível de otimização a partir do nome (`argv[0]`): `full_bench-O2_native` extrai o sufixo `O2_native` e o usa como subdiretório de resultados e rótulo no banner.
 
 ### Stack painting (medição de pilha)
 
-Um buffer de 4 MB é preenchido com o byte sentinela \`0xAB\` e passado como pilha de uma thread POSIX via \`pthread_attr_setstack()\`. Após a execução da operação criptográfica, o buffer é varrido para encontrar o primeiro byte alterado, determinando o uso real de pilha.
+Um buffer de 4 MB é preenchido com o byte sentinela `0xAB` e passado como pilha de uma thread POSIX via `pthread_attr_setstack()`. Após a execução da operação criptográfica, o buffer é varrido para encontrar o primeiro byte alterado, determinando o uso real de pilha.
 
 ### Valgrind massif (medição de heap)
 
-O programa \`massif_single.c\` executa exatamente uma operação por invocação (sem laços) para que o Valgrind capture o perfil de heap daquela operação isolada. O delta líquido de heap é sempre zero — a liboqs libera todas as alocações ao término de cada chamada; o valor relevante é o **pico durante a execução**.
+O programa `massif_single.c` executa exatamente uma operação por invocação (sem laços) para que o Valgrind capture o perfil de heap daquela operação isolada. O delta líquido de heap é sempre zero — a liboqs libera todas as alocações ao término de cada chamada; o valor relevante é o **pico durante a execução**.
 
 ---
 
@@ -387,13 +387,13 @@ A versão do liboqs utilizada ainda adota nomes internos pré-padronização. Os
 
 ## Compilar o Artigo (LaTeX)
 
-\`\`\`bash
+```bash
 cd ~/TCC/TCC_PQC/code
 pdflatex tcc_pqc.tex
 bibtex tcc_pqc
 pdflatex tcc_pqc.tex
 pdflatex tcc_pqc.tex
-\`\`\`
+```
 
 ---
 
