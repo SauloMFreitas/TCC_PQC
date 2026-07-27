@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -isystem /home/saulo/TCC/TCC_PQC/code/libs/liboqs_install/include -isystem /home/saulo/TCC/TCC_PQC/code/libs/liboqs_install/include/oqs
+C_INCLUDES = -isystem /home/saulo/TCC_PQC/code/libs/liboqs_install/include -isystem /home/saulo/TCC_PQC/code/libs/liboqs_install/include/oqs
 
 C_FLAGS =  -O0 -g -Wall -g -std=gnu11
 

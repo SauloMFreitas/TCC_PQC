@@ -1,4 +1,4 @@
-prefix=/home/saulo/TCC/TCC_PQC/code/libs/liboqs_install
+prefix=/home/saulo/TCC_PQC/code/libs/liboqs_install
 libdir=${prefix}/lib
 includedir=${prefix}/include
 

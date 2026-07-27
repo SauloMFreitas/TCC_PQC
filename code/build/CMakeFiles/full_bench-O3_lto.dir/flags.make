@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/saulo/TCC/TCC_PQC/code/include -I/home/saulo/TCC/TCC_PQC/code/libs/liboqs/build/include
+C_INCLUDES = -I/home/saulo/TCC_PQC/code/include -I/home/saulo/TCC_PQC/code/libs/liboqs/build/include
 
 C_FLAGS = -std=gnu11 -Wall -Wextra -Wno-unused-parameter -O3 -flto
 

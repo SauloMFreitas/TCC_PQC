@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saulo/TCC/TCC_PQC/code
+CMAKE_SOURCE_DIR = /home/saulo/TCC_PQC/code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saulo/TCC/TCC_PQC/code/build
+CMAKE_BINARY_DIR = /home/saulo/TCC_PQC/code/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/full_bench-O1_lto.dir/depend.make
@@ -70,158 +70,158 @@ include CMakeFiles/full_bench-O1_lto.dir/progress.make
 include CMakeFiles/full_bench-O1_lto.dir/flags.make
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o: /home/saulo/TCC/TCC_PQC/code/src/core/timer.c
+CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o: /home/saulo/TCC_PQC/code/src/core/timer.c
 CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o -c /home/saulo/TCC/TCC_PQC/code/src/core/timer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.o -c /home/saulo/TCC_PQC/code/src/core/timer.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/core/timer.c > CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/core/timer.c > CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/core/timer.c -o CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/core/timer.c -o CMakeFiles/full_bench-O1_lto.dir/src/core/timer.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o: /home/saulo/TCC/TCC_PQC/code/src/core/stats.c
+CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o: /home/saulo/TCC_PQC/code/src/core/stats.c
 CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o -c /home/saulo/TCC/TCC_PQC/code/src/core/stats.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.o -c /home/saulo/TCC_PQC/code/src/core/stats.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/core/stats.c > CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/core/stats.c > CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/core/stats.c -o CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/core/stats.c -o CMakeFiles/full_bench-O1_lto.dir/src/core/stats.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o: /home/saulo/TCC/TCC_PQC/code/src/core/utils.c
+CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o: /home/saulo/TCC_PQC/code/src/core/utils.c
 CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o -c /home/saulo/TCC/TCC_PQC/code/src/core/utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.o -c /home/saulo/TCC_PQC/code/src/core/utils.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/core/utils.c > CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/core/utils.c > CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/core/utils.c -o CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/core/utils.c -o CMakeFiles/full_bench-O1_lto.dir/src/core/utils.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/kem/kem_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o: /home/saulo/TCC_PQC/code/src/kem/kem_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/kem/kem_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/kem/kem_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/kem/kem_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/kem/kem_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/kem/kem_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/kem/kem_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/kem/kyber_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o: /home/saulo/TCC_PQC/code/src/kem/kyber_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/kem/kyber_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/kem/kyber_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/kem/kyber_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/kem/kyber_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/kem/kyber_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/kem/kyber_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/kem/hqc_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o: /home/saulo/TCC_PQC/code/src/kem/hqc_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/kem/hqc_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/kem/hqc_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/kem/hqc_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/kem/hqc_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/kem/hqc_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/kem/hqc_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/sig/sig_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o: /home/saulo/TCC_PQC/code/src/sig/sig_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/sig/sig_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/sig/sig_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/sig/sig_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/sig/sig_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/sig/sig_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/sig/sig_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/sig/dilithium_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o: /home/saulo/TCC_PQC/code/src/sig/dilithium_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/sig/dilithium_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/sig/dilithium_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/sig/dilithium_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/sig/dilithium_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/sig/dilithium_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/sig/dilithium_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/sig/falcon_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o: /home/saulo/TCC_PQC/code/src/sig/falcon_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/sig/falcon_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/sig/falcon_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/sig/falcon_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/sig/falcon_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/sig/falcon_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/sig/falcon_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o: /home/saulo/TCC/TCC_PQC/code/src/sig/sphincs_benchmark.c
+CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o: /home/saulo/TCC_PQC/code/src/sig/sphincs_benchmark.c
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o -c /home/saulo/TCC/TCC_PQC/code/src/sig/sphincs_benchmark.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o -c /home/saulo/TCC_PQC/code/src/sig/sphincs_benchmark.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/sig/sphincs_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/sig/sphincs_benchmark.c > CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/sig/sphincs_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/sig/sphincs_benchmark.c -o CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.s
 
 CMakeFiles/full_bench-O1_lto.dir/src/main.c.o: CMakeFiles/full_bench-O1_lto.dir/flags.make
-CMakeFiles/full_bench-O1_lto.dir/src/main.c.o: /home/saulo/TCC/TCC_PQC/code/src/main.c
+CMakeFiles/full_bench-O1_lto.dir/src/main.c.o: /home/saulo/TCC_PQC/code/src/main.c
 CMakeFiles/full_bench-O1_lto.dir/src/main.c.o: CMakeFiles/full_bench-O1_lto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/main.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/main.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/main.c.o -c /home/saulo/TCC/TCC_PQC/code/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/full_bench-O1_lto.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/full_bench-O1_lto.dir/src/main.c.o -MF CMakeFiles/full_bench-O1_lto.dir/src/main.c.o.d -o CMakeFiles/full_bench-O1_lto.dir/src/main.c.o -c /home/saulo/TCC_PQC/code/src/main.c
 
 CMakeFiles/full_bench-O1_lto.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/full_bench-O1_lto.dir/src/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC/TCC_PQC/code/src/main.c > CMakeFiles/full_bench-O1_lto.dir/src/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saulo/TCC_PQC/code/src/main.c > CMakeFiles/full_bench-O1_lto.dir/src/main.c.i
 
 CMakeFiles/full_bench-O1_lto.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/full_bench-O1_lto.dir/src/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC/TCC_PQC/code/src/main.c -o CMakeFiles/full_bench-O1_lto.dir/src/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saulo/TCC_PQC/code/src/main.c -o CMakeFiles/full_bench-O1_lto.dir/src/main.c.s
 
 # Object files for target full_bench-O1_lto
 full_bench__O1_lto_OBJECTS = \
@@ -252,12 +252,12 @@ full_bench-O1_lto: CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o
 full_bench-O1_lto: CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o
 full_bench-O1_lto: CMakeFiles/full_bench-O1_lto.dir/src/main.c.o
 full_bench-O1_lto: CMakeFiles/full_bench-O1_lto.dir/build.make
-full_bench-O1_lto: /home/saulo/TCC/TCC_PQC/code/libs/liboqs/build/lib/liboqs.so
+full_bench-O1_lto: /home/saulo/TCC_PQC/code/libs/liboqs/build/lib/liboqs.so
 full_bench-O1_lto: CMakeFiles/full_bench-O1_lto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable full_bench-O1_lto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable full_bench-O1_lto"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/full_bench-O1_lto.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Criando diretorio results/"
-	/usr/bin/cmake -E make_directory /home/saulo/TCC/TCC_PQC/code/build/results
+	/usr/bin/cmake -E make_directory /home/saulo/TCC_PQC/code/build/results
 
 # Rule to build all files generated by this target.
 CMakeFiles/full_bench-O1_lto.dir/build: full_bench-O1_lto
@@ -268,6 +268,6 @@ CMakeFiles/full_bench-O1_lto.dir/clean:
 .PHONY : CMakeFiles/full_bench-O1_lto.dir/clean
 
 CMakeFiles/full_bench-O1_lto.dir/depend:
-	cd /home/saulo/TCC/TCC_PQC/code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saulo/TCC/TCC_PQC/code /home/saulo/TCC/TCC_PQC/code /home/saulo/TCC/TCC_PQC/code/build /home/saulo/TCC/TCC_PQC/code/build /home/saulo/TCC/TCC_PQC/code/build/CMakeFiles/full_bench-O1_lto.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/saulo/TCC_PQC/code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saulo/TCC_PQC/code /home/saulo/TCC_PQC/code /home/saulo/TCC_PQC/code/build /home/saulo/TCC_PQC/code/build /home/saulo/TCC_PQC/code/build/CMakeFiles/full_bench-O1_lto.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/full_bench-O1_lto.dir/depend
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saulo/TCC/TCC_PQC/code
+CMAKE_SOURCE_DIR = /home/saulo/TCC_PQC/code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saulo/TCC/TCC_PQC/code/build
+CMAKE_BINARY_DIR = /home/saulo/TCC_PQC/code/build
 
 # Utility rule file for run_kem.
 
@@ -82,6 +82,6 @@ CMakeFiles/run_kem.dir/clean:
 .PHONY : CMakeFiles/run_kem.dir/clean
 
 CMakeFiles/run_kem.dir/depend:
-	cd /home/saulo/TCC/TCC_PQC/code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saulo/TCC/TCC_PQC/code /home/saulo/TCC/TCC_PQC/code /home/saulo/TCC/TCC_PQC/code/build /home/saulo/TCC/TCC_PQC/code/build /home/saulo/TCC/TCC_PQC/code/build/CMakeFiles/run_kem.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/saulo/TCC_PQC/code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saulo/TCC_PQC/code /home/saulo/TCC_PQC/code /home/saulo/TCC_PQC/code/build /home/saulo/TCC_PQC/code/build /home/saulo/TCC_PQC/code/build/CMakeFiles/run_kem.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/run_kem.dir/depend
 

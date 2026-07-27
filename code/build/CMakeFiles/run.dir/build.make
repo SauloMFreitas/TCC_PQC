@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saulo/TCC/TCC_PQC/code
+CMAKE_SOURCE_DIR = /home/saulo/TCC_PQC/code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saulo/TCC/TCC_PQC/code/build
+CMAKE_BINARY_DIR = /home/saulo/TCC_PQC/code/build
 
 # Utility rule file for run.
 
@@ -67,7 +67,7 @@ include CMakeFiles/run.dir/compiler_depend.make
 include CMakeFiles/run.dir/progress.make
 
 CMakeFiles/run: full_bench-O2
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/saulo/TCC/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Executando benchmark completo (O2)..."
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/saulo/TCC_PQC/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Executando benchmark completo (O2)..."
 	./full_bench-O2
 
 run: CMakeFiles/run
@@ -83,6 +83,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /home/saulo/TCC/TCC_PQC/code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saulo/TCC/TCC_PQC/code /home/saulo/TCC/TCC_PQC/code /home/saulo/TCC/TCC_PQC/code/build /home/saulo/TCC/TCC_PQC/code/build /home/saulo/TCC/TCC_PQC/code/build/CMakeFiles/run.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/saulo/TCC_PQC/code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/saulo/TCC_PQC/code /home/saulo/TCC_PQC/code /home/saulo/TCC_PQC/code/build /home/saulo/TCC_PQC/code/build /home/saulo/TCC_PQC/code/build/CMakeFiles/run.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/run.dir/depend
 
