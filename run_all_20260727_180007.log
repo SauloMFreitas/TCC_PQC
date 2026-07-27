@@ -1,0 +1,2446 @@
+
+[1;36m==> Início — projeto em /home/saulo/TCC_PQC | log: /home/saulo/TCC_PQC/run_all_20260727_180007.log[0m
+
+[1;36m==> Instalando dependências (apt)[0m
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Ignorar:1 http://packages.linuxmint.com zena InRelease
+Atingido:2 http://packages.linuxmint.com zena Release
+Atingido:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Atingido:5 http://archive.ubuntu.com/ubuntu noble InRelease
+Atingido:6 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Atingido:7 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+42 pacotes podem ser atualizados. Execute 'apt list --upgradable' para vê-los.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+build-essential já é a versão mais nova (12.10ubuntu1).
+cmake já é a versão mais nova (3.28.3-1build7).
+ninja-build já é a versão mais nova (1.11.1-2).
+libssl-dev já é a versão mais nova (3.0.13-0ubuntu3.11).
+git já é a versão mais nova (1:2.43.0-1ubuntu7.3).
+valgrind já é a versão mais nova (1:3.22.0-0ubuntu3).
+python3 já é a versão mais nova (3.12.3-0ubuntu2.1).
+linux-tools-common já é a versão mais nova (6.8.0-136.136).
+linux-tools-generic já é a versão mais nova (6.8.0-136.136).
+0 pacotes atualizados, 0 pacotes novos instalados, 0 a serem removidos e 42 não atualizados.
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+linux-tools-7.0.0-28-generic já é a versão mais nova (7.0.0-28.28~24.04.1).
+0 pacotes atualizados, 0 pacotes novos instalados, 0 a serem removidos e 42 não atualizados.
+
+[1;36m==> liboqs já instalada em /home/saulo/TCC_PQC/code/libs/liboqs_install — pulando build[0m
+
+[1;36m==> Aplicando higiene de benchmark (requer sudo)[0m
+  governor -> performance (era: performance)
+  turbo boost (AMD) -> off
+  ASLR -> off (era: 0)
+[1;33m[aviso] SMT em 'off'; não alterei[0m
+
+[1;36m==> Compilando benchmark de tempo (16 configurações)[0m
+-- Registrado: full_bench-O0  flags: -O0
+-- Registrado: full_bench-O0_native  flags: -O0;-march=native
+-- Registrado: full_bench-O0_lto  flags: -O0;-flto
+-- Registrado: full_bench-O0_native_lto  flags: -O0;-march=native;-flto
+-- Registrado: full_bench-O1  flags: -O1
+-- Registrado: full_bench-O1_native  flags: -O1;-march=native
+-- Registrado: full_bench-O1_lto  flags: -O1;-flto
+-- Registrado: full_bench-O1_native_lto  flags: -O1;-march=native;-flto
+-- Registrado: full_bench-O2  flags: -O2
+-- Registrado: full_bench-O2_native  flags: -O2;-march=native
+-- Registrado: full_bench-O2_lto  flags: -O2;-flto
+-- Registrado: full_bench-O2_native_lto  flags: -O2;-march=native;-flto
+-- Registrado: full_bench-O3  flags: -O3
+-- Registrado: full_bench-O3_native  flags: -O3;-march=native
+-- Registrado: full_bench-O3_lto  flags: -O3;-flto
+-- Registrado: full_bench-O3_native_lto  flags: -O3;-march=native;-flto
+-- 
+--   OQS include : /home/saulo/TCC_PQC/code/libs/liboqs/build/include
+--   OQS library : /home/saulo/TCC_PQC/code/libs/liboqs/build/lib/liboqs.so
+--   Plataforma  : Linux
+-- 
+--   Executaveis gerados (16 no total):
+--     full_bench-O0 / O0_native / O0_lto / O0_native_lto
+--     full_bench-O1 / O1_native / O1_lto / O1_native_lto
+--     full_bench-O2 / O2_native / O2_lto / O2_native_lto
+--     full_bench-O3 / O3_native / O3_lto / O3_native_lto
+-- 
+--   Uso:
+--     ./full_bench-O2                -> benchmark completo
+--     ./full_bench-O3_native scale   -> benchmark + escalabilidade
+--     cmake --build . --target run   -> atalho para O2 completo
+-- 
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/saulo/TCC_PQC/code/build
+[  3%] Building C object CMakeFiles/full_bench-O0.dir/src/kem/kem_benchmark.c.o
+[  3%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/kem/kem_benchmark.c.o
+[  3%] Building C object CMakeFiles/full_bench-O0_native.dir/src/kem/kem_benchmark.c.o
+[  3%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/kem/kem_benchmark.c.o
+[  3%] Building C object CMakeFiles/full_bench-O1.dir/src/kem/kem_benchmark.c.o
+[  4%] Building C object CMakeFiles/full_bench-O1_native.dir/src/kem/kem_benchmark.c.o
+[  4%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/kem/kyber_benchmark.c.o
+[  5%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/kem/kyber_benchmark.c.o
+[  5%] Building C object CMakeFiles/full_bench-O0.dir/src/kem/kyber_benchmark.c.o
+[  6%] Building C object CMakeFiles/full_bench-O0_native.dir/src/kem/kyber_benchmark.c.o
+[  6%] Building C object CMakeFiles/full_bench-O1_native.dir/src/kem/kyber_benchmark.c.o
+[  7%] Building C object CMakeFiles/full_bench-O1.dir/src/kem/kyber_benchmark.c.o
+[  8%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/kem/hqc_benchmark.c.o
+[  8%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/kem/hqc_benchmark.c.o
+[  9%] Building C object CMakeFiles/full_bench-O0.dir/src/kem/hqc_benchmark.c.o
+[  9%] Building C object CMakeFiles/full_bench-O0_native.dir/src/kem/hqc_benchmark.c.o
+[  9%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/sig/sig_benchmark.c.o
+[ 10%] Building C object CMakeFiles/full_bench-O1_native.dir/src/kem/hqc_benchmark.c.o
+[ 10%] Building C object CMakeFiles/full_bench-O1.dir/src/kem/hqc_benchmark.c.o
+[ 10%] Building C object CMakeFiles/full_bench-O0.dir/src/sig/sig_benchmark.c.o
+[ 11%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/sig/sig_benchmark.c.o
+[ 12%] Building C object CMakeFiles/full_bench-O0_native.dir/src/sig/sig_benchmark.c.o
+[ 13%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 13%] Building C object CMakeFiles/full_bench-O1_native.dir/src/sig/sig_benchmark.c.o
+[ 13%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 14%] Building C object CMakeFiles/full_bench-O1.dir/src/sig/sig_benchmark.c.o
+[ 15%] Building C object CMakeFiles/full_bench-O0.dir/src/sig/dilithium_benchmark.c.o
+[ 15%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/sig/falcon_benchmark.c.o
+[ 15%] Building C object CMakeFiles/full_bench-O0_native.dir/src/sig/dilithium_benchmark.c.o
+[ 16%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/sig/falcon_benchmark.c.o
+[ 16%] Building C object CMakeFiles/full_bench-O0.dir/src/sig/falcon_benchmark.c.o
+[ 17%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 17%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 18%] Building C object CMakeFiles/full_bench-O0_native.dir/src/sig/falcon_benchmark.c.o
+[ 19%] Building C object CMakeFiles/full_bench-O1_native.dir/src/sig/dilithium_benchmark.c.o
+[ 20%] Building C object CMakeFiles/full_bench-O0.dir/src/sig/sphincs_benchmark.c.o
+[ 21%] Building C object CMakeFiles/full_bench-O1.dir/src/sig/dilithium_benchmark.c.o
+[ 21%] Building C object CMakeFiles/full_bench-O0_lto.dir/src/main.c.o
+[ 22%] Building C object CMakeFiles/full_bench-O0_native_lto.dir/src/main.c.o
+[ 22%] Building C object CMakeFiles/full_bench-O0_native.dir/src/sig/sphincs_benchmark.c.o
+[ 22%] Building C object CMakeFiles/full_bench-O0.dir/src/main.c.o
+[ 22%] Building C object CMakeFiles/full_bench-O1_native.dir/src/sig/falcon_benchmark.c.o
+[ 23%] Linking C executable full_bench-O0_lto
+[ 23%] Linking C executable full_bench-O0_native_lto
+[ 23%] Building C object CMakeFiles/full_bench-O1.dir/src/sig/falcon_benchmark.c.o
+[ 24%] Building C object CMakeFiles/full_bench-O0_native.dir/src/main.c.o
+[ 25%] Linking C executable full_bench-O0
+[ 26%] Building C object CMakeFiles/full_bench-O1_native.dir/src/sig/sphincs_benchmark.c.o
+[ 27%] Building C object CMakeFiles/full_bench-O1.dir/src/sig/sphincs_benchmark.c.o
+[ 27%] Linking C executable full_bench-O0_native
+[ 28%] Building C object CMakeFiles/full_bench-O1_native.dir/src/main.c.o
+[ 28%] Building C object CMakeFiles/full_bench-O1.dir/src/main.c.o
+Criando diretorio results/
+[ 29%] Built target full_bench-O0
+Criando diretorio results/
+[ 29%] Linking C executable full_bench-O1_native
+[ 30%] Linking C executable full_bench-O1
+[ 31%] Built target full_bench-O0_native
+[ 32%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/kem_benchmark.c.o
+Criando diretorio results/
+[ 33%] Built target full_bench-O0_lto
+Criando diretorio results/
+[ 33%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/kem/kem_benchmark.c.o
+[ 33%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/kyber_benchmark.c.o
+[ 35%] Built target full_bench-O0_native_lto
+[ 36%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/kem/hqc_benchmark.c.o
+Criando diretorio results/
+[ 36%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/sig_benchmark.c.o
+[ 37%] Built target full_bench-O1_native
+Criando diretorio results/
+[ 38%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 39%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/kem/kyber_benchmark.c.o
+[ 41%] Built target full_bench-O1
+[ 41%] Building C object CMakeFiles/full_bench-O2.dir/src/kem/kem_benchmark.c.o
+[ 42%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/kem/hqc_benchmark.c.o
+[ 42%] Building C object CMakeFiles/full_bench-O2.dir/src/kem/kyber_benchmark.c.o
+[ 42%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/falcon_benchmark.c.o
+[ 42%] Building C object CMakeFiles/full_bench-O2.dir/src/kem/hqc_benchmark.c.o
+[ 43%] Building C object CMakeFiles/full_bench-O2_native.dir/src/kem/kem_benchmark.c.o
+[ 44%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/sig/sig_benchmark.c.o
+[ 45%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 46%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/kem/kem_benchmark.c.o
+[ 46%] Building C object CMakeFiles/full_bench-O2_native.dir/src/kem/kyber_benchmark.c.o
+[ 47%] Building C object CMakeFiles/full_bench-O2.dir/src/sig/sig_benchmark.c.o
+[ 47%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 47%] Building C object CMakeFiles/full_bench-O1_lto.dir/src/main.c.o
+[ 47%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/kem/kyber_benchmark.c.o
+[ 48%] Building C object CMakeFiles/full_bench-O2_native.dir/src/kem/hqc_benchmark.c.o
+[ 50%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/kem/kem_benchmark.c.o
+[ 50%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/sig/falcon_benchmark.c.o
+[ 51%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/kem/hqc_benchmark.c.o
+[ 52%] Linking C executable full_bench-O1_lto
+[ 52%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 52%] Building C object CMakeFiles/full_bench-O2_native.dir/src/sig/sig_benchmark.c.o
+[ 52%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/kem/kyber_benchmark.c.o
+[ 52%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/sig/sig_benchmark.c.o
+[ 52%] Building C object CMakeFiles/full_bench-O2.dir/src/sig/dilithium_benchmark.c.o
+[ 53%] Building C object CMakeFiles/full_bench-O1_native_lto.dir/src/main.c.o
+[ 54%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/kem/hqc_benchmark.c.o
+[ 55%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 56%] Building C object CMakeFiles/full_bench-O2.dir/src/sig/falcon_benchmark.c.o
+[ 56%] Linking C executable full_bench-O1_native_lto
+[ 57%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/sig/sig_benchmark.c.o
+[ 57%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/sig/falcon_benchmark.c.o
+[ 58%] Building C object CMakeFiles/full_bench-O2_native.dir/src/sig/dilithium_benchmark.c.o
+[ 58%] Building C object CMakeFiles/full_bench-O2.dir/src/sig/sphincs_benchmark.c.o
+[ 59%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 59%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 59%] Building C object CMakeFiles/full_bench-O2_native.dir/src/sig/falcon_benchmark.c.o
+[ 60%] Building C object CMakeFiles/full_bench-O2.dir/src/main.c.o
+[ 60%] Building C object CMakeFiles/full_bench-O2_lto.dir/src/main.c.o
+[ 61%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/sig/falcon_benchmark.c.o
+Criando diretorio results/
+[ 62%] Built target full_bench-O1_lto
+[ 63%] Building C object CMakeFiles/full_bench-O2_native.dir/src/sig/sphincs_benchmark.c.o
+[ 63%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 64%] Linking C executable full_bench-O2_lto
+[ 65%] Building C object CMakeFiles/full_bench-O2_native_lto.dir/src/main.c.o
+[ 65%] Linking C executable full_bench-O2
+[ 65%] Building C object CMakeFiles/full_bench-O2_native.dir/src/main.c.o
+[ 65%] Linking C executable full_bench-O2_native_lto
+[ 65%] Building C object CMakeFiles/full_bench-O3.dir/src/kem/kem_benchmark.c.o
+Criando diretorio results/
+[ 67%] Built target full_bench-O1_native_lto
+Criando diretorio results/
+[ 68%] Linking C executable full_bench-O2_native
+[ 69%] Building C object CMakeFiles/full_bench-O3_native.dir/src/kem/kem_benchmark.c.o
+[ 71%] Built target full_bench-O2
+[ 72%] Building C object CMakeFiles/full_bench-O3.dir/src/kem/kyber_benchmark.c.o
+[ 72%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/kem/kem_benchmark.c.o
+[ 72%] Building C object CMakeFiles/full_bench-O3.dir/src/kem/hqc_benchmark.c.o
+Criando diretorio results/
+[ 72%] Building C object CMakeFiles/full_bench-O3_native.dir/src/kem/kyber_benchmark.c.o
+[ 73%] Built target full_bench-O2_native
+[ 74%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/kem/kyber_benchmark.c.o
+[ 74%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/kem/hqc_benchmark.c.o
+[ 75%] Building C object CMakeFiles/full_bench-O3.dir/src/sig/sig_benchmark.c.o
+[ 76%] Building C object CMakeFiles/full_bench-O3_native.dir/src/kem/hqc_benchmark.c.o
+[ 76%] Building C object CMakeFiles/full_bench-O3.dir/src/sig/dilithium_benchmark.c.o
+[ 77%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/sig/sig_benchmark.c.o
+[ 77%] Building C object CMakeFiles/full_bench-O3_native.dir/src/sig/sig_benchmark.c.o
+Criando diretorio results/
+[ 77%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 79%] Built target full_bench-O2_lto
+[ 80%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/kem/kem_benchmark.c.o
+[ 81%] Building C object CMakeFiles/full_bench-O3_native.dir/src/sig/dilithium_benchmark.c.o
+Criando diretorio results/
+[ 82%] Building C object CMakeFiles/full_bench-O3.dir/src/sig/falcon_benchmark.c.o
+[ 83%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/sig/falcon_benchmark.c.o
+[ 84%] Built target full_bench-O2_native_lto
+[ 84%] Building C object CMakeFiles/full_bench-O3.dir/src/sig/sphincs_benchmark.c.o
+[ 84%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/kem/kyber_benchmark.c.o
+[ 85%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 86%] Building C object CMakeFiles/full_bench-O3.dir/src/main.c.o
+[ 87%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/kem/hqc_benchmark.c.o
+[ 87%] Building C object CMakeFiles/full_bench-O3_native.dir/src/sig/falcon_benchmark.c.o
+[ 87%] Building C object CMakeFiles/full_bench-O3_lto.dir/src/main.c.o
+[ 87%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/sig/sig_benchmark.c.o
+[ 88%] Building C object CMakeFiles/full_bench-O3_native.dir/src/sig/sphincs_benchmark.c.o
+[ 88%] Building C object CMakeFiles/full_bench-O3_native.dir/src/main.c.o
+[ 89%] Linking C executable full_bench-O3_lto
+[ 89%] Linking C executable full_bench-O3
+[ 90%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/sig/dilithium_benchmark.c.o
+[ 90%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/sig/falcon_benchmark.c.o
+[ 91%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/sig/sphincs_benchmark.c.o
+[ 91%] Building C object CMakeFiles/full_bench-O3_native_lto.dir/src/main.c.o
+[ 92%] Linking C executable full_bench-O3_native
+Criando diretorio results/
+[ 95%] Linking C executable full_bench-O3_native_lto
+[ 95%] Built target full_bench-O3
+Criando diretorio results/
+[ 96%] Built target full_bench-O3_native
+Criando diretorio results/
+[ 98%] Built target full_bench-O3_lto
+Criando diretorio results/
+[100%] Built target full_bench-O3_native_lto
+
+[1;36m==> Rodando os 16 executáveis (modo scale, fixados no core 2)[0m
+====== full_bench-O0 ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O0
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O0/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.57 us  +/-   1.02  | min:    17.53  med:    18.51  CV: 5.5%
+    Encaps     | media:     19.49 us  +/-   0.82  | min:    18.02  med:    19.49  CV: 4.2%
+    Decaps     | media:     18.23 us  +/-   2.51  | min:    17.46  med:    17.74  CV: 13.8%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.74 us  +/-   1.55  | min:    28.49  med:    29.47  CV: 5.2%
+    Encaps     | media:     29.91 us  +/-   1.73  | min:    29.05  med:    29.54  CV: 5.8%
+    Decaps     | media:     28.47 us  +/-   2.50  | min:    27.10  med:    28.01  CV: 8.8%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     40.62 us  +/-   3.78  | min:    38.62  med:    39.18  CV: 9.3%
+    Encaps     | media:     40.68 us  +/-   0.53  | min:    39.60  med:    40.58  CV: 1.3%
+    Decaps     | media:     39.43 us  +/-   1.88  | min:    38.48  med:    39.04  CV: 4.8%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3069.37 us  +/-   5.14  | min:  3058.94  med:  3068.78  CV: 0.2%
+    Encaps     | media:   6155.21 us  +/-  12.51  | min:  6142.67  med:  6152.80  CV: 0.2%
+    Decaps     | media:   9329.37 us  +/-  18.70  | min:  9312.30  med:  9325.92  CV: 0.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9365.72 us  +/-   9.88  | min:  9344.09  med:  9361.68  CV: 0.1%
+    Encaps     | media:  18777.27 us  +/-  20.78  | min: 18751.58  med: 18773.51  CV: 0.1%
+    Decaps     | media:  28280.25 us  +/-  19.25  | min: 28257.83  med: 28274.35  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17171.70 us  +/-  62.21  | min: 17064.39  med: 17199.99  CV: 0.4%
+    Encaps     | media:  34416.72 us  +/- 120.15  | min: 34215.93  med: 34476.91  CV: 0.3%
+    Decaps     | media:  51979.50 us  +/- 177.81  | min: 51684.69  med: 52067.77  CV: 0.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O0/
+
+====== full_bench-O0_native ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O0_native
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O0_native/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.71 us  +/-   1.37  | min:    18.02  med:    18.58  CV: 7.3%
+    Encaps     | media:     20.12 us  +/-   3.83  | min:    19.00  med:    19.52  CV: 19.0%
+    Decaps     | media:     18.12 us  +/-   1.54  | min:    17.46  med:    17.81  CV: 8.5%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.67 us  +/-   2.04  | min:    28.43  med:    29.30  CV: 6.9%
+    Encaps     | media:     29.88 us  +/-   2.11  | min:    28.15  med:    29.54  CV: 7.0%
+    Decaps     | media:     28.25 us  +/-   2.20  | min:    27.31  med:    27.94  CV: 7.8%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.34 us  +/-   0.51  | min:    38.06  med:    39.18  CV: 1.3%
+    Encaps     | media:     42.18 us  +/-   4.04  | min:    39.88  med:    40.58  CV: 9.6%
+    Decaps     | media:     39.05 us  +/-   0.48  | min:    38.48  med:    38.97  CV: 1.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3099.36 us  +/-   7.10  | min:  3085.83  med:  3098.47  CV: 0.2%
+    Encaps     | media:   6215.83 us  +/-   9.02  | min:  6196.32  med:  6214.65  CV: 0.1%
+    Decaps     | media:   9420.56 us  +/-  12.43  | min:  9394.45  med:  9420.12  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9473.50 us  +/-  11.96  | min:  9432.03  med:  9470.79  CV: 0.1%
+    Encaps     | media:  18994.71 us  +/-  15.04  | min: 18929.78  med: 18994.70  CV: 0.1%
+    Decaps     | media:  28599.53 us  +/-  21.79  | min: 28507.01  med: 28601.85  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17269.13 us  +/-  13.00  | min: 17187.28  med: 17267.73  CV: 0.1%
+    Encaps     | media:  34619.44 us  +/-  17.97  | min: 34555.72  med: 34619.12  CV: 0.1%
+    Decaps     | media:  52226.26 us  +/-  23.17  | min: 52092.82  med: 52225.43  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O0_native/
+
+====== full_bench-O0_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O0_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O0_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.79 us  +/-   1.62  | min:    18.02  med:    18.51  CV: 8.6%
+    Encaps     | media:     19.67 us  +/-   1.41  | min:    18.44  med:    19.49  CV: 7.1%
+    Decaps     | media:     18.44 us  +/-   3.49  | min:    17.39  med:    17.74  CV: 18.9%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.78 us  +/-   2.13  | min:    28.57  med:    29.37  CV: 7.2%
+    Encaps     | media:     30.01 us  +/-   2.18  | min:    28.57  med:    29.54  CV: 7.3%
+    Decaps     | media:     28.41 us  +/-   2.09  | min:    26.75  med:    28.08  CV: 7.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.37 us  +/-   0.61  | min:    38.20  med:    39.18  CV: 1.5%
+    Encaps     | media:     40.85 us  +/-   1.39  | min:    39.39  med:    40.58  CV: 3.4%
+    Decaps     | media:     40.36 us  +/-   3.77  | min:    38.27  med:    39.01  CV: 9.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3099.52 us  +/-   6.76  | min:  3089.05  med:  3098.69  CV: 0.2%
+    Encaps     | media:   6216.17 us  +/-   8.80  | min:  6203.73  med:  6214.83  CV: 0.1%
+    Decaps     | media:   9421.50 us  +/-  10.18  | min:  9402.22  med:  9421.53  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9472.95 us  +/-  11.47  | min:  9425.90  med:  9469.86  CV: 0.1%
+    Encaps     | media:  18992.24 us  +/-  14.42  | min: 18911.44  med: 18992.11  CV: 0.1%
+    Decaps     | media:  28596.64 us  +/-  20.60  | min: 28466.76  med: 28596.21  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17270.06 us  +/-  11.84  | min: 17197.78  med: 17268.42  CV: 0.1%
+    Encaps     | media:  34619.26 us  +/-  21.92  | min: 34465.18  med: 34616.11  CV: 0.1%
+    Decaps     | media:  52214.84 us  +/-  16.63  | min: 52145.98  med: 52213.48  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O0_lto/
+
+====== full_bench-O0_native_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O0_native_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O0_native_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.73 us  +/-   1.79  | min:    18.02  med:    18.51  CV: 9.5%
+    Encaps     | media:     19.62 us  +/-   1.17  | min:    18.93  med:    19.49  CV: 6.0%
+    Decaps     | media:     18.28 us  +/-   3.29  | min:    17.46  med:    17.74  CV: 18.0%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.91 us  +/-   2.32  | min:    28.57  med:    29.33  CV: 7.8%
+    Encaps     | media:     29.83 us  +/-   1.65  | min:    28.42  med:    29.54  CV: 5.5%
+    Decaps     | media:     28.25 us  +/-   2.00  | min:    26.96  med:    27.73  CV: 7.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     40.51 us  +/-   3.51  | min:    38.55  med:    39.35  CV: 8.7%
+    Encaps     | media:     40.75 us  +/-   0.55  | min:    39.53  med:    40.58  CV: 1.3%
+    Decaps     | media:     39.39 us  +/-   1.88  | min:    38.20  med:    39.04  CV: 4.8%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3099.26 us  +/-   5.76  | min:  3088.22  med:  3098.76  CV: 0.2%
+    Encaps     | media:   6214.82 us  +/-   8.86  | min:  6195.01  med:  6213.38  CV: 0.1%
+    Decaps     | media:   9419.18 us  +/-  11.10  | min:  9401.96  med:  9419.07  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9471.72 us  +/-  13.17  | min:  9425.84  med:  9467.96  CV: 0.1%
+    Encaps     | media:  18990.63 us  +/-  13.91  | min: 18907.42  med: 18989.97  CV: 0.1%
+    Decaps     | media:  28600.89 us  +/-  20.56  | min: 28483.70  med: 28603.13  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17272.30 us  +/-   9.75  | min: 17258.64  med: 17270.08  CV: 0.1%
+    Encaps     | media:  34613.93 us  +/-  16.24  | min: 34535.00  med: 34611.20  CV: 0.0%
+    Decaps     | media:  52220.46 us  +/-  26.43  | min: 52005.39  med: 52221.45  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O0_native_lto/
+
+====== full_bench-O1 ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O1
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O1/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.91 us  +/-   2.93  | min:    18.02  med:    18.51  CV: 15.5%
+    Encaps     | media:     19.79 us  +/-   2.23  | min:    18.93  med:    19.48  CV: 11.3%
+    Decaps     | media:     18.14 us  +/-   1.87  | min:    17.53  med:    17.81  CV: 10.3%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.80 us  +/-   2.52  | min:    28.08  med:    29.16  CV: 8.4%
+    Encaps     | media:     30.00 us  +/-   2.43  | min:    28.57  med:    29.54  CV: 8.1%
+    Decaps     | media:     28.42 us  +/-   2.01  | min:    27.17  med:    28.08  CV: 7.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.26 us  +/-   0.42  | min:    38.20  med:    39.18  CV: 1.1%
+    Encaps     | media:     40.61 us  +/-   0.43  | min:    39.39  med:    40.51  CV: 1.1%
+    Decaps     | media:     40.39 us  +/-   3.84  | min:    38.20  med:    39.04  CV: 9.5%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3099.44 us  +/-   5.15  | min:  3088.71  med:  3098.84  CV: 0.2%
+    Encaps     | media:   6217.41 us  +/-  11.33  | min:  6203.05  med:  6214.33  CV: 0.2%
+    Decaps     | media:   9419.20 us  +/-   9.95  | min:  9401.97  med:  9417.82  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9472.48 us  +/-  13.49  | min:  9423.13  med:  9469.93  CV: 0.1%
+    Encaps     | media:  18993.55 us  +/-  15.19  | min: 18916.38  med: 18992.79  CV: 0.1%
+    Decaps     | media:  28603.79 us  +/-  20.44  | min: 28506.50  med: 28601.70  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17269.64 us  +/-  11.53  | min: 17194.05  med: 17268.33  CV: 0.1%
+    Encaps     | media:  34617.79 us  +/-  14.08  | min: 34570.24  med: 34613.55  CV: 0.0%
+    Decaps     | media:  52225.94 us  +/-  26.40  | min: 52031.16  med: 52227.11  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O1/
+
+====== full_bench-O1_native ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O1_native
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O1_native/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.76 us  +/-   1.72  | min:    17.95  med:    18.51  CV: 9.2%
+    Encaps     | media:     19.58 us  +/-   1.16  | min:    19.00  med:    19.48  CV: 5.9%
+    Decaps     | media:     18.35 us  +/-   2.90  | min:    17.39  med:    17.74  CV: 15.8%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.43 us  +/-   1.17  | min:    28.57  med:    29.16  CV: 4.0%
+    Encaps     | media:     30.03 us  +/-   2.63  | min:    28.64  med:    29.54  CV: 8.7%
+    Decaps     | media:     28.15 us  +/-   1.78  | min:    27.17  med:    27.73  CV: 6.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.62 us  +/-   2.20  | min:    38.55  med:    39.11  CV: 5.6%
+    Encaps     | media:     41.40 us  +/-   2.95  | min:    39.95  med:    40.51  CV: 7.1%
+    Decaps     | media:     38.96 us  +/-   0.47  | min:    38.27  med:    38.90  CV: 1.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3099.72 us  +/-   5.52  | min:  3080.61  med:  3099.29  CV: 0.2%
+    Encaps     | media:   6215.38 us  +/-   8.88  | min:  6182.46  med:  6214.23  CV: 0.1%
+    Decaps     | media:   9421.14 us  +/-  12.28  | min:  9384.10  med:  9422.13  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9474.30 us  +/-  11.04  | min:  9451.50  med:  9470.85  CV: 0.1%
+    Encaps     | media:  18992.85 us  +/-   9.79  | min: 18968.79  med: 18991.25  CV: 0.1%
+    Decaps     | media:  28600.51 us  +/-  17.51  | min: 28561.02  med: 28599.22  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17272.43 us  +/-  11.50  | min: 17210.27  med: 17271.77  CV: 0.1%
+    Encaps     | media:  34619.42 us  +/-  22.33  | min: 34455.12  med: 34620.20  CV: 0.1%
+    Decaps     | media:  52222.49 us  +/-  18.94  | min: 52167.68  med: 52221.12  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O1_native/
+
+====== full_bench-O1_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O1_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O1_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.64 us  +/-   1.10  | min:    18.02  med:    18.51  CV: 5.9%
+    Encaps     | media:     19.81 us  +/-   1.96  | min:    18.93  med:    19.49  CV: 9.9%
+    Decaps     | media:     18.48 us  +/-   3.98  | min:    17.25  med:    17.81  CV: 21.6%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.52 us  +/-   1.37  | min:    28.42  med:    29.26  CV: 4.6%
+    Encaps     | media:     30.11 us  +/-   2.24  | min:    29.05  med:    29.54  CV: 7.4%
+    Decaps     | media:     28.36 us  +/-   2.18  | min:    27.10  med:    27.94  CV: 7.7%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.36 us  +/-   0.57  | min:    38.55  med:    39.15  CV: 1.5%
+    Encaps     | media:     41.85 us  +/-   3.59  | min:    39.18  med:    40.51  CV: 8.6%
+    Decaps     | media:     38.99 us  +/-   0.47  | min:    38.20  med:    38.97  CV: 1.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3099.57 us  +/-   9.80  | min:  3076.42  med:  3098.08  CV: 0.3%
+    Encaps     | media:   6214.30 us  +/-  10.62  | min:  6178.97  med:  6214.10  CV: 0.2%
+    Decaps     | media:   9421.62 us  +/-  14.91  | min:  9364.35  med:  9422.07  CV: 0.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9473.86 us  +/-  11.21  | min:  9455.21  med:  9470.75  CV: 0.1%
+    Encaps     | media:  18991.74 us  +/-  12.10  | min: 18963.99  med: 18991.09  CV: 0.1%
+    Decaps     | media:  28605.52 us  +/-  18.60  | min: 28574.32  med: 28605.37  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17275.80 us  +/-  10.09  | min: 17260.44  med: 17273.05  CV: 0.1%
+    Encaps     | media:  34621.65 us  +/-  20.80  | min: 34505.88  med: 34622.61  CV: 0.1%
+    Decaps     | media:  52231.19 us  +/-  27.69  | min: 52063.91  med: 52229.32  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O1_lto/
+
+====== full_bench-O1_native_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O1_native_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O1_native_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.46 us  +/-   0.36  | min:    17.88  med:    18.44  CV: 1.9%
+    Encaps     | media:     19.81 us  +/-   1.88  | min:    18.93  med:    19.48  CV: 9.5%
+    Decaps     | media:     18.39 us  +/-   3.50  | min:    17.25  med:    17.81  CV: 19.0%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.60 us  +/-   1.71  | min:    28.35  med:    29.12  CV: 5.8%
+    Encaps     | media:     30.13 us  +/-   2.68  | min:    28.91  med:    29.54  CV: 8.9%
+    Decaps     | media:     28.25 us  +/-   2.08  | min:    27.24  med:    27.87  CV: 7.4%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.51 us  +/-   1.29  | min:    38.06  med:    39.18  CV: 3.3%
+    Encaps     | media:     40.71 us  +/-   0.72  | min:    39.81  med:    40.51  CV: 1.8%
+    Decaps     | media:     40.56 us  +/-   3.73  | min:    38.06  med:    39.11  CV: 9.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3098.93 us  +/-   5.67  | min:  3087.39  med:  3098.05  CV: 0.2%
+    Encaps     | media:   6218.08 us  +/-   9.37  | min:  6203.42  med:  6216.76  CV: 0.2%
+    Decaps     | media:   9426.04 us  +/-  11.55  | min:  9404.38  med:  9424.70  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9477.14 us  +/-  12.31  | min:  9427.08  med:  9476.32  CV: 0.1%
+    Encaps     | media:  18996.28 us  +/-  16.88  | min: 18911.64  med: 18996.00  CV: 0.1%
+    Decaps     | media:  28610.33 us  +/-  19.47  | min: 28517.72  med: 28611.62  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17280.41 us  +/-  14.45  | min: 17204.10  med: 17278.83  CV: 0.1%
+    Encaps     | media:  34631.32 us  +/-  19.94  | min: 34598.72  med: 34628.09  CV: 0.1%
+    Decaps     | media:  52234.57 us  +/-  25.55  | min: 52053.14  med: 52237.09  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O1_native_lto/
+
+====== full_bench-O2 ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O2
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O2/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.62 us  +/-   1.57  | min:    18.02  med:    18.51  CV: 8.4%
+    Encaps     | media:     20.12 us  +/-   3.44  | min:    18.93  med:    19.49  CV: 17.1%
+    Decaps     | media:     18.52 us  +/-   5.86  | min:    16.90  med:    17.74  CV: 31.6%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.68 us  +/-   1.98  | min:    28.64  med:    29.12  CV: 6.7%
+    Encaps     | media:     29.97 us  +/-   2.15  | min:    28.57  med:    29.54  CV: 7.2%
+    Decaps     | media:     28.46 us  +/-   2.18  | min:    27.38  med:    27.94  CV: 7.6%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     40.18 us  +/-   5.82  | min:    38.13  med:    39.18  CV: 14.5%
+    Encaps     | media:     40.54 us  +/-   0.72  | min:    39.60  med:    40.44  CV: 1.8%
+    Decaps     | media:     40.04 us  +/-   3.42  | min:    38.48  med:    38.97  CV: 8.5%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3100.61 us  +/-   4.56  | min:  3086.77  med:  3100.25  CV: 0.1%
+    Encaps     | media:   6218.94 us  +/-   7.96  | min:  6205.94  med:  6218.06  CV: 0.1%
+    Decaps     | media:   9427.02 us  +/-  12.33  | min:  9407.11  med:  9425.69  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9480.84 us  +/-  13.85  | min:  9434.91  med:  9478.67  CV: 0.1%
+    Encaps     | media:  19001.19 us  +/-  13.13  | min: 18938.33  med: 18999.03  CV: 0.1%
+    Decaps     | media:  28610.99 us  +/-  21.91  | min: 28512.37  med: 28610.70  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17282.62 us  +/-  14.36  | min: 17235.26  med: 17280.28  CV: 0.1%
+    Encaps     | media:  34639.72 us  +/-  23.52  | min: 34509.92  med: 34637.87  CV: 0.1%
+    Decaps     | media:  52250.85 us  +/-  23.75  | min: 52136.99  med: 52248.98  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O2/
+
+====== full_bench-O2_native ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O2_native
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O2_native/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     19.07 us  +/-   3.76  | min:    18.02  med:    18.51  CV: 19.7%
+    Encaps     | media:     19.65 us  +/-   1.33  | min:    19.00  med:    19.49  CV: 6.8%
+    Decaps     | media:     18.04 us  +/-   1.64  | min:    17.25  med:    17.74  CV: 9.1%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.65 us  +/-   2.17  | min:    28.57  med:    29.12  CV: 7.3%
+    Encaps     | media:     29.91 us  +/-   2.36  | min:    28.84  med:    29.54  CV: 7.9%
+    Decaps     | media:     28.24 us  +/-   2.05  | min:    27.10  med:    27.80  CV: 7.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.91 us  +/-   2.56  | min:    38.20  med:    39.18  CV: 6.4%
+    Encaps     | media:     40.54 us  +/-   0.51  | min:    39.88  med:    40.44  CV: 1.3%
+    Decaps     | media:     39.95 us  +/-   3.28  | min:    38.13  med:    38.97  CV: 8.2%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3101.02 us  +/-   6.57  | min:  3091.94  med:  3100.18  CV: 0.2%
+    Encaps     | media:   6218.14 us  +/-   9.53  | min:  6178.99  med:  6217.79  CV: 0.2%
+    Decaps     | media:   9425.91 us  +/-  11.41  | min:  9407.61  med:  9424.72  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9477.42 us  +/-  11.84  | min:  9456.43  med:  9477.80  CV: 0.1%
+    Encaps     | media:  19003.14 us  +/-  15.62  | min: 18929.62  med: 19002.85  CV: 0.1%
+    Decaps     | media:  28612.85 us  +/-  22.93  | min: 28470.62  med: 28615.27  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17279.43 us  +/-  12.99  | min: 17217.75  med: 17278.02  CV: 0.1%
+    Encaps     | media:  34635.98 us  +/-  21.29  | min: 34492.84  med: 34636.78  CV: 0.1%
+    Decaps     | media:  52247.60 us  +/-  23.42  | min: 52175.53  med: 52246.65  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O2_native/
+
+====== full_bench-O2_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O2_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O2_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     19.07 us  +/-   3.58  | min:    17.18  med:    18.51  CV: 18.7%
+    Encaps     | media:     19.57 us  +/-   1.17  | min:    18.86  med:    19.42  CV: 6.0%
+    Decaps     | media:     17.93 us  +/-   1.64  | min:    17.25  med:    17.67  CV: 9.2%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.65 us  +/-   1.64  | min:    28.63  med:    29.33  CV: 5.5%
+    Encaps     | media:     29.92 us  +/-   1.94  | min:    28.57  med:    29.54  CV: 6.5%
+    Decaps     | media:     28.49 us  +/-   2.59  | min:    26.68  med:    27.94  CV: 9.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.39 us  +/-   0.71  | min:    38.06  med:    39.15  CV: 1.8%
+    Encaps     | media:     42.05 us  +/-   3.89  | min:    39.74  med:    40.51  CV: 9.2%
+    Decaps     | media:     39.15 us  +/-   0.69  | min:    37.71  med:    39.04  CV: 1.8%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3100.90 us  +/-   6.10  | min:  3092.64  med:  3099.48  CV: 0.2%
+    Encaps     | media:   6218.78 us  +/-  10.32  | min:  6202.32  med:  6217.02  CV: 0.2%
+    Decaps     | media:   9427.59 us  +/-  12.67  | min:  9405.45  med:  9426.33  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9477.97 us  +/-  13.70  | min:  9426.33  med:  9476.31  CV: 0.1%
+    Encaps     | media:  18998.12 us  +/-  15.95  | min: 18900.79  med: 18997.14  CV: 0.1%
+    Decaps     | media:  28615.27 us  +/-  20.78  | min: 28542.51  med: 28614.73  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17279.48 us  +/-  11.95  | min: 17261.06  med: 17276.32  CV: 0.1%
+    Encaps     | media:  34634.42 us  +/-  21.74  | min: 34488.39  med: 34636.74  CV: 0.1%
+    Decaps     | media:  52254.59 us  +/-  28.14  | min: 52077.29  med: 52258.12  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O2_lto/
+
+====== full_bench-O2_native_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O2_native_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O2_native_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.79 us  +/-   2.02  | min:    17.25  med:    18.51  CV: 10.8%
+    Encaps     | media:     19.92 us  +/-   2.84  | min:    18.65  med:    19.49  CV: 14.3%
+    Decaps     | media:     18.57 us  +/-   5.81  | min:    16.90  med:    17.74  CV: 31.3%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.64 us  +/-   1.86  | min:    28.64  med:    29.30  CV: 6.3%
+    Encaps     | media:     30.12 us  +/-   2.44  | min:    29.05  med:    29.54  CV: 8.1%
+    Decaps     | media:     28.23 us  +/-   1.61  | min:    27.45  med:    28.01  CV: 5.7%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     40.31 us  +/-   3.17  | min:    38.55  med:    39.22  CV: 7.9%
+    Encaps     | media:     40.54 us  +/-   0.54  | min:    39.88  med:    40.44  CV: 1.3%
+    Decaps     | media:     39.32 us  +/-   2.15  | min:    38.13  med:    38.76  CV: 5.5%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3101.58 us  +/-   8.76  | min:  3088.73  med:  3099.84  CV: 0.3%
+    Encaps     | media:   6221.68 us  +/-  11.72  | min:  6200.72  med:  6220.56  CV: 0.2%
+    Decaps     | media:   9424.12 us  +/-  10.79  | min:  9402.73  med:  9424.45  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9479.37 us  +/-  11.75  | min:  9452.95  med:  9478.27  CV: 0.1%
+    Encaps     | media:  19003.70 us  +/-  12.97  | min: 18978.96  med: 19002.98  CV: 0.1%
+    Decaps     | media:  28613.97 us  +/-  15.68  | min: 28567.40  med: 28615.24  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17278.59 us  +/-  12.81  | min: 17237.05  med: 17277.73  CV: 0.1%
+    Encaps     | media:  34631.68 us  +/-  17.89  | min: 34594.44  med: 34629.81  CV: 0.1%
+    Decaps     | media:  52235.36 us  +/-  30.01  | min: 52021.17  med: 52235.53  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O2_native_lto/
+
+====== full_bench-O3 ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O3
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O3/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.95 us  +/-   2.77  | min:    18.02  med:    18.51  CV: 14.6%
+    Encaps     | media:     19.75 us  +/-   1.90  | min:    19.00  med:    19.48  CV: 9.6%
+    Decaps     | media:     18.12 us  +/-   1.73  | min:    17.32  med:    17.74  CV: 9.5%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     30.00 us  +/-   3.49  | min:    28.71  med:    29.33  CV: 11.6%
+    Encaps     | media:     30.30 us  +/-   2.74  | min:    29.05  med:    29.54  CV: 9.0%
+    Decaps     | media:     28.28 us  +/-   1.65  | min:    27.45  med:    28.04  CV: 5.8%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.41 us  +/-   0.72  | min:    37.64  med:    39.18  CV: 1.8%
+    Encaps     | media:     42.12 us  +/-   4.13  | min:    39.95  med:    40.51  CV: 9.8%
+    Decaps     | media:     39.05 us  +/-   0.50  | min:    37.58  med:    39.04  CV: 1.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3101.63 us  +/-   6.39  | min:  3080.42  med:  3101.17  CV: 0.2%
+    Encaps     | media:   6220.64 us  +/-  12.52  | min:  6181.73  med:  6219.55  CV: 0.2%
+    Decaps     | media:   9425.08 us  +/-  13.67  | min:  9379.76  med:  9423.38  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9480.24 us  +/-  11.89  | min:  9454.29  med:  9478.73  CV: 0.1%
+    Encaps     | media:  19005.52 us  +/-  14.59  | min: 18976.59  med: 19003.70  CV: 0.1%
+    Decaps     | media:  28618.08 us  +/-  16.98  | min: 28576.99  med: 28619.38  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17287.02 us  +/-  15.30  | min: 17207.10  med: 17285.74  CV: 0.1%
+    Encaps     | media:  34640.96 us  +/-  18.25  | min: 34568.42  med: 34638.95  CV: 0.1%
+    Decaps     | media:  52257.07 us  +/-  28.43  | min: 52104.05  med: 52257.63  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O3/
+
+====== full_bench-O3_native ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O3_native
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O3_native/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.84 us  +/-   3.81  | min:    17.53  med:    18.30  CV: 20.2%
+    Encaps     | media:     19.56 us  +/-   1.59  | min:    18.51  med:    19.42  CV: 8.1%
+    Decaps     | media:     18.23 us  +/-   2.71  | min:    15.64  med:    17.74  CV: 14.8%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.92 us  +/-   2.49  | min:    28.91  med:    29.44  CV: 8.3%
+    Encaps     | media:     29.90 us  +/-   2.01  | min:    28.85  med:    29.54  CV: 6.7%
+    Decaps     | media:     28.26 us  +/-   1.77  | min:    27.52  med:    28.08  CV: 6.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.51 us  +/-   0.78  | min:    38.62  med:    39.18  CV: 2.0%
+    Encaps     | media:     42.13 us  +/-   3.89  | min:    39.67  med:    40.51  CV: 9.2%
+    Decaps     | media:     39.12 us  +/-   0.66  | min:    38.48  med:    38.97  CV: 1.7%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3102.02 us  +/-   7.66  | min:  3088.67  med:  3101.55  CV: 0.2%
+    Encaps     | media:   6220.61 us  +/-   9.79  | min:  6202.12  med:  6219.13  CV: 0.2%
+    Decaps     | media:   9429.15 us  +/-  12.11  | min:  9404.42  med:  9428.80  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9481.90 us  +/-  12.01  | min:  9441.09  med:  9480.62  CV: 0.1%
+    Encaps     | media:  19007.59 us  +/-  13.82  | min: 18960.54  med: 19006.89  CV: 0.1%
+    Decaps     | media:  28620.84 us  +/-  20.07  | min: 28560.11  med: 28622.23  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17280.61 us  +/-  15.20  | min: 17214.73  med: 17278.87  CV: 0.1%
+    Encaps     | media:  34639.03 us  +/-  24.40  | min: 34492.10  med: 34640.54  CV: 0.1%
+    Decaps     | media:  52251.78 us  +/-  23.50  | min: 52186.57  med: 52252.81  CV: 0.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O3_native/
+
+====== full_bench-O3_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O3_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O3_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     19.09 us  +/-   3.91  | min:    17.53  med:    18.51  CV: 20.5%
+    Encaps     | media:     19.56 us  +/-   1.22  | min:    18.72  med:    19.42  CV: 6.2%
+    Decaps     | media:     18.07 us  +/-   2.02  | min:    16.76  med:    17.74  CV: 11.2%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.83 us  +/-   2.26  | min:    28.84  med:    29.33  CV: 7.6%
+    Encaps     | media:     29.94 us  +/-   1.99  | min:    28.85  med:    29.54  CV: 6.7%
+    Decaps     | media:     28.06 us  +/-   1.11  | min:    27.03  med:    27.97  CV: 4.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     39.62 us  +/-   1.86  | min:    37.78  med:    39.18  CV: 4.7%
+    Encaps     | media:     40.56 us  +/-   0.58  | min:    39.88  med:    40.44  CV: 1.4%
+    Decaps     | media:     39.94 us  +/-   3.30  | min:    38.48  med:    38.97  CV: 8.3%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3101.04 us  +/-   6.25  | min:  3088.67  med:  3100.09  CV: 0.2%
+    Encaps     | media:   6219.50 us  +/-  11.05  | min:  6202.69  med:  6216.97  CV: 0.2%
+    Decaps     | media:   9428.75 us  +/-  12.49  | min:  9407.22  med:  9427.72  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9477.21 us  +/-  12.81  | min:  9437.33  med:  9477.24  CV: 0.1%
+    Encaps     | media:  19002.23 us  +/-  13.84  | min: 18926.68  med: 19001.66  CV: 0.1%
+    Decaps     | media:  28617.42 us  +/-  24.41  | min: 28491.40  med: 28618.30  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17282.85 us  +/-  14.46  | min: 17225.84  med: 17280.18  CV: 0.1%
+    Encaps     | media:  34638.75 us  +/-  22.50  | min: 34487.65  med: 34639.90  CV: 0.1%
+    Decaps     | media:  52263.14 us  +/-  26.64  | min: 52137.70  med: 52261.85  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O3_lto/
+
+====== full_bench-O3_native_lto ======
+
+  Benchmark Comparativo - Algoritmos Finalistas NIST PQC
+  liboqs       : 0.10.1
+  Timer        : Linux (clock_gettime CLOCK_MONOTONIC)
+  Otimizacao   : O3_native_lto
+  Iteracoes    : 100  | Warmup: 20  | Msg: 32 bytes
+  ---------------------------------------------------
+
+[INFO] KEM     -> results/O3_native_lto/kem.csv
+
+
++------------------------------------------------------+
+|        ML-KEM (ex-CRYSTALS-Kyber) - FIPS 203         |
++------------------------------------------------------+
+
+[1/3] Benchmarking ML-KEM-512 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-512            OQS: ML-KEM-512                |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :    800 B  | Chave secreta:   1632 B  |
+  |   Ciphertext    :    768 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     18.71 us  +/-   1.59  | min:    17.60  med:    18.51  CV: 8.5%
+    Encaps     | media:     20.37 us  +/-   6.54  | min:    19.00  med:    19.49  CV: 32.1%
+    Decaps     | media:     18.30 us  +/-   2.92  | min:    17.11  med:    17.81  CV: 16.0%
+  | Memoria heap: 0.80 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking ML-KEM-768 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-768            OQS: ML-KEM-768                |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1184 B  | Chave secreta:   2400 B  |
+  |   Ciphertext    :   1088 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     29.64 us  +/-   1.64  | min:    28.64  med:    29.19  CV: 5.5%
+    Encaps     | media:     30.09 us  +/-   2.30  | min:    28.98  med:    29.54  CV: 7.6%
+    Decaps     | media:     28.37 us  +/-   2.13  | min:    27.45  med:    28.08  CV: 7.5%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking ML-KEM-1024 ...
+
+  +------------------------------------------------------+
+  | ML-KEM-1024           OQS: ML-KEM-1024               |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   1568 B  | Chave secreta:   3168 B  |
+  |   Ciphertext    :   1568 B  | Shared secret:     32 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:     40.01 us  +/-   2.63  | min:    38.62  med:    39.32  CV: 6.6%
+    Encaps     | media:     41.54 us  +/-   3.25  | min:    39.88  med:    40.51  CV: 7.8%
+    Decaps     | media:     39.45 us  +/-   0.77  | min:    38.55  med:    39.18  CV: 2.0%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
++------------------------------------------------------+
+|          HQC - 4a Rodada NIST (Code-based)           |
++------------------------------------------------------+
+
+[1/3] Benchmarking HQC-128 ...
+
+  +------------------------------------------------------+
+  | HQC-128               OQS: HQC-128                   |
+  | Nivel NIST: 1                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   2249 B  | Chave secreta:   2305 B  |
+  |   Ciphertext    :   4433 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   3101.62 us  +/-   6.61  | min:  3091.18  med:  3100.09  CV: 0.2%
+    Encaps     | media:   6223.96 us  +/-  11.76  | min:  6205.56  med:  6221.51  CV: 0.2%
+    Decaps     | media:   9429.06 us  +/-  10.88  | min:  9407.44  med:  9429.05  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[2/3] Benchmarking HQC-192 ...
+
+  +------------------------------------------------------+
+  | HQC-192               OQS: HQC-192                   |
+  | Nivel NIST: 3                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   4522 B  | Chave secreta:   4586 B  |
+  |   Ciphertext    :   8978 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:   9484.10 us  +/-  14.42  | min:  9427.13  med:  9483.60  CV: 0.2%
+    Encaps     | media:  19007.95 us  +/-  13.99  | min: 18927.39  med: 19008.62  CV: 0.1%
+    Decaps     | media:  28625.37 us  +/-  21.92  | min: 28500.29  med: 28625.16  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+[3/3] Benchmarking HQC-256 ...
+
+  +------------------------------------------------------+
+  | HQC-256               OQS: HQC-256                   |
+  | Nivel NIST: 5                                        |
+  +------------------------------------------------------+
+  |   Chave publica :   7245 B  | Chave secreta:   7317 B  |
+  |   Ciphertext    :  14421 B  | Shared secret:     64 B  |
+  +------------------------------------------------------+
+  | Tempos (us)  | media +/-dp    min      mediana        |
+    KeyGen     | media:  17282.94 us  +/-  14.23  | min: 17259.37  med: 17280.60  CV: 0.1%
+    Encaps     | media:  34647.15 us  +/-  21.82  | min: 34534.67  med: 34650.36  CV: 0.1%
+    Decaps     | media:  52261.27 us  +/-  26.13  | min: 52146.74  med: 52260.09  CV: 0.1%
+  | Memoria heap: 0.00 KB                               |
+  +------------------------------------------------------+
+
+  Benchmark concluido. Resultados em: results/O3_native_lto/
+
+
+[1;36m==> Memória — stack (build_and_run.sh)[0m
+>>> liboqs já compilada em: /home/saulo/TCC_PQC/code/benchmark/../libs/liboqs_install
+
+>>> Compilando memory_benchmark (sem otimizações -O0)...
+-- liboqs encontrada via find_package
+-- 
+-- Targets disponíveis:
+--   memory_benchmark  — benchmark stack/heap/RSS completo
+--   massif_single     — runner individual para valgrind massif
+-- 
+-- Valgrind massif (via run_massif_all.sh):
+--   cd build && ../run_massif_all.sh
+-- 
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/saulo/TCC_PQC/code/benchmark/build
+[ 50%] Built target memory_benchmark
+[100%] Built target massif_single
+
+>>> Executando benchmark...
+
+============================================================
+  Benchmark de Memória PQC — liboqs
+  Heap : mallinfo2() (delta líquido)
+  Stack: stack painting (thread POSIX com buffer sentinela)
+  RSS  : /proc/self/status (VmRSS)
+  Buffer de stack: 4 MB | Warm-up: 2 | Runs: 5
+============================================================
+
+[ KEMs ]
+  KEM  : ML-KEM-512
+    pk=800 B  sk=1632 B  ct=768 B  ss=32 B
+  KEM  : ML-KEM-768
+    pk=1184 B  sk=2400 B  ct=1088 B  ss=32 B
+  KEM  : ML-KEM-1024
+    pk=1568 B  sk=3168 B  ct=1568 B  ss=32 B
+  KEM  : HQC-128
+    pk=2249 B  sk=2305 B  ct=4433 B  ss=64 B
+  KEM  : HQC-192
+    pk=4522 B  sk=4586 B  ct=8978 B  ss=64 B
+  KEM  : HQC-256
+    pk=7245 B  sk=7317 B  ct=14421 B  ss=64 B
+
+[ Assinaturas Digitais ]
+  SIG  : ML-DSA-44
+    pk=1312 B  sk=2560 B  sig_max=2420 B
+  SIG  : ML-DSA-65
+    pk=1952 B  sk=4032 B  sig_max=3309 B
+  SIG  : ML-DSA-87
+    pk=2592 B  sk=4896 B  sig_max=4627 B
+  SIG  : Falcon-512
+    pk=897 B  sk=1281 B  sig_max=752 B
+  SIG  : Falcon-1024
+    pk=1793 B  sk=2305 B  sig_max=1462 B
+  SIG  : SPHINCS+-SHAKE-128s-simple
+    pk=32 B  sk=64 B  sig_max=7856 B
+  SIG  : SPHINCS+-SHAKE-128f-simple
+    pk=32 B  sk=64 B  sig_max=17088 B
+  SIG  : SPHINCS+-SHAKE-192s-simple
+    pk=48 B  sk=96 B  sig_max=16224 B
+  SIG  : SPHINCS+-SHAKE-192f-simple
+    pk=48 B  sk=96 B  sig_max=35664 B
+  SIG  : SPHINCS+-SHAKE-256s-simple
+    pk=64 B  sk=128 B  sig_max=29792 B
+  SIG  : SPHINCS+-SHAKE-256f-simple
+    pk=64 B  sk=128 B  sig_max=49856 B
+
+Algoritmo                                Op         Heap delta (B)  Stack (bytes) RSS delta (KB)
+---------------------------------------- -------- ---------------- -------------- -------------
+
+ML-KEM-512                               keygen                  0          13520            28
+ML-KEM-512                               encap                   0          16128             0
+ML-KEM-512                               decap                   0          16928             0
+
+ML-KEM-768                               keygen                  0          17680             0
+ML-KEM-768                               encap                   0          20816             0
+ML-KEM-768                               decap                   0          21936             0
+
+ML-KEM-1024                              keygen                  0          22800             0
+ML-KEM-1024                              encap                   0          26480             0
+ML-KEM-1024                              decap                   0          28080             0
+
+HQC-128                                  keygen                  0          38608             0
+HQC-128                                  encap                   0          56480             0
+HQC-128                                  decap                   0          60928             0
+
+HQC-192                                  keygen                  0          70720             0
+HQC-192                                  encap                   0         106784             0
+HQC-192                                  decap                   0         115792             0
+
+HQC-256                                  keygen                  0         108800             0
+HQC-256                                  encap                   0         166624             0
+HQC-256                                  decap                   0         181072             0
+
+ML-DSA-44                                keygen                  0          28336             0
+ML-DSA-44                                sign                    0          53488             0
+ML-DSA-44                                verify                  0          26000             0
+
+ML-DSA-65                                keygen                  0          33488             0
+ML-DSA-65                                sign                    0          83344             0
+ML-DSA-65                                verify                  0          29104             0
+
+ML-DSA-87                                keygen                  0          41680             0
+ML-DSA-87                                sign                    0         117104             0
+ML-DSA-87                                verify                  0          35504             0
+
+Falcon-512                               keygen                  0          23640             0
+Falcon-512                               sign                    0          49616             0
+Falcon-512                               verify                  0           9096             0
+
+Falcon-1024                              keygen                  0          40536             0
+Falcon-1024                              sign                    0          90768             0
+Falcon-1024                              verify                  0          13192             0
+
+SPHINCS+-SHAKE-128s-simple               keygen                  0          14512             0
+SPHINCS+-SHAKE-128s-simple               sign                    0          13776             0
+SPHINCS+-SHAKE-128s-simple               verify                  0           8496             0
+
+SPHINCS+-SHAKE-128f-simple               keygen                  0          14032             0
+SPHINCS+-SHAKE-128f-simple               sign                    0          13392             0
+SPHINCS+-SHAKE-128f-simple               verify                  0           8496             0
+
+SPHINCS+-SHAKE-192s-simple               keygen                  0          21008             0
+SPHINCS+-SHAKE-192s-simple               sign                    0          19536             0
+SPHINCS+-SHAKE-192s-simple               verify                  0           9360             0
+
+SPHINCS+-SHAKE-192f-simple               keygen                  0          20272             0
+SPHINCS+-SHAKE-192f-simple               sign                    0          18960             0
+SPHINCS+-SHAKE-192f-simple               verify                  0           9392             0
+
+SPHINCS+-SHAKE-256s-simple               keygen                  0          29776             0
+SPHINCS+-SHAKE-256s-simple               sign                    0          27344             0
+SPHINCS+-SHAKE-256s-simple               verify                  0          10512             0
+
+SPHINCS+-SHAKE-256f-simple               keygen                  0          29136             0
+SPHINCS+-SHAKE-256f-simple               sign                    0          26832             0
+SPHINCS+-SHAKE-256f-simple               verify                  0          10544             0
+
+---------------------------------------- -------- ---------------- -------------- -------------
+
+Resultados salvos em: memory_results.csv
+
+NOTA: heap_delta_bytes = 0 para todos os algoritmos é esperado.
+      O liboqs libera todas as alocações dentro de cada chamada.
+      Para medir o PICO de heap durante a execução, use:
+        valgrind --tool=massif ./massif_single <alg> <op>
+
+
+>>> CSV copiado para: /home/saulo/TCC_PQC/code/benchmark/memory_results.csv
+
+[1;36m==> Memória — heap (Valgrind massif, todos os algoritmos)[0m
+============================================================
+  Valgrind massif — 51 combinações algoritmo×operação
+  Binário : /home/saulo/TCC_PQC/code/benchmark/build/massif_single
+  Saída   : /home/saulo/TCC_PQC/code/benchmark/build/massif_out
+============================================================
+
+[ 1/51] ML-KEM-512                                 keygen    OK
+[ 2/51] ML-KEM-512                                 encap     OK
+[ 3/51] ML-KEM-512                                 decap     OK
+[ 4/51] ML-KEM-768                                 keygen    OK
+[ 5/51] ML-KEM-768                                 encap     OK
+[ 6/51] ML-KEM-768                                 decap     OK
+[ 7/51] ML-KEM-1024                                keygen    OK
+[ 8/51] ML-KEM-1024                                encap     OK
+[ 9/51] ML-KEM-1024                                decap     OK
+[10/51] HQC-128                                    keygen    OK
+[11/51] HQC-128                                    encap     OK
+[12/51] HQC-128                                    decap     OK
+[13/51] HQC-192                                    keygen    OK
+[14/51] HQC-192                                    encap     OK
+[15/51] HQC-192                                    decap     OK
+[16/51] HQC-256                                    keygen    OK
+[17/51] HQC-256                                    encap     OK
+[18/51] HQC-256                                    decap     OK
+[19/51] ML-DSA-44                                  keygen    OK
+[20/51] ML-DSA-44                                  sign      OK
+[21/51] ML-DSA-44                                  verify    OK
+[22/51] ML-DSA-65                                  keygen    OK
+[23/51] ML-DSA-65                                  sign      OK
+[24/51] ML-DSA-65                                  verify    OK
+[25/51] ML-DSA-87                                  keygen    OK
+[26/51] ML-DSA-87                                  sign      OK
+[27/51] ML-DSA-87                                  verify    OK
+[28/51] Falcon-512                                 keygen    OK
+[29/51] Falcon-512                                 sign      OK
+[30/51] Falcon-512                                 verify    OK
+[31/51] Falcon-1024                                keygen    OK
+[32/51] Falcon-1024                                sign      OK
+[33/51] Falcon-1024                                verify    OK
+[34/51] SPHINCS+-SHAKE-128s-simple                 keygen    OK
+[35/51] SPHINCS+-SHAKE-128s-simple                 sign      OK
+[36/51] SPHINCS+-SHAKE-128s-simple                 verify    OK
+[37/51] SPHINCS+-SHAKE-128f-simple                 keygen    OK
+[38/51] SPHINCS+-SHAKE-128f-simple                 sign      OK
+[39/51] SPHINCS+-SHAKE-128f-simple                 verify    OK
+[40/51] SPHINCS+-SHAKE-192s-simple                 keygen    OK
+[41/51] SPHINCS+-SHAKE-192s-simple                 sign      OK
+[42/51] SPHINCS+-SHAKE-192s-simple                 verify    OK
+[43/51] SPHINCS+-SHAKE-192f-simple                 keygen    OK
+[44/51] SPHINCS+-SHAKE-192f-simple                 sign      OK
+[45/51] SPHINCS+-SHAKE-192f-simple                 verify    OK
+[46/51] SPHINCS+-SHAKE-256s-simple                 keygen    OK
+[47/51] SPHINCS+-SHAKE-256s-simple                 sign      OK
+[48/51] SPHINCS+-SHAKE-256s-simple                 verify    OK
+[49/51] SPHINCS+-SHAKE-256f-simple                 keygen    OK
+[50/51] SPHINCS+-SHAKE-256f-simple                 sign      OK
+[51/51] SPHINCS+-SHAKE-256f-simple                 verify    OK
+
+------------------------------------------------------------
+  Concluído: 51 total  |  0 falhas
+------------------------------------------------------------
+
+Gerando CSV de resultados...
+Processando 51 arquivo(s) massif...
+  Falcon-1024                                keygen    heap_peak=  207.18 KB  total=  268.28 KB
+  Falcon-1024                                sign      heap_peak=  207.40 KB  total=  268.54 KB
+  Falcon-1024                                verify    heap_peak=  207.40 KB  total=  268.54 KB
+  Falcon-512                                 keygen    heap_peak=  204.66 KB  total=  265.76 KB
+  Falcon-512                                 sign      heap_peak=  204.83 KB  total=  265.95 KB
+  Falcon-512                                 verify    heap_peak=  204.83 KB  total=  265.95 KB
+  HQC-128                                    decap     heap_peak=  211.10 KB  total=  272.28 KB
+  HQC-128                                    encap     heap_peak=  211.10 KB  total=  272.28 KB
+  HQC-128                                    keygen    heap_peak=  211.10 KB  total=  272.28 KB
+  HQC-192                                    decap     heap_peak=  219.76 KB  total=  280.90 KB
+  HQC-192                                    encap     heap_peak=  219.76 KB  total=  280.90 KB
+  HQC-192                                    keygen    heap_peak=  219.76 KB  total=  280.90 KB
+  HQC-256                                    decap     heap_peak=  230.62 KB  total=  291.77 KB
+  HQC-256                                    encap     heap_peak=  230.62 KB  total=  291.77 KB
+  HQC-256                                    keygen    heap_peak=  230.62 KB  total=  291.77 KB
+  ML-DSA-44                                  keygen    heap_peak=  207.94 KB  total=  269.02 KB
+  ML-DSA-44                                  sign      heap_peak=  208.93 KB  total=  270.08 KB
+  ML-DSA-44                                  verify    heap_peak=  208.93 KB  total=  270.08 KB
+  ML-DSA-65                                  keygen    heap_peak=  211.04 KB  total=  272.13 KB
+  ML-DSA-65                                  sign      heap_peak=  211.86 KB  total=  272.97 KB
+  ML-DSA-65                                  verify    heap_peak=  211.86 KB  total=  272.97 KB
+  ML-DSA-87                                  keygen    heap_peak=  213.58 KB  total=  274.66 KB
+  ML-DSA-87                                  sign      heap_peak=  214.61 KB  total=  275.77 KB
+  ML-DSA-87                                  verify    heap_peak=  214.61 KB  total=  275.77 KB
+  ML-KEM-1024                                decap     heap_peak=  208.20 KB  total=  269.30 KB
+  ML-KEM-1024                                encap     heap_peak=  208.20 KB  total=  269.30 KB
+  ML-KEM-1024                                keygen    heap_peak=  208.02 KB  total=  269.10 KB
+  ML-KEM-512                                 decap     heap_peak=  204.99 KB  total=  266.07 KB
+  ML-KEM-512                                 encap     heap_peak=  204.99 KB  total=  266.07 KB
+  ML-KEM-512                                 keygen    heap_peak=  204.99 KB  total=  266.07 KB
+  ML-KEM-768                                 decap     heap_peak=  207.20 KB  total=  268.30 KB
+  ML-KEM-768                                 encap     heap_peak=  207.20 KB  total=  268.30 KB
+  ML-KEM-768                                 keygen    heap_peak=  207.20 KB  total=  268.30 KB
+  SPHINCS_-SHAKE-128f-simple                 keygen    heap_peak=  219.34 KB  total=  280.45 KB
+  SPHINCS_-SHAKE-128f-simple                 sign      heap_peak=  219.34 KB  total=  280.45 KB
+  SPHINCS_-SHAKE-128f-simple                 verify    heap_peak=  219.34 KB  total=  280.45 KB
+  SPHINCS_-SHAKE-128s-simple                 keygen    heap_peak=  210.33 KB  total=  271.41 KB
+  SPHINCS_-SHAKE-128s-simple                 sign      heap_peak=  210.33 KB  total=  271.41 KB
+  SPHINCS_-SHAKE-128s-simple                 verify    heap_peak=  210.33 KB  total=  271.41 KB
+  SPHINCS_-SHAKE-192f-simple                 keygen    heap_peak=  237.53 KB  total=  298.63 KB
+  SPHINCS_-SHAKE-192f-simple                 sign      heap_peak=  237.53 KB  total=  298.63 KB
+  SPHINCS_-SHAKE-192f-simple                 verify    heap_peak=  237.53 KB  total=  298.63 KB
+  SPHINCS_-SHAKE-192s-simple                 keygen    heap_peak=  218.55 KB  total=  279.63 KB
+  SPHINCS_-SHAKE-192s-simple                 sign      heap_peak=  218.55 KB  total=  279.63 KB
+  SPHINCS_-SHAKE-192s-simple                 verify    heap_peak=  218.55 KB  total=  279.63 KB
+  SPHINCS_-SHAKE-256f-simple                 keygen    heap_peak=  251.44 KB  total=  312.54 KB
+  SPHINCS_-SHAKE-256f-simple                 sign      heap_peak=  251.44 KB  total=  312.54 KB
+  SPHINCS_-SHAKE-256f-simple                 verify    heap_peak=  251.44 KB  total=  312.54 KB
+  SPHINCS_-SHAKE-256s-simple                 keygen    heap_peak=  231.84 KB  total=  292.95 KB
+  SPHINCS_-SHAKE-256s-simple                 sign      heap_peak=  231.84 KB  total=  292.95 KB
+  SPHINCS_-SHAKE-256s-simple                 verify    heap_peak=  231.84 KB  total=  292.95 KB
+
+CSV salvo em: /home/saulo/TCC_PQC/code/benchmark/build/massif_results_heap.csv
+Total de entradas: 51
+
+--- Top 5 maiores picos de heap ---
+  SPHINCS_-SHAKE-256f-simple                 keygen      251.44 KB
+  SPHINCS_-SHAKE-256f-simple                 sign        251.44 KB
+  SPHINCS_-SHAKE-256f-simple                 verify      251.44 KB
+  SPHINCS_-SHAKE-192f-simple                 keygen      237.53 KB
+  SPHINCS_-SHAKE-192f-simple                 sign        237.53 KB
+
+--- Top 5 menores picos de heap ---
+  Falcon-512                                 keygen      204.66 KB
+  Falcon-512                                 sign        204.83 KB
+  Falcon-512                                 verify      204.83 KB
+  ML-KEM-512                                 keygen      204.99 KB
+  ML-KEM-512                                 encap       204.99 KB
+CSV salvo em: /home/saulo/TCC_PQC/code/benchmark/build/massif_results_heap.csv
+
+Para visualizar um algoritmo individualmente:
+  ms_print /home/saulo/TCC_PQC/code/benchmark/build/massif_out/ML-KEM-512_decap.massif | head -40
+
+
+[1;36m==> Concluído.[0m
+
+[1;36m==> Tempo: /home/saulo/TCC_PQC/code/build/results/[0m
+
+[1;36m==> Memória: /home/saulo/TCC_PQC/code/benchmark/memory_results_tcc.csv e massif_results_heap_tcc.csv[0m
+
+[1;36m==> Restaurando estado da CPU[0m

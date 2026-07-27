@@ -161,6 +161,7 @@ run_timing() {
     [ -x "./$e" ] || { warn "executável ausente: $e (pulando)"; continue; }
     echo "====== $e ======"
     taskset -c "$PIN_CORE" "./$e" scale
+    taskset -c "$PIN_CORE" "./$e" kem
   done
 }
 

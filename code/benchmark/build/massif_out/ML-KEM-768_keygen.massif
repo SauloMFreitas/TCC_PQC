@@ -46994,7 +46994,7 @@ n11: 209465 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=73
 #-----------
-time=8181903
+time=8181818
 mem_heap_B=212169
 mem_heap_extra_B=62575
 mem_stacks_B=0
@@ -48359,7 +48359,7 @@ n12: 212169 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=74
 #-----------
-time=8244361
+time=8244235
 mem_heap_B=204025
 mem_heap_extra_B=62351
 mem_stacks_B=0
@@ -48367,7 +48367,7 @@ heap_tree=empty
 #-----------
 snapshot=75
 #-----------
-time=8306784
+time=8306658
 mem_heap_B=172281
 mem_heap_extra_B=57175
 mem_stacks_B=0
@@ -48375,7 +48375,7 @@ heap_tree=empty
 #-----------
 snapshot=76
 #-----------
-time=8369326
+time=8369200
 mem_heap_B=141050
 mem_heap_extra_B=51814
 mem_stacks_B=0
@@ -48383,7 +48383,7 @@ heap_tree=empty
 #-----------
 snapshot=77
 #-----------
-time=8431777
+time=8431651
 mem_heap_B=109967
 mem_heap_extra_B=47017
 mem_stacks_B=0
@@ -48391,7 +48391,7 @@ heap_tree=empty
 #-----------
 snapshot=78
 #-----------
-time=8494302
+time=8494176
 mem_heap_B=80527
 mem_heap_extra_B=45177
 mem_stacks_B=0
@@ -48399,7 +48399,7 @@ heap_tree=empty
 #-----------
 snapshot=79
 #-----------
-time=8558046
+time=8557920
 mem_heap_B=54472
 mem_heap_extra_B=30080
 mem_stacks_B=0
@@ -48407,7 +48407,7 @@ heap_tree=empty
 #-----------
 snapshot=80
 #-----------
-time=8620838
+time=8620712
 mem_heap_B=52120
 mem_heap_extra_B=28512
 mem_stacks_B=0
@@ -48415,7 +48415,7 @@ heap_tree=empty
 #-----------
 snapshot=81
 #-----------
-time=8684026
+time=8683900
 mem_heap_B=49720
 mem_heap_extra_B=26912
 mem_stacks_B=0
@@ -48423,7 +48423,7 @@ heap_tree=empty
 #-----------
 snapshot=82
 #-----------
-time=8746488
+time=8746362
 mem_heap_B=47224
 mem_heap_extra_B=25248
 mem_stacks_B=0
@@ -48431,7 +48431,7 @@ heap_tree=empty
 #-----------
 snapshot=83
 #-----------
-time=8808928
+time=8808802
 mem_heap_B=45016
 mem_heap_extra_B=23776
 mem_stacks_B=0
@@ -49287,7 +49287,7 @@ n5: 45016 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=84
 #-----------
-time=8871312
+time=8871186
 mem_heap_B=29624
 mem_heap_extra_B=14264
 mem_stacks_B=0

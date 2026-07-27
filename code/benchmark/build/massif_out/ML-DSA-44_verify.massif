@@ -60441,7 +60441,7 @@ n11: 212933 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=74
 #-----------
-time=8219516
+time=8219535
 mem_heap_B=212885
 mem_heap_extra_B=62539
 mem_stacks_B=0
@@ -60449,7 +60449,7 @@ heap_tree=empty
 #-----------
 snapshot=75
 #-----------
-time=8305396
+time=8305439
 mem_heap_B=212885
 mem_heap_extra_B=62539
 mem_stacks_B=0
@@ -60457,7 +60457,7 @@ heap_tree=empty
 #-----------
 snapshot=76
 #-----------
-time=8386570
+time=8386589
 mem_heap_B=212885
 mem_heap_extra_B=62539
 mem_stacks_B=0
@@ -60465,7 +60465,7 @@ heap_tree=empty
 #-----------
 snapshot=77
 #-----------
-time=8486070
+time=8486027
 mem_heap_B=213109
 mem_heap_extra_B=62579
 mem_stacks_B=0
@@ -60473,7 +60473,7 @@ heap_tree=empty
 #-----------
 snapshot=78
 #-----------
-time=8582460
+time=8582393
 mem_heap_B=213941
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -60481,7 +60481,7 @@ heap_tree=empty
 #-----------
 snapshot=79
 #-----------
-time=8666146
+time=8666093
 mem_heap_B=213109
 mem_heap_extra_B=62579
 mem_stacks_B=0
@@ -60489,7 +60489,7 @@ heap_tree=empty
 #-----------
 snapshot=80
 #-----------
-time=8759035
+time=8766078
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -60497,7 +60497,7 @@ heap_tree=empty
 #-----------
 snapshot=81
 #-----------
-time=8852294
+time=8855791
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -60505,7 +60505,7 @@ heap_tree=empty
 #-----------
 snapshot=82
 #-----------
-time=8941993
+time=8952589
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -60513,7 +60513,7 @@ heap_tree=empty
 #-----------
 snapshot=83
 #-----------
-time=9042344
+time=9049401
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -61947,7 +61947,7 @@ n12: 213333 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=84
 #-----------
-time=9135603
+time=9153302
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -61955,7 +61955,7 @@ heap_tree=empty
 #-----------
 snapshot=85
 #-----------
-time=9228869
+time=9243001
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -61963,7 +61963,7 @@ heap_tree=empty
 #-----------
 snapshot=86
 #-----------
-time=9318596
+time=9346895
 mem_heap_B=213333
 mem_heap_extra_B=62619
 mem_stacks_B=0
@@ -61971,15 +61971,15 @@ heap_tree=empty
 #-----------
 snapshot=87
 #-----------
-time=9418940
-mem_heap_B=213333
-mem_heap_extra_B=62619
+time=9435836
+mem_heap_B=212885
+mem_heap_extra_B=62539
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=88
 #-----------
-time=9507870
+time=9533697
 mem_heap_B=212885
 mem_heap_extra_B=62539
 mem_stacks_B=0
@@ -61987,7 +61987,7 @@ heap_tree=empty
 #-----------
 snapshot=89
 #-----------
-time=9605918
+time=9623361
 mem_heap_B=212885
 mem_heap_extra_B=62539
 mem_stacks_B=0
@@ -61995,37 +61995,37 @@ heap_tree=empty
 #-----------
 snapshot=90
 #-----------
-time=9695804
-mem_heap_B=212885
-mem_heap_extra_B=62539
+time=9704047
+mem_heap_B=180853
+mem_heap_extra_B=58643
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=91
 #-----------
-time=9777058
-mem_heap_B=180745
-mem_heap_extra_B=58599
+time=9784787
+mem_heap_B=140398
+mem_heap_extra_B=51706
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=92
 #-----------
-time=9857798
-mem_heap_B=140290
-mem_heap_extra_B=51662
+time=9865593
+mem_heap_B=100751
+mem_heap_extra_B=46441
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=93
 #-----------
-time=9938760
-mem_heap_B=100239
-mem_heap_extra_B=46409
+time=9946301
+mem_heap_B=67445
+mem_heap_extra_B=36435
 mem_stacks_B=0
 heap_tree=detailed
-n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
- n5: 48168 0x4A819A5: OPENSSL_LH_insert (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+n7: 67445 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 47952 0x4A819A5: OPENSSL_LH_insert (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
   n3: 34176 0x4A39062: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n31: 32208 0x4A39320: ERR_load_strings_const (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
     n1: 2952 0x4C4553B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
@@ -62735,7 +62735,7 @@ n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
                         n0: 936 0x10AC22: main (massif_single.c:368)
   n2: 8328 0x4A839B0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n4: 6096 0x4A84200: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n3: 2832 0x4A8439C: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+    n4: 2832 0x4A8439C: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
      n1: 2448 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
       n2: 2448 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
        n1: 1968 0x4A83F6F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
@@ -62771,7 +62771,18 @@ n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
              n1: 216 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
               n1: 216 0x10AA57: run_sig (massif_single.c:302)
                n0: 216 0x10AC22: main (massif_single.c:368)
-     n0: 168 in 3 places, all below massif's threshold (0.10%)
+     n1: 120 0x4A8403F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+      n1: 120 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+       n1: 120 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+        n1: 120 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+         n1: 120 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+          n1: 120 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+           n1: 120 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+            n1: 120 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+             n1: 120 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+              n1: 120 0x10AA57: run_sig (massif_single.c:302)
+               n0: 120 0x10AC22: main (massif_single.c:368)
+     n0: 48 in 2 places, all below massif's threshold (0.10%)
     n3: 2808 0x4A84344: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
      n1: 2472 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
       n2: 2472 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
@@ -62809,8 +62820,21 @@ n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
               n1: 192 0x10AA57: run_sig (massif_single.c:302)
                n0: 192 0x10AC22: main (massif_single.c:368)
      n0: 144 in 3 places, all below massif's threshold (0.10%)
-    n1: 288 0x4A8435B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n0: 288 in 4 places, all below massif's threshold (0.10%)
+    n2: 288 0x4A8435B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+     n0: 144 in 3 places, all below massif's threshold (0.10%)
+     n1: 144 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+      n1: 144 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+       n1: 144 0x4A83F6F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+        n1: 144 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+         n1: 144 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+          n1: 144 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+           n1: 144 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+            n1: 144 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+             n1: 144 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+              n1: 144 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+               n1: 144 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                n1: 144 0x10AA57: run_sig (massif_single.c:302)
+                 n0: 144 0x10AC22: main (massif_single.c:368)
     n0: 168 in 4 places, all below massif's threshold (0.10%)
    n1: 2232 0x4A83DA8: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
     n1: 2232 0x4A5DF3B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
@@ -62833,7 +62857,14 @@ n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
                      n1: 2112 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
                       n1: 2112 0x10AA57: run_sig (massif_single.c:302)
                        n0: 2112 0x10AC22: main (massif_single.c:368)
-            n0: 120 in 1 place, below massif's threshold (0.10%)
+            n1: 120 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+             n1: 120 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+              n1: 120 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+               n1: 120 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                n1: 120 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                 n1: 120 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                  n1: 120 0x10AA57: run_sig (massif_single.c:302)
+                   n0: 120 0x10AC22: main (massif_single.c:368)
   n4: 5424 0x4B4A520: OBJ_NAME_add (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n1: 3264 0x4A6C17B: EVP_add_cipher (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
     n0: 3264 in 136 places, all below massif's threshold (0.10%)
@@ -62842,161 +62873,7 @@ n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
     n0: 504 in 21 places, all below massif's threshold (0.10%)
    n1: 360 0x4A6C23A: EVP_add_digest (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
     n0: 360 in 15 places, all below massif's threshold (0.10%)
-  n1: 216 0x4B6D03C: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n0: 216 in 4 places, all below massif's threshold (0.10%)
-  n0: 24 in 4 places, all below massif's threshold (0.10%)
- n8: 29264 0x4A87844: CRYPTO_zalloc (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-  n1: 20096 0x4A94642: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n1: 20096 0x4B6A4AD: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n1: 20096 0x4A5E09E: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 20096 0x4A8354D: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n1: 20096 0x4A8323F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 20096 0x4A930F6: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 20096 0x4A833B7: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 20096 0x4A83758: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 20096 0x4A5E6DC: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n2: 20096 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 18688 0x4A5C591: EVP_CIPHER_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 18688 0x4C36123: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-              n1: 18688 0x4C365CA: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-               n1: 18688 0x4A63F5C: EVP_RAND_instantiate (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                n1: 18688 0x4B6DA1F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                 n1: 18688 0x4B6E3EB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                  n1: 18688 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                   n1: 18688 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                    n1: 18688 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                     n1: 18688 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                      n1: 18688 0x10AA57: run_sig (massif_single.c:302)
-                       n0: 18688 0x10AC22: main (massif_single.c:368)
-            n1: 1408 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1408 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-              n1: 1408 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-               n1: 1408 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 1408 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                 n1: 1408 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                  n1: 1408 0x10AA57: run_sig (massif_single.c:302)
-                   n0: 1408 0x10AC22: main (massif_single.c:368)
-  n2: 5552 0x4A83976: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n4: 4064 0x4A84200: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n2: 1888 0x4A8439C: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 1632 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n2: 1632 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1312 0x4A83F6F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1312 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1312 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1312 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 1312 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1312 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1312 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 1312 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 1312 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 1312 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 1312 0x10AC22: main (massif_single.c:368)
-       n1: 320 0x4A83F83: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 320 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 320 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 320 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 320 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 320 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 320 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 320 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 320 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 320 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 320 0x10AC22: main (massif_single.c:368)
-     n0: 256 in 4 places, all below massif's threshold (0.10%)
-    n2: 1872 0x4A84344: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 1648 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n2: 1648 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1312 0x4A83F6F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1312 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1312 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1312 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 1312 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1312 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1312 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 1312 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 1312 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 1312 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 1312 0x10AC22: main (massif_single.c:368)
-       n1: 336 0x4A83F83: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 336 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 336 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 336 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 336 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 336 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 336 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 336 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 336 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 336 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 336 0x10AC22: main (massif_single.c:368)
-     n0: 224 in 4 places, all below massif's threshold (0.10%)
-    n1: 192 0x4A8435B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n0: 192 in 4 places, all below massif's threshold (0.10%)
-    n0: 112 in 4 places, all below massif's threshold (0.10%)
-   n1: 1488 0x4A83DA8: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n1: 1488 0x4A5DF3B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 1488 0x4A83528: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n1: 1488 0x4A8323F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1488 0x4A930F6: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1488 0x4A833B7: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1488 0x4A83758: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1488 0x4A5E6DC: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n2: 1488 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1408 0x4A5C591: EVP_CIPHER_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1408 0x4C36123: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-              n1: 1408 0x4C365CA: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-               n1: 1408 0x4A63F5C: EVP_RAND_instantiate (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                n1: 1408 0x4B6DA1F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                 n1: 1408 0x4B6E3EB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                  n1: 1408 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                   n1: 1408 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                    n1: 1408 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                     n1: 1408 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                      n1: 1408 0x10AA57: run_sig (massif_single.c:302)
-                       n0: 1408 0x10AC22: main (massif_single.c:368)
-            n0: 80 in 1 place, below massif's threshold (0.10%)
-  n2: 1848 0x4A94703: CRYPTO_THREAD_lock_new (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n1: 1064 0x4A825E6: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n1: 1064 0x4A826BB: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 1064 0x4E19ED2: __pthread_once_slow (pthread_once.c:116)
-      n1: 1064 0x4A9480C: CRYPTO_THREAD_run_once (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1064 0x4A8290A: OSSL_LIB_CTX_get0_global_default (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1064 0x49AA4AF: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1064 0x4A8667E: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1064 0x4E19ED2: __pthread_once_slow (pthread_once.c:116)
-           n1: 1064 0x4A9480C: CRYPTO_THREAD_run_once (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1064 0x4A86E43: OPENSSL_init_crypto (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1064 0x4A376E3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-              n1: 1064 0x4B6E164: RAND_get_rand_method (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-               n1: 1064 0x4B6E821: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                n1: 1064 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                 n1: 1064 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                  n1: 1064 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                   n1: 1064 0x10AA57: run_sig (massif_single.c:302)
-                    n0: 1064 0x10AC22: main (massif_single.c:368)
-   n0: 784 in 26 places, all below massif's threshold (0.10%)
-  n0: 568 in 32 places, all below massif's threshold (0.10%)
-  n1: 432 0x4A8163D: OPENSSL_LH_new (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n0: 432 in 8 places, all below massif's threshold (0.10%)
-  n1: 384 0x4A8165B: OPENSSL_LH_new (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n0: 384 in 8 places, all below massif's threshold (0.10%)
-  n1: 224 0x4A92822: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n1: 224 0x4A92E03: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n1: 224 0x4A92EF4: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 224 0x4A833B7: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n1: 224 0x4A83758: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 224 0x4A5E6DC: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 224 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 224 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 224 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 224 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 224 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-             n1: 224 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 224 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 224 0x10AA57: run_sig (massif_single.c:302)
-                n0: 224 0x10AC22: main (massif_single.c:368)
-  n1: 160 0x4BB164D: OPENSSL_sk_new_reserve (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n0: 160 in 13 places, all below massif's threshold (0.10%)
+  n0: 24 in 5 places, all below massif's threshold (0.10%)
  n4: 11264 0x4A8194F: OPENSSL_LH_insert (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
   n2: 8192 0x4A39062: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n2: 8192 0x4A39320: ERR_load_strings_const (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
@@ -63062,147 +62939,99 @@ n8: 100239 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
                   n0: 1024 0x10AC22: main (massif_single.c:368)
    n0: 0 in 2 places, all below massif's threshold (0.10%)
   n0: 0 in 1 place, below massif's threshold (0.10%)
- n3: 5424 0x4B4A4D8: OBJ_NAME_add (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-  n0: 4560 in 206 places, all below massif's threshold (0.10%)
+ n4: 5424 0x4B4A4D8: OBJ_NAME_add (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+  n0: 4416 in 205 places, all below massif's threshold (0.10%)
   n1: 504 0x4A6C216: EVP_add_digest (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n0: 504 in 21 places, all below massif's threshold (0.10%)
   n1: 360 0x4A6C23A: EVP_add_digest (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n0: 360 in 15 places, all below massif's threshold (0.10%)
- n2: 5312 0x4A89123: CRYPTO_strndup (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-  n2: 5312 0x4A83992: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-   n4: 4009 0x4A84200: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n3: 2446 0x4A8439C: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 2190 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n2: 2190 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1756 0x4A83F6F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1756 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1756 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1756 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 1756 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1756 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1756 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 1756 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 1756 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 1756 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 1756 0x10AC22: main (massif_single.c:368)
-       n1: 434 0x4A83F83: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 434 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 434 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 434 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 434 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 434 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 434 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 434 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 434 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 434 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 434 0x10AC22: main (massif_single.c:368)
-     n1: 148 0x4A83FD1: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n1: 148 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 148 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 148 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 148 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 148 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 148 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-            n1: 148 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-             n1: 148 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 148 0x10AA57: run_sig (massif_single.c:302)
-               n0: 148 0x10AC22: main (massif_single.c:368)
-     n0: 108 in 3 places, all below massif's threshold (0.10%)
-    n2: 1375 0x4A84344: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 1237 0x4A81C8E: OPENSSL_LH_doall_arg (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n2: 1237 0x4B4A73C: OBJ_NAME_do_all (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1065 0x4A83F6F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1065 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1065 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1065 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 1065 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1065 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1065 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 1065 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 1065 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 1065 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 1065 0x10AC22: main (massif_single.c:368)
-       n1: 172 0x4A83F83: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 172 0x4A5E5D0: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 172 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 172 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n1: 172 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 172 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 172 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-              n1: 172 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-               n1: 172 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                n1: 172 0x10AA57: run_sig (massif_single.c:302)
-                 n0: 172 0x10AC22: main (massif_single.c:368)
-     n0: 138 in 4 places, all below massif's threshold (0.10%)
-    n1: 148 0x4A8435B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n0: 148 in 4 places, all below massif's threshold (0.10%)
-    n0: 40 in 4 places, all below massif's threshold (0.10%)
-   n1: 1303 0x4A83DA8: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-    n1: 1303 0x4A5DF3B: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-     n1: 1303 0x4A83528: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-      n1: 1303 0x4A8323F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-       n1: 1303 0x4A930F6: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-        n1: 1303 0x4A833B7: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-         n1: 1303 0x4A83758: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-          n1: 1303 0x4A5E6DC: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-           n2: 1303 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-            n1: 1255 0x4A5C591: EVP_CIPHER_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-             n1: 1255 0x4C36123: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-              n1: 1255 0x4C365CA: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-               n1: 1255 0x4A63F5C: EVP_RAND_instantiate (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                n1: 1255 0x4B6DA1F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                 n1: 1255 0x4B6E3EB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                  n1: 1255 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-                   n1: 1255 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                    n1: 1255 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                     n1: 1255 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
-                      n1: 1255 0x10AA57: run_sig (massif_single.c:302)
-                       n0: 1255 0x10AC22: main (massif_single.c:368)
-            n0: 48 in 1 place, below massif's threshold (0.10%)
-  n0: 0 in 3 places, all below massif's threshold (0.10%)
+  n1: 144 0x4A6C17B: EVP_add_cipher (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+   n0: 144 in 136 places, all below massif's threshold (0.10%)
+ n5: 2176 0x4A87844: CRYPTO_zalloc (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+  n2: 1456 0x4A94703: CRYPTO_THREAD_lock_new (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+   n1: 1064 0x4A825E6: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+    n1: 1064 0x4A826BB: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+     n1: 1064 0x4E19ED2: __pthread_once_slow (pthread_once.c:116)
+      n1: 1064 0x4A9480C: CRYPTO_THREAD_run_once (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+       n1: 1064 0x4A8290A: OSSL_LIB_CTX_get0_global_default (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+        n1: 1064 0x49AA4AF: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+         n1: 1064 0x4A8667E: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+          n1: 1064 0x4E19ED2: __pthread_once_slow (pthread_once.c:116)
+           n1: 1064 0x4A9480C: CRYPTO_THREAD_run_once (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+            n1: 1064 0x4A86E43: OPENSSL_init_crypto (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+             n1: 1064 0x4A376E3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+              n1: 1064 0x4B6E164: RAND_get_rand_method (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+               n1: 1064 0x4B6E821: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+                n1: 1064 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                 n1: 1064 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                  n1: 1064 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                   n1: 1064 0x10AA57: run_sig (massif_single.c:302)
+                    n0: 1064 0x10AC22: main (massif_single.c:368)
+   n0: 392 in 26 places, all below massif's threshold (0.10%)
+  n1: 288 0x4A8163D: OPENSSL_LH_new (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+   n0: 288 in 8 places, all below massif's threshold (0.10%)
+  n0: 192 in 35 places, all below massif's threshold (0.10%)
+  n2: 128 0x4A8165B: OPENSSL_LH_new (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+   n1: 128 0x4A82709: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+    n1: 128 0x4A858A3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+     n1: 128 0x4A82EB8: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+      n1: 128 0x4B69A06: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+       n1: 128 0x4B6A351: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+        n1: 128 0x4A5E09E: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+         n1: 128 0x4A8354D: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+          n1: 128 0x4A8323F: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+           n1: 128 0x4A930F6: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+            n1: 128 0x4A833B7: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+             n1: 128 0x4A83758: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+              n1: 128 0x4A5E6DC: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+               n1: 128 0x4A5EAE3: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+                n1: 128 0x4A63841: EVP_RAND_fetch (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+                 n1: 128 0x4B6E4AB: RAND_get0_primary (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+                  n1: 128 0x4B6E84E: RAND_status (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+                   n1: 128 0x21CFFF: OQS_randombytes_openssl (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                    n1: 128 0x18CBAE: pqcrystals_ml_dsa_44_ipd_avx2_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                     n1: 128 0x10BE78: OQS_SIG_keypair (in /home/saulo/TCC_PQC/code/benchmark/build/massif_single)
+                      n1: 128 0x10AA57: run_sig (massif_single.c:302)
+                       n0: 128 0x10AC22: main (massif_single.c:368)
+   n0: 0 in 7 places, all below massif's threshold (0.10%)
+  n1: 112 0x4A83976: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+   n0: 112 in 2 places, all below massif's threshold (0.10%)
  n1: 336 0x4A85681: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
   n1: 336 0x4A82E88: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
    n0: 336 in 7 places, all below massif's threshold (0.10%)
- n0: 276 in 34 places, all below massif's threshold (0.10%)
- n1: 195 0x4B6CFFF: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
-  n0: 195 in 4 places, all below massif's threshold (0.10%)
+ n0: 149 in 35 places, all below massif's threshold (0.10%)
+ n1: 144 0x4BB0B71: ??? (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+  n1: 144 0x4BB0F34: OPENSSL_sk_insert (in /usr/lib/x86_64-linux-gnu/libcrypto.so.3)
+   n0: 144 in 4 places, all below massif's threshold (0.10%)
 #-----------
 snapshot=94
 #-----------
-time=10019431
-mem_heap_B=67136
-mem_heap_extra_B=36200
+time=10027563
+mem_heap_B=52408
+mem_heap_extra_B=28704
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=95
 #-----------
-time=10101355
-mem_heap_B=52360
-mem_heap_extra_B=28672
+time=10108910
+mem_heap_B=49288
+mem_heap_extra_B=26624
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=96
 #-----------
-time=10182693
-mem_heap_B=49240
-mem_heap_extra_B=26592
+time=10189923
+mem_heap_B=46120
+mem_heap_extra_B=24512
 mem_stacks_B=0
 heap_tree=empty
 #-----------
 snapshot=97
 #-----------
-time=10263467
-mem_heap_B=46072
-mem_heap_extra_B=24480
-mem_stacks_B=0
-heap_tree=empty
-#-----------
-snapshot=98
-#-----------
-time=10344165
-mem_heap_B=37328
-mem_heap_extra_B=19400
+time=10270614
+mem_heap_B=38072
+mem_heap_extra_B=19896
 mem_stacks_B=0
 heap_tree=empty
