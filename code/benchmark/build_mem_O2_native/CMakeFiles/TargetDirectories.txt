@@ -1,0 +1,4 @@
+/home/saulo/TCC_PQC/code/benchmark/build_mem_O2_native/CMakeFiles/memory_benchmark.dir
+/home/saulo/TCC_PQC/code/benchmark/build_mem_O2_native/CMakeFiles/massif_single.dir
+/home/saulo/TCC_PQC/code/benchmark/build_mem_O2_native/CMakeFiles/edit_cache.dir
+/home/saulo/TCC_PQC/code/benchmark/build_mem_O2_native/CMakeFiles/rebuild_cache.dir
