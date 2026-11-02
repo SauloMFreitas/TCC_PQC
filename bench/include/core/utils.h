@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define BENCH_ITERATIONS    100
-#define BENCH_WARMUP        20
+#define BENCH_ITERATIONS    200   /* measured iterations per operation (paper, Sec. 3) */
+#define BENCH_WARMUP        10    /* warm-up iterations, not measured */
 #define MSG_SIZE            32
 
 #define RESULTS_DIR          "results"

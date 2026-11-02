@@ -82,14 +82,6 @@ massif.out.*
 results/logs/*.log
 !results/logs/run_all_20260727_180007.log
 
-# LaTeX
-paper/*.aux
-paper/*.bbl
-paper/*.blg
-paper/*.log
-paper/*.out
-paper/*.pdf
-paper/*.synctex.gz
 
 # Python / editors
 __pycache__/

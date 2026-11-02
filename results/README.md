@@ -69,6 +69,11 @@ Regenerate with `python3 scripts/aggregate_results.py`.
 
 Console log of the run that produced `timing/`.
 
+> **Note:** the CSVs in `timing/` were collected with 100 measured iterations
+> and 20 warm-up iterations (see the log header). The harness now uses the
+> 200/10 setting described in the paper; re-run `scripts/run_all.sh timing`
+> to regenerate the data with it.
+
 ## Raw Valgrind output
 
 The raw `.massif` files (≈2.6 GB for the 16 configurations) are not kept in
