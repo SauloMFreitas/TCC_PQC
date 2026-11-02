@@ -27,6 +27,7 @@ LIBOQS_INSTALL="$SCRIPT_DIR/../third_party/liboqs_install"
 BUILD_BASE="$SCRIPT_DIR/build_validation"
 OUT_CSV="$SCRIPT_DIR/../results/memory/validation/flags_comparison.csv"
 OUT_SUMMARY="$SCRIPT_DIR/../results/memory/validation/flags_summary.txt"
+mkdir -p "$(dirname "$OUT_CSV")"
 
 # ---- Verificar liboqs ----
 if [ ! -f "$LIBOQS_INSTALL/lib/liboqs.a" ] && \

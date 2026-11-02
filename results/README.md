@@ -1,7 +1,8 @@
 # Results
 
-All values were produced on the machine described in the top-level README.
-Column names are kept as emitted by the benchmark (Portuguese identifiers);
+This directory is filled locally by `scripts/run_all.sh` and is not versioned
+(only this file is tracked): measurements depend on the machine that runs
+them. Column names are kept as emitted by the benchmark (Portuguese identifiers);
 their meaning is given below.
 
 ## `timing/`
@@ -61,18 +62,13 @@ Regenerate with `python3 scripts/aggregate_results.py`.
 
 | File | Content |
 |---|---|
-| `stack_O0_debug.csv` | stack table reported in the paper (reference `-O0 -g` build, NIST names in `algoritmo`, liboqs names in `nome_liboqs`) |
+| `O0_debug/memory_results.csv` | stack usage of the reference `-O0 -g` build (stack table of the paper) |
 | `stack_rss_all_flags.csv`, `heap_peak_all_flags.csv` | per-config memory files concatenated (same leading columns as above) |
 | `validation/flags_comparison.csv`, `validation/flags_summary.txt` | stack usage of each flag set relative to `-O0` |
 
 ## `logs/`
 
-Console log of the run that produced `timing/`.
-
-> **Note:** the CSVs in `timing/` were collected with 100 measured iterations
-> and 20 warm-up iterations (see the log header). The harness now uses the
-> 200/10 setting described in the paper; re-run `scripts/run_all.sh timing`
-> to regenerate the data with it.
+Console log of each `run_all.sh` execution (`run_all_<timestamp>.log`).
 
 ## Raw Valgrind output
 

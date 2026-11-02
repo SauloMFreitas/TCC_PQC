@@ -78,9 +78,6 @@ third_party/liboqs_install/
 *.massif
 massif.out.*
 
-# Run logs (keep only the paper run, added explicitly)
-results/logs/*.log
-!results/logs/run_all_20260727_180007.log
 
 
 # Python / editors
@@ -89,3 +86,7 @@ __pycache__/
 .vscode/
 .idea/
 .DS_Store
+
+# Benchmark results: generated locally by scripts/run_all.sh
+results/*
+!results/README.md
