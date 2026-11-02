@@ -1,19 +1,19 @@
 """
-gerar_graficos.py
------------------
-Gera os 3 gráficos da seção de resultados do TCC em formato PDF
-pronto para inclusão no LaTeX via \\includegraphics.
+plot_results.py
+---------------
+Generates every figure of the paper (PDF) from results/timing/.
 
-Uso:
-    python3 gerar_graficos.py
+Usage (from any directory):
+    python3 scripts/plot_results.py
 
-Saída:
-    graficos/g1_kem_log.pdf
-    graficos/g2_sig_log.pdf
-    graficos/g3_escala_sign.pdf
+Output (figures/):
+    g1_kem_log.pdf, g2_sig_log.pdf          — KEM / signature times (-O0)
+    g3*_escala_sign_*.pdf, g5*_escala_verify_*.pdf — message-size scalability
+    g4_<algorithm>.pdf                      — per-algorithm flag comparison
+    g6*_heatmap_*.pdf                       — compiler-flag heatmaps
 
-Dependências:
-    pip install matplotlib pandas numpy
+Dependencies:
+    pip install -r scripts/requirements.txt
 """
 
 import os
@@ -46,8 +46,9 @@ matplotlib.rcParams.update({
     "grid.linewidth": 0.5,
 })
 
-RESULTS_DIR = "../code/build/results"
-OUT_DIR     = "graficos"
+ROOT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RESULTS_DIR = os.path.join(ROOT_DIR, "results", "timing")
+OUT_DIR     = os.path.join(ROOT_DIR, "figures")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # paleta acessível (adequada para impressão em P&B também)
@@ -66,7 +67,7 @@ sig = pd.read_csv(f"{RESULTS_DIR}/O0/sig.csv")
 
 scale_frames = []
 for path in sorted(glob.glob(f"{RESULTS_DIR}/*/sig_scale.csv")):
-    cfg = path.split("/")[-2]
+    cfg = os.path.basename(os.path.dirname(path))
     df  = pd.read_csv(path)
     df["config"] = cfg
     scale_frames.append(df)
@@ -209,7 +210,7 @@ def plot_g3():
 
     scale_frames = []
     for path in sorted(_glob.glob(f"{RESULTS_DIR}/*/sig_scale.csv")):
-        cfg = path.split("/")[-2]; df = pd.read_csv(path); df["config"] = cfg
+        cfg = os.path.basename(os.path.dirname(path)); df = pd.read_csv(path); df["config"] = cfg
         scale_frames.append(df)
     scale_all = pd.concat(scale_frames, ignore_index=True)
     scale_o0  = scale_all[scale_all["config"] == "O0"].sort_values(
@@ -303,10 +304,10 @@ def plot_g4():
 
     kem_frames, sig_frames = [], []
     for path in sorted(_glob.glob(f"{RESULTS_DIR}/*/kem.csv")):
-        cfg = path.split("/")[-2]; df = pd.read_csv(path); df["config"] = cfg
+        cfg = os.path.basename(os.path.dirname(path)); df = pd.read_csv(path); df["config"] = cfg
         kem_frames.append(df)
     for path in sorted(_glob.glob(f"{RESULTS_DIR}/*/sig.csv")):
-        cfg = path.split("/")[-2]; df = pd.read_csv(path); df["config"] = cfg
+        cfg = os.path.basename(os.path.dirname(path)); df = pd.read_csv(path); df["config"] = cfg
         sig_frames.append(df)
 
     kem_all = pd.concat(kem_frames, ignore_index=True)
@@ -456,7 +457,7 @@ def plot_g5():
 
     scale_frames = []
     for path in sorted(_glob.glob(f"{RESULTS_DIR}/*/sig_scale.csv")):
-        cfg = path.split("/")[-2]; df = pd.read_csv(path); df["config"] = cfg
+        cfg = os.path.basename(os.path.dirname(path)); df = pd.read_csv(path); df["config"] = cfg
         scale_frames.append(df)
     scale_all = pd.concat(scale_frames, ignore_index=True)
     scale_o0  = scale_all[scale_all["config"] == "O0"].sort_values(
@@ -536,10 +537,10 @@ def plot_g6():
 
     kem_frames, sig_frames = [], []
     for path in sorted(_glob.glob(f"{RESULTS_DIR}/*/kem.csv")):
-        cfg = path.split("/")[-2]; df = pd.read_csv(path); df["config"] = cfg
+        cfg = os.path.basename(os.path.dirname(path)); df = pd.read_csv(path); df["config"] = cfg
         kem_frames.append(df)
     for path in sorted(_glob.glob(f"{RESULTS_DIR}/*/sig.csv")):
-        cfg = path.split("/")[-2]; df = pd.read_csv(path); df["config"] = cfg
+        cfg = os.path.basename(os.path.dirname(path)); df = pd.read_csv(path); df["config"] = cfg
         sig_frames.append(df)
 
     kem_all = pd.concat(kem_frames, ignore_index=True)
@@ -688,4 +689,4 @@ if __name__ == '__main__':
     plot_g4()
     plot_g5()
     plot_g6()
-    print('Done. Files in ./graficos/')
+    print(f'Done. Files in {OUT_DIR}')

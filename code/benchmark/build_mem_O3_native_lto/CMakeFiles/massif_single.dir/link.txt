@@ -1,1 +1,0 @@
-/usr/bin/cc -O3 -march=native -flto -g -Wall -O0 -g -Wall CMakeFiles/massif_single.dir/massif_single.c.o -o massif_single  /home/saulo/TCC_PQC/code/libs/liboqs_install/lib/liboqs.a /usr/lib/x86_64-linux-gnu/libcrypto.so 

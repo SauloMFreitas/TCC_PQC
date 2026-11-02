@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite the paper below."
+title: "PQC Benchmark: artifact for 'A Multidimensional Performance Analysis of NIST Post-Quantum Cryptography Algorithms'"
+type: software
+license: MIT
+repository-code: "https://github.com/SauloMFreitas/TCC_PQC"
+authors:
+  - family-names: Freitas
+    given-names: "Saulo M. Z."
+    affiliation: "Pontifícia Universidade Católica de Minas Gerais"
+  - family-names: Souza
+    given-names: "Matheus A."
+    affiliation: "Pontifícia Universidade Católica de Minas Gerais"
+preferred-citation:
+  type: conference-paper
+  title: "A Multidimensional Performance Analysis of NIST Post-Quantum Cryptography Algorithms"
+  authors:
+    - family-names: Freitas
+      given-names: "Saulo M. Z."
+    - family-names: Souza
+      given-names: "Matheus A."
+  year: 2025

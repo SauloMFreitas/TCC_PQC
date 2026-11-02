@@ -53,3 +53,40 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# ------------------------------------------------------------
+# Project
+# ------------------------------------------------------------
+# CMake build trees (timing + memory)
+build/
+build_*/
+bench/build/
+memory/build*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+
+# Built executables
+bench/build*/full_bench-*
+memory/**/memory_benchmark
+memory/**/massif_single
+
+# liboqs install prefix (built locally)
+third_party/liboqs_install/
+
+# Raw Valgrind output (large; regenerate with memory/run_memory_all_flags.sh)
+*.massif
+massif.out.*
+
+
+
+# Python / editors
+__pycache__/
+.venv/
+.vscode/
+.idea/
+.DS_Store
+
+# Benchmark results: generated locally by scripts/run_all.sh
+results/*
+!results/README.md
