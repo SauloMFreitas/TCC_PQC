@@ -1,423 +1,197 @@
-# PQC Benchmark — Análise Experimental de Algoritmos NIST PQC
+# A Multidimensional Performance Analysis of NIST Post-Quantum Cryptography Algorithms
 
-Benchmark comparativo de desempenho dos algoritmos finalistas do processo de padronização do NIST para Criptografia Pós-Quântica, desenvolvido como parte do TCC de Ciência da Computação da PUC Minas.
+Artifact repository for the paper:
 
-> **Autor:** Saulo de Moura Zandona Freitas
-> **Orientador:** Matheus Alcântara Souza
-> **Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
-> **Ano:** 2025
+> **Saulo M. Z. Freitas and Matheus A. Souza.**
+> *A Multidimensional Performance Analysis of NIST Post-Quantum Cryptography Algorithms.*
+> Pontifícia Universidade Católica de Minas Gerais (PUC Minas), 2025.
 
----
+It contains the benchmark harness, the raw and aggregated measurements, and
+the scripts that regenerate every table and figure of the paper.
 
-## Algoritmos Avaliados
-
-| Família | Padrão NIST | Variantes | Tipo |
-|---|---|---|---|
-| ML-KEM (Kyber) | FIPS 203 | 512 / 768 / 1024 | KEM |
-| HQC | 4ª Rodada — selecionado (2025) | 128 / 192 / 256 | KEM |
-| ML-DSA (Dilithium) | FIPS 204 | 44 / 65 / 87 | Assinatura |
-| FN-DSA (Falcon) | FIPS 206 (rascunho) | 512 / 1024 | Assinatura |
-| SLH-DSA (SPHINCS+) | FIPS 205 | SHAKE-128s/f, 192s/f, 256s/f | Assinatura |
-
----
-
-## Métricas Coletadas
-
-1. **Tempo de execução** — média, desvio-padrão, mínimo e mediana em µs (n=200, 10 warmup)
-2. **Tamanho dos artefatos** — chave pública, chave secreta, ciphertext/assinatura em bytes
-3. **Impacto de flags de compilação** — 16 configurações (`-O0` a `-O3` × `-march=native` × `-flto`)
-4. **Escalabilidade** — tempo de Sign e Verify para mensagens de 1 B a 1 MiB (21 pontos, potências de 2)
-5. **Consumo de memória** — uso de pilha via *stack painting* e pico de heap via Valgrind massif
-
----
-
-## Estrutura do Repositório
-
-```
-TCC_PQC/
-├── README.md
-├── code/
-│   ├── tcc_pqc.tex                      # Artigo completo em LaTeX
-│   ├── refs.bib                          # Referências bibliográficas
-│   ├── graficos/                         # Figuras e gráficos do artigo (PDF)
-│   ├── resumo_colunas_csv.md            # Documentação das colunas dos CSVs de memória
-│   ├── fix_paragraphs.py                # Utilitário: formata parágrafos do .tex
-│   │
-│   ├── CMakeLists.txt                   # Build dos 16 executáveis de benchmark de tempo
-│   ├── include/
-│   │   ├── general_include.h            # Tipos centrais: kem_result_t, sig_result_t
-│   │   ├── core/
-│   │   │   ├── timer.h                  # Medição de tempo (CLOCK_MONOTONIC)
-│   │   │   ├── stats.h                  # Estatísticas descritivas
-│   │   │   └── utils.h                  # Configurações globais, CSV, utilitários
-│   │   ├── kem/
-│   │   │   ├── kem_benchmark.h          # Interface genérica para KEMs
-│   │   │   ├── kyber_benchmark.h        # ML-KEM
-│   │   │   └── hqc_benchmark.h          # HQC
-│   │   └── sig/
-│   │       ├── sig_benchmark.h          # Interface genérica + escalabilidade
-│   │       ├── dilithium_benchmark.h    # ML-DSA
-│   │       ├── falcon_benchmark.h       # FN-DSA
-│   │       └── sphincs_benchmark.h      # SLH-DSA
-│   ├── src/
-│   │   ├── main.c                       # Orquestrador: modos, CSV paths, execução
-│   │   ├── core/
-│   │   │   ├── timer.c
-│   │   │   ├── stats.c
-│   │   │   └── utils.c
-│   │   ├── kem/
-│   │   │   ├── kem_benchmark.c
-│   │   │   ├── kyber_benchmark.c
-│   │   │   └── hqc_benchmark.c
-│   │   └── sig/
-│   │       ├── sig_benchmark.c
-│   │       ├── dilithium_benchmark.c
-│   │       ├── falcon_benchmark.c
-│   │       └── sphincs_benchmark.c
-│   │
-│   ├── libs/
-│   │   ├── liboqs/                      # Código-fonte da liboqs (submódulo)
-│   │   └── liboqs_install/              # Instalação compilada da liboqs
-│   │
-│   └── benchmark/                       # Benchmark de consumo de memória
-│       ├── CMakeLists.txt               # Build dos programas de memória
-│       ├── build_and_run.sh             # Script: compila tudo e executa
-│       ├── memory_benchmark.c           # Stack painting + heap delta + RSS
-│       ├── massif_single.c              # Executor unitário para Valgrind massif
-│       ├── run_massif_all.sh            # Script: roda massif para todos os algoritmos
-│       ├── parse_massif.py              # Parser: extrai pico de heap dos .massif
-│       ├── memory_results_tcc.csv       # Resultados de stack por algoritmo/operação
-│       ├── massif_results_heap_tcc.csv  # Resultados de pico de heap por algoritmo/operação
-│       └── build/                       # Binários compilados e arquivos .massif gerados
-│           ├── memory_benchmark
-│           ├── massif_single
-│           └── massif_out/              # Arquivos .massif individuais (um por alg×op)
-```
-
----
-
-## Dependências
-
-| Ferramenta | Versão testada |
+| | |
 |---|---|
-| GCC | 13.3.0 |
-| CMake | 3.28.3 |
-| Ninja | 1.11.1 |
-| liboqs | 0.10.1 |
-| OpenSSL (dev) | 3.0.x |
-| Valgrind | 3.22.0 (somente para benchmark de memória) |
-| Python 3 | 3.12 (somente para benchmark de memória) |
-
-### Instalar dependências (Ubuntu / Linux Mint)
-
-```bash
-sudo apt update
-sudo apt install -y build-essential cmake ninja-build libssl-dev git valgrind python3
-```
+| **Algorithms** | ML-KEM, HQC, ML-DSA, FN-DSA (Falcon), SLH-DSA (SPHINCS+) — 19 parameter sets |
+| **Library** | [liboqs](https://github.com/open-quantum-safe/liboqs) 0.10.1 (pinned as a git submodule) |
+| **Metrics** | execution time, key/ciphertext/signature sizes, stack usage, heap peak, 16 compiler configurations, message-size scalability (1 B – 1 MiB) |
+| **Platform** | Linux x86-64 (tested on Linux Mint 22 / Ubuntu 24.04, GCC 13.3) |
 
 ---
 
-## Compilar a liboqs
+## Repository layout
 
-Clone diretamente no diretório esperado pelo projeto (`code/libs/liboqs`) e instale em `code/libs/liboqs_install`, que é o prefixo usado pelo benchmark de memória.
-
-```bash
-git clone --depth 1 --branch 0.10.1 \\
-    https://github.com/open-quantum-safe/liboqs.git \\
-    ~/TCC_PQC/code/libs/liboqs
-cd ~/TCC_PQC/code/libs/liboqs
-
-cmake -B build -GNinja \\
-    -DCMAKE_BUILD_TYPE=Release \\
-    -DBUILD_SHARED_LIBS=ON \\
-    -DCMAKE_INSTALL_PREFIX=~/TCC_PQC/code/libs/liboqs_install \\
-    -DOQS_ENABLE_KEM_HQC=ON \\
-    -DOQS_ENABLE_KEM_ML_KEM=ON \\
-    -DOQS_ENABLE_SIG_ML_DSA=ON \\
-    -DOQS_ENABLE_SIG_SLH_DSA=ON \\
-    -DOQS_ENABLE_SIG_FALCON=ON \\
-    -DOPENSSL_ROOT_DIR=/usr \\
-    -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/x86_64-linux-gnu/libcrypto.so \\
-    -DOPENSSL_SSL_LIBRARY=/usr/lib/x86_64-linux-gnu/libssl.so
-
-cmake --build build -j$(nproc)
-cmake --install build
+```
+.
+├── bench/                 Timing benchmark (C11, CMake) — 16 executables, one per flag set
+│   ├── include/           core/ (timer, stats, utils), kem/, sig/
+│   └── src/
+├── memory/                Memory benchmark
+│   ├── memory_benchmark.c   stack painting + heap delta + RSS
+│   ├── massif_single.c      one operation per process, for Valgrind massif
+│   ├── parse_massif.py      extracts heap peak from .massif files
+│   └── *.sh                 build/run drivers
+├── scripts/
+│   ├── run_all.sh           full pipeline (deps → liboqs → hygiene → timing → memory)
+│   ├── aggregate_results.py per-config CSVs → *_all_flags.csv
+│   ├── plot_results.py      results/ → figures/
+│   └── requirements.txt
+├── results/               Measurements used in the paper (see results/README.md)
+│   ├── timing/<config>/{kem,sig,sig_scale}.csv
+│   ├── memory/<config>/{memory_results,massif_results_heap}.csv
+│   └── logs/                log of the run that produced the data
+├── figures/               Figures of the paper (PDF), generated by plot_results.py
+├── paper/                 LaTeX source of the paper
+└── third_party/liboqs     liboqs 0.10.1 (submodule)
 ```
 
-> O passo `cmake --install build` é obrigatório: sem ele o diretório `libs/liboqs_install/` não é criado e o benchmark de memória (que usa esse prefixo) não compila.
+`<config>` is one of the 16 compiler configurations:
+`O{0,1,2,3}` × {—, `_native` (`-march=native`)} × {—, `_lto` (`-flto`)}.
 
 ---
 
-## Benchmark de Desempenho Temporal
-
-### Compilar
+## Quick start
 
 ```bash
-cd ~/TCC_PQC/code
-mkdir -p build && cd build
-cmake .. -DOQS_DIR=~/TCC_PQC/code/libs/liboqs/build
-cmake --build . -j$(nproc)
+git clone --recursive https://github.com/SauloMFreitas/TCC_PQC.git
+cd TCC_PQC
+pip install -r scripts/requirements.txt
 ```
 
-O CMake gera **16 executáveis** automaticamente, um por configuração de compilação:
+**Regenerate the figures from the shipped data** (no benchmarking needed, ~1 min):
 
-```
-full_bench-O0             full_bench-O0_native
-full_bench-O0_lto         full_bench-O0_native_lto
-full_bench-O1             full_bench-O1_native
-full_bench-O1_lto         full_bench-O1_native_lto
-full_bench-O2             full_bench-O2_native
-full_bench-O2_lto         full_bench-O2_native_lto
-full_bench-O3             full_bench-O3_native
-full_bench-O3_lto         full_bench-O3_native_lto
+```bash
+python3 scripts/plot_results.py      # writes figures/*.pdf
 ```
 
-| Sufixo | Flags de compilação |
+**Re-run the full experiment** (requires `sudo`; several hours):
+
+```bash
+bash scripts/run_all.sh              # all | timing | kem | memory
+```
+
+`run_all.sh` installs the dependencies, builds liboqs, applies benchmark
+hygiene, runs the timing and memory benchmarks, copies the CSVs to
+`results/`, and aggregates them. The original CPU state is restored on exit.
+
+### Benchmark hygiene applied by `run_all.sh`
+
+| Setting | Value during the run |
 |---|---|
-| `Ox` | `-Ox` |
-| `Ox_native` | `-Ox -march=native` |
-| `Ox_lto` | `-Ox -flto` |
-| `Ox_native_lto` | `-Ox -march=native -flto` |
+| CPU governor | `performance` |
+| Turbo boost (AMD/Intel) | disabled |
+| SMT | disabled |
+| ASLR | disabled |
+| CPU pinning | `taskset -c 2` |
 
-### Modos de execução
+---
+
+## Reproducing the paper
+
+| Paper element | Data | Produced by |
+|---|---|---|
+| Tables 2–3 (artifact sizes) | `results/timing/O0/{kem,sig}.csv` | `bench/` |
+| Tables 4–6 (time, `-O0`) | `results/timing/O0/{kem,sig}.csv` | `bench/` |
+| Figs. heat maps (`g6a/b/c`) | `results/timing/*/{kem,sig}.csv` | `plot_results.py` |
+| Figs. sign scalability (`g3a/b/c`) | `results/timing/*/sig_scale.csv` | `plot_results.py` |
+| Figs. verify scalability (`g5a/b`) | `results/timing/*/sig_scale.csv` | `plot_results.py` |
+| Table stack usage | `results/memory/stack_O0_debug.csv` | `memory/build_and_run.sh` |
+| Table heap peak | `results/memory/O0/massif_results_heap.csv` | `memory/run_memory_all_flags.sh` |
+| Memory × flags discussion | `results/memory/{stack_rss,heap_peak}_all_flags.csv`, `results/memory/validation/` | `memory/run_memory_all_flags.sh`, `memory/validate_flags_comparison.sh` |
+
+Figures `g1`, `g2` and `g4_*` are additional plots generated by the same script.
+
+---
+
+## Running pieces manually
+
+### Build liboqs
 
 ```bash
-./full_bench-O2 [modo]
+git submodule update --init third_party/liboqs
+cmake -S third_party/liboqs -B third_party/liboqs/build -GNinja \
+    -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_INSTALL_PREFIX="$PWD/third_party/liboqs_install"
+cmake --build third_party/liboqs/build -j"$(nproc)"
+cmake --install third_party/liboqs/build
 ```
 
-| Modo | O que executa |
+### Timing benchmark
+
+```bash
+cmake -S bench -B bench/build -DOQS_DIR="$PWD/third_party/liboqs/build"
+cmake --build bench/build -j"$(nproc)"
+cd bench/build && ./full_bench-O2 all     # results in bench/build/results/O2/
+```
+
+| Mode | Runs |
 |---|---|
-| `all` | Todos os algoritmos (sem escalabilidade) |
-| `scale` | Todos os algoritmos + escalabilidade de mensagem |
-| `kem` | Apenas ML-KEM e HQC |
-| `sig` | Apenas ML-DSA, FN-DSA e SLH-DSA |
-| `mlkem` | Apenas ML-KEM |
-| `hqc` | Apenas HQC |
-| `mldsa` | Apenas ML-DSA |
-| `falcon` | Apenas FN-DSA |
-| `sphincs` | Apenas SLH-DSA |
-| `scale_mldsa` | ML-DSA + escalabilidade |
-| `scale_falcon` | FN-DSA + escalabilidade |
-| `scale_sphincs` | SLH-DSA + escalabilidade |
+| `all` | all algorithms (no scalability) |
+| `scale` | all algorithms + message-size scalability |
+| `kem`, `sig` | KEMs only / signatures only |
+| `mlkem`, `hqc`, `mldsa`, `falcon`, `sphincs` | a single family |
+| `scale_mldsa`, `scale_falcon`, `scale_sphincs` | a single family + scalability |
 
-### Rodar todos os 16 executáveis
+Each executable infers its configuration from its own name
+(`full_bench-O2_native` → `results/O2_native/`). Iteration and warm-up
+counts are defined in [`bench/include/core/utils.h`](bench/include/core/utils.h).
+Every iteration checks correctness (KEM shared secrets match; signatures verify)
+and aborts on failure.
 
-```bash
-cd build
-for exec in \\
-    full_bench-O0 full_bench-O0_native full_bench-O0_lto full_bench-O0_native_lto \\
-    full_bench-O1 full_bench-O1_native full_bench-O1_lto full_bench-O1_native_lto \\
-    full_bench-O2 full_bench-O2_native full_bench-O2_lto full_bench-O2_native_lto \\
-    full_bench-O3 full_bench-O3_native full_bench-O3_lto full_bench-O3_native_lto; do
-    echo "====== $exec ======"
-    ./$exec scale
-done
-```
-
-### Atalhos CMake
+### Memory benchmark
 
 ```bash
-cmake --build . --target run        # modo all
-cmake --build . --target run_kem    # modo kem
-cmake --build . --target run_sig    # modo sig
-cmake --build . --target run_scale  # modo scale
+bash memory/build_and_run.sh            # stack, reference build -O0 -g
+bash memory/run_memory_all_flags.sh     # stack + massif heap, 16 configs (RUN_MASSIF=0 to skip massif)
 ```
 
-### Resultados gerados
-
-Os CSVs são salvos em `build/results/`, organizados por configuração:
-
-```
-build/results/
-├── O0/
-│   ├── kem.csv
-│   ├── sig.csv
-│   └── sig_scale.csv
-├── O0_native/ ...
-├── O2/ ...
-└── O3_native_lto/
-    ├── kem.csv
-    ├── sig.csv
-    └── sig_scale.csv
-```
-
-#### Colunas de `kem.csv`
-
-```
-algoritmo_nist, algoritmo_oqs, nivel_nist,
-pk_bytes, sk_bytes, ct_bytes, ss_bytes,
-keygen_mean_us, keygen_stddev_us, keygen_min_us, keygen_median_us,
-encaps_mean_us, encaps_stddev_us, encaps_min_us, encaps_median_us,
-decaps_mean_us, decaps_stddev_us, decaps_min_us, decaps_median_us
-```
-
-#### Colunas de `sig.csv`
-
-```
-algoritmo_nist, algoritmo_oqs, nivel_nist,
-pk_bytes, sk_bytes, sig_max_bytes, sig_real_bytes,
-keygen_mean_us, keygen_stddev_us, keygen_min_us, keygen_median_us,
-sign_mean_us,   sign_stddev_us,   sign_min_us,   sign_median_us,
-verify_mean_us, verify_stddev_us, verify_min_us, verify_median_us
-```
-
-#### Colunas de `sig_scale.csv`
-
-```
-algoritmo_nist, nivel_nist, msg_bytes,
-sign_mean_us,  sign_stddev_us,  sign_min_us,  sign_median_us,
-verify_mean_us, verify_stddev_us, verify_min_us, verify_median_us
-```
+* **Stack** — a 4 MiB buffer filled with `0xAB` is used as the stack of a
+  POSIX thread (`pthread_attr_setstack`); after the operation the buffer is
+  scanned for the deepest overwritten byte.
+* **Heap** — `massif_single` runs exactly one operation per process under
+  `valgrind --tool=massif`; the reported value is the peak during the
+  operation (liboqs frees everything, so the net delta is always zero).
 
 ---
 
-## Benchmark de Consumo de Memória
+## Algorithm names
 
-### Opção A — Script automático (recomendado)
+liboqs 0.10.1 still uses pre-standard names for some schemes:
 
-```bash
-cd ~/TCC_PQC/code/benchmark
-bash build_and_run.sh
-```
-
-Compila a liboqs (se necessário), compila os programas de memória e executa o benchmark de stack. O CSV é salvo em `benchmark/memory_results_tcc.csv`.
-
-### Opção B — Passo a passo manual
-
-#### Compilar
-
-```bash
-cd ~/TCC_PQC/code/benchmark
-mkdir -p build && cd build
-cmake .. -DCMAKE_PREFIX_PATH=../../libs/liboqs_install
-cmake --build . --parallel $(nproc)
-```
-
-#### Executar benchmark de stack
-
-```bash
-cd ~/TCC_PQC/code/benchmark/build
-./memory_benchmark
-```
-
-#### Executar Valgrind massif para todos os algoritmos
-
-```bash
-cd ~/TCC_PQC/code/benchmark/build
-bash ../run_massif_all.sh
-```
-
-Salva os arquivos `.massif` em `build/massif_out/` e gera `massif_results_heap_tcc.csv`.
-
-#### Executar `massif_single` manualmente
-
-```bash
-# Testa um algoritmo diretamente (sem Valgrind):
-./massif_single ML-KEM-512 keygen
-./massif_single FN-DSA-512 verify      # aceita nome NIST
-./massif_single Falcon-512 verify      # aceita nome liboqs
-
-# Com Valgrind massif:
-valgrind --tool=massif \\
-         --pages-as-heap=no \\
-         --massif-out-file=massif.ML-DSA-44.sign.out \\
-         ./massif_single ML-DSA-44 sign
-
-# Visualizar resultado:
-ms_print massif.ML-DSA-44.sign.out | head -40
-```
-
-### Resultados gerados
-
-| Arquivo | Conteúdo |
+| NIST name | liboqs name |
 |---|---|
-| `benchmark/memory_results_tcc.csv` | Uso de stack (bytes) por algoritmo e operação |
-| `benchmark/massif_results_heap_tcc.csv` | Pico de heap (KB/MB) por algoritmo e operação |
-
-Para descrição detalhada de cada coluna, consulte [`code/resumo_colunas_csv.md`](code/resumo_colunas_csv.md).
-
----
-
-## Detalhes de Implementação
-
-### Timer
-
-A medição de tempo usa `clock_gettime(CLOCK_MONOTONIC)` no Linux. As funções são implementadas como `static inline` para eliminar overhead de chamada nas medições críticas.
-
-### Verificação de corretude
-
-A cada iteração do benchmark o resultado é verificado:
-
-- **KEMs**: os shared secrets gerados por Encaps e Decaps são comparados byte a byte.
-- **Assinaturas**: o retorno de Verify é verificado como `OQS_SUCCESS`.
-
-Falhas de corretude abortam o benchmark com mensagem de erro.
-
-### Detecção automática de configuração
-
-Cada executável detecta seu próprio nível de otimização a partir do nome (`argv[0]`): `full_bench-O2_native` extrai o sufixo `O2_native` e o usa como subdiretório de resultados e rótulo no banner.
-
-### Stack painting (medição de pilha)
-
-Um buffer de 4 MB é preenchido com o byte sentinela `0xAB` e passado como pilha de uma thread POSIX via `pthread_attr_setstack()`. Após a execução da operação criptográfica, o buffer é varrido para encontrar o primeiro byte alterado, determinando o uso real de pilha.
-
-### Valgrind massif (medição de heap)
-
-O programa `massif_single.c` executa exatamente uma operação por invocação (sem laços) para que o Valgrind capture o perfil de heap daquela operação isolada. O delta líquido de heap é sempre zero — a liboqs libera todas as alocações ao término de cada chamada; o valor relevante é o **pico durante a execução**.
+| FN-DSA-512 / 1024 | Falcon-512 / 1024 |
+| SLH-DSA-SHAKE-{128,192,256}{s,f} | SPHINCS+-SHAKE-{128,192,256}{s,f}-simple |
+| ML-KEM-\*, ML-DSA-\*, HQC-\* | unchanged |
 
 ---
 
-## Observação sobre Nomes de Algoritmos
+## Test environment
 
-A versão do liboqs utilizada ainda adota nomes internos pré-padronização. Os programas de memória aceitam tanto os nomes FIPS/NIST quanto os nomes internos:
-
-| Nome NIST | Nome liboqs |
+| | |
 |---|---|
-| FN-DSA-512 | Falcon-512 |
-| FN-DSA-1024 | Falcon-1024 |
-| SLH-DSA-SHAKE-128s | SPHINCS+-SHAKE-128s-simple |
-| SLH-DSA-SHAKE-128f | SPHINCS+-SHAKE-128f-simple |
-| SLH-DSA-SHAKE-192s | SPHINCS+-SHAKE-192s-simple |
-| SLH-DSA-SHAKE-192f | SPHINCS+-SHAKE-192f-simple |
-| SLH-DSA-SHAKE-256s | SPHINCS+-SHAKE-256s-simple |
-| SLH-DSA-SHAKE-256f | SPHINCS+-SHAKE-256f-simple |
-| ML-KEM-*, ML-DSA-*, HQC-* | (inalterado) |
+| Machine | ASUS TUF Gaming A15 |
+| CPU | AMD Ryzen 7 7435HS (8C/16T, AVX2, SHA, FMA3) |
+| Memory | 16 GB DDR5-4800, dual channel |
+| OS | Linux Mint 22 (Ubuntu 24.04 base), bare metal |
+| Toolchain | GCC 13.3.0, CMake 3.28.3, Ninja 1.11.1, Valgrind 3.22.0, Python 3.12 |
+| Library | liboqs 0.10.1 (`5dd87dc`), OpenSSL 3.0 |
 
 ---
 
-## Compilar o Artigo (LaTeX)
+## Citation
 
-```bash
-cd ~/TCC_PQC/code
-pdflatex tcc_pqc.tex
-bibtex tcc_pqc
-pdflatex tcc_pqc.tex
-pdflatex tcc_pqc.tex
+If you use this artifact, please cite the paper (see [`CITATION.cff`](CITATION.cff)):
+
+```bibtex
+@inproceedings{freitas2025pqc,
+  author = {Freitas, Saulo M. Z. and Souza, Matheus A.},
+  title  = {A Multidimensional Performance Analysis of {NIST} Post-Quantum Cryptography Algorithms},
+  year   = {2025}
+}
 ```
 
----
+## License
 
-## Ambiente Testado
-
-- **Hardware**: ASUS TUF Gaming A15 — AMD Ryzen 7 7435HS (8C/16T, AVX2, SHA, FMA3)
-- **Memória**: 16 GB DDR5 4800 MHz dual-channel
-- **SO**: Linux Mint 22.x (base Ubuntu 24.04, nativo)
-- **Compilador**: GCC 13.3.0
-- **liboqs**: 0.10.1
-
----
-
-## Referências
-
-- [liboqs — Open Quantum Safe](https://github.com/open-quantum-safe/liboqs)
-- [NIST Post-Quantum Cryptography Standardization](https://csrc.nist.gov/projects/post-quantum-cryptography)
-- FIPS 203 — ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism)
-- FIPS 204 — ML-DSA (Module-Lattice-Based Digital Signature Algorithm)
-- FIPS 205 — SLH-DSA (Stateless Hash-Based Digital Signature Algorithm)
-- FIPS 206 — FN-DSA (FFT over NTRU-Lattice-Based Digital Signature Algorithm) — rascunho, ainda não finalizado
-
----
-
-## Licença
-
-Projeto desenvolvido para fins acadêmicos. A biblioteca liboqs é distribuída sob a licença MIT pelo projeto [Open Quantum Safe](https://openquantumsafe.org/).
+Code and data are released under the [MIT License](LICENSE).
+liboqs is distributed under its own MIT license by the
+[Open Quantum Safe](https://openquantumsafe.org/) project.

@@ -1,1 +1,0 @@
-/usr/bin/cc -O1 -g -Wall -O0 -g -Wall CMakeFiles/memory_benchmark.dir/memory_benchmark.c.o -o memory_benchmark  /home/saulo/TCC_PQC/code/libs/liboqs_install/lib/liboqs.a -lpthread /usr/lib/x86_64-linux-gnu/libcrypto.so 
